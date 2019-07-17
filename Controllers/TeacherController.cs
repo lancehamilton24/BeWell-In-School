@@ -33,6 +33,12 @@ namespace BeWell.Controllers
             return Created($"/api/customers/{newTeacher.Id}", newTeacher);
 
         }
+        [HttpGet("allTeachers")]
+        public ActionResult GetTeachers()
+        {
+            var allTeachers = _teacherRepository.GetTeachers();
+            return Ok(allTeachers);
+        }
 
     }
 }

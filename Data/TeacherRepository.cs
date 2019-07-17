@@ -31,5 +31,14 @@ namespace BeWell.Data
 
             throw new Exception("No user created");
         }
+
+        public IEnumerable<Teacher> GetTeachers()
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allTeachers = db.Query<Teacher>(@"Select * from Teacher").ToList();
+                return allTeachers;
+            }
+        }
     }
 }
