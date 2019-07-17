@@ -39,6 +39,12 @@ namespace BeWell.Controllers
             var allTeachers = _teacherRepository.GetTeachers();
             return Ok(allTeachers);
         }
+        [HttpGet("allTeachers/{grade}")]
+        public ActionResult GetTeacherByGrade(int grade)
+        {
+            var teacherGrade = _teacherRepository.GetTeacherByGrade(grade);
+            return Ok(teacherGrade);
+        }
 
     }
 }

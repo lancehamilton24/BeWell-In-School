@@ -40,5 +40,20 @@ namespace BeWell.Data
                 return allTeachers;
             }
         }
+
+        public IEnumerable<Teacher> GetTeacherByGrade(int grade)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allTeachers = db.Query<Teacher>(@"Select * 
+                                                      from Teacher
+                                                       Where grade = @grade",
+                                                       new { grade });
+
+                return allTeachers;
+            }
+        }
+
+
     }
 }
