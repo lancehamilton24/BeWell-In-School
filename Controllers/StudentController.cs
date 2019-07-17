@@ -27,7 +27,7 @@ namespace BeWell.Controllers
         public ActionResult AddStudent(CreateStudentRequest createRequest)
         {
 
-            var newStudent = _studentRepository.AddStudent(createRequest.FirstName, createRequest.LastName, createRequest.TeacherId, createRequest.Grade);
+            var newStudent = _studentRepository.AddStudent(createRequest.FirstName, createRequest.LastName, createRequest.TeacherId, createRequest.StudentGrade);
             return Created($"/api/student/{newStudent.Id}", newStudent);
 
         }

@@ -13,15 +13,15 @@ namespace BeWell.Data
     {
         const string ConnectionString = "Server=localhost;Database=BeWell;Trusted_Connection=True;";
 
-        public Student AddStudent(string firstName, string lastName, int teacherId, Grade grade)
+        public Student AddStudent(string firstName, string lastName, int teacherId, Grade studentGrade)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
                 var addStudentInformation = db.QueryFirstOrDefault<Student>(@"
-                    Insert into Student (firstName,lastName, teacherId, grade)
+                    Insert into Student (firstName,lastName, teacherId, studentGrade)
                     Output inserted.*
-                    Values(@firstName,@lastName,@teacherId,@grade)",
-                    new { firstName, lastName, teacherId, grade });
+                    Values(@firstName,@lastName,@teacherId,@studentGrade)",
+                    new { firstName, lastName, teacherId, studentGrade });
 
 
                 if (addStudentInformation != null)
