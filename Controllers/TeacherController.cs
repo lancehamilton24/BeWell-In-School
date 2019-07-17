@@ -30,7 +30,7 @@ namespace BeWell.Controllers
         {
                
             var newTeacher = _teacherRepository.AddTeacher(createRequest.FirstName, createRequest.LastName, createRequest.Grade);
-            return Created($"/api/customers/{newTeacher.Id}", newTeacher);
+            return Created($"/api/teacher/{newTeacher.Id}", newTeacher);
 
         }
         [HttpGet("allTeachers")]

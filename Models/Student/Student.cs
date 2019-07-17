@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static BeWell.Models.Student.CreateStudentRequest;
 
 namespace BeWell.Models.Student
 {
@@ -13,6 +14,6 @@ namespace BeWell.Models.Student
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public int TeacherId { get; set; }
-        public int Grade { get; set; }
+        //public Grade Grade { get; set; }
     }
 }

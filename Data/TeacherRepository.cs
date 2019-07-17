@@ -12,7 +12,7 @@ namespace BeWell.Data
     {
         const string ConnectionString = "Server=localhost;Database=BeWell;Trusted_Connection=True;";
 
-        public Teacher AddTeacher(string firstName, string lastName, int grade)
+        public Teacher AddTeacher(string firstName, string lastName, Grade grade)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
