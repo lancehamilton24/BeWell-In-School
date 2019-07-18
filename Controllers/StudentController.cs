@@ -31,5 +31,21 @@ namespace BeWell.Controllers
             return Created($"/api/student/{newStudent.Id}", newStudent);
 
         }
+
+        [HttpGet("allstudents")]
+        public ActionResult GetAllPaymentInformation()
+        {
+            var students = _studentRepository.GetAllStudents();
+
+            return Ok(students);
+        }
+
+        [HttpGet("allStudents/{teacherId}")]
+        public ActionResult GetStudentsByTeacher(int teacherId)
+        {
+            var students = _studentRepository.GetStudentsByTeacher(teacherId);
+
+            return Ok(students);
+        }
     }
 }
