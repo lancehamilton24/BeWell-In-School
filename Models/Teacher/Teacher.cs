@@ -12,7 +12,7 @@ namespace BeWell.Models.Teacher
         public string Password { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public int Grade { get; set; }
+        public Grade Grade { get; set; }
         public bool IsAdmin { get; set; }
     }
 }
