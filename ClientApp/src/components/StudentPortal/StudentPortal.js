@@ -6,8 +6,8 @@ export class StudentPortal extends Component {
       <div>
         <h1>Student Portal</h1>
       </div>
-    )
+    );
   }
 }
 
-export default StudentPortal
+export default StudentPortal;

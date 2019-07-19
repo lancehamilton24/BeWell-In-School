@@ -1,3 +1,4 @@
+using BeWell.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,10 @@ namespace BeWell
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.Configure<DbConfiguration>(Configuration);
+            
+            services.AddTransient<TeacherRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,15 @@ namespace BeWell
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+            });
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+            });
 
             app.UseMvc(routes =>
             {
@@ -64,5 +78,9 @@ namespace BeWell
                 }
             });
         }
+    }
+    public class DbConfiguration
+    {
+        public string ConnectionString { get; set; }
     }
 }
