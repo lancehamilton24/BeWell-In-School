@@ -33,6 +33,7 @@ export class TeacherPortal extends Component {
 
   selectedTeacher = (e) => {
     const value = e.target.value;
+    this.setState({ teacherId: value });
     console.log(value);
   }
 
@@ -49,7 +50,7 @@ export class TeacherPortal extends Component {
 
     return (
       <div>
-        <h1>Teacher Portal</h1>;
+        <h1>Teacher Portal</h1>
        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>
             Select Teacher Name
