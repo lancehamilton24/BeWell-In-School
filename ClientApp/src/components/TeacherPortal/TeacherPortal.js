@@ -8,6 +8,7 @@ export class TeacherPortal extends Component {
     teachers: [],
     dropdownOpen: false,
     teacherId: '',
+    teacherName: '',
   }
 
   constructor(props) {
@@ -33,39 +34,52 @@ export class TeacherPortal extends Component {
 
   selectedTeacher = (e) => {
     const value = e.target.value;
+    const name = e.target.name;
     this.setState({ teacherId: value });
+    this.setState({ teacherName: name });
     console.log(value);
+    console.log(name);
   }
 
   render() {
-    const { teachers } = this.state;
+    const { teachers, teacherName } = this.state;
 
     const teacherDropDown = teachers.map(teachers => (
       <TeacherDropdownItem
+        item={teachers.id}
         teachers={teachers}
         key={teachers.id}
         selectedTeacher={this.selectedTeacher}
       />
     ));
 
-    return (
-      <div>
-        <h1>Teacher Portal</h1>
-       <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            Select Teacher Name
+    if (teacherName === '') {
+      return (
+        <div>
+          <h1>Teacher Portal</h1>
+          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret>
+              Select Teacher Name
         </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>{teacherDropDown}</DropdownItem>
-            <DropdownItem divider />
-          </DropdownMenu>
-        </ButtonDropdown>
-        {/* <div>
+            <DropdownMenu>
+              <DropdownItem header>{teacherDropDown}</DropdownItem>
+              <DropdownItem divider />
+            </DropdownMenu>
+          </ButtonDropdown>
+          {/* <div>
         <p>{teacherDropDown}</p>
         {/* <h1>{teachersItem}</h1> */}
-        {/* </div>  */}
-      </div>
-    );
+          {/* </div>  */}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>Teacher Portal</h1>
+          <p>Welcome {teacherName}</p>
+        </div>
+      );
+    }
   }
 }
 
