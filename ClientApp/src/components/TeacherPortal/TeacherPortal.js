@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import teacherRequest from '../../helpers/data/teacherRequest';
-import TeacherDropdown from '../TeacherDropdownItem/TeacherDropdownItem';
+import { TeacherDropdownItem } from '../TeacherDropdownItem/TeacherDropdownItem';
 
 export class TeacherPortal extends Component {
   state = {
-    teachers: {},
+    teachers: [],
+    dropdownOpen: false,
+    teacherId: '',
   }
 
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false,
-    };
   }
 
   toggle() {
@@ -32,29 +31,38 @@ export class TeacherPortal extends Component {
     this.getTeachers();
   }
 
+  selectedTeacher = (e) => {
+    const value = e.target.value;
+    console.log(value);
+  }
+
   render() {
     const { teachers } = this.state;
-    console.log(teachers);
 
-    const teachersItem = teachers.map(teacher => (
-      <TeacherDropdown
+    const teacherDropDown = teachers.map(teachers => (
+      <TeacherDropdownItem
         teachers={teachers}
         key={teachers.id}
+        selectedTeacher={this.selectedTeacher}
       />
     ));
 
     return (
       <div>
-       <h1>Teacher Portal</h1>;
+        <h1>Teacher Portal</h1>;
        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          Button Dropdown
+          <DropdownToggle caret>
+            Select Teacher Name
         </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>{teachersItem}</DropdownItem>
-          <DropdownItem divider />
-        </DropdownMenu>
-      </ButtonDropdown>
+          <DropdownMenu>
+            <DropdownItem header>{teacherDropDown}</DropdownItem>
+            <DropdownItem divider />
+          </DropdownMenu>
+        </ButtonDropdown>
+        {/* <div>
+        <p>{teacherDropDown}</p>
+        {/* <h1>{teachersItem}</h1> */}
+        {/* </div>  */}
       </div>
     );
   }
