@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import { TeacherDropdownItem } from '../TeacherDropdownItem/TeacherDropdownItem';
 
@@ -35,10 +35,14 @@ export class TeacherPortal extends Component {
   selectedTeacher = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    this.setState({ teacherId: value });
+    this.setState({ teacherId: value, dropdownOpen: false });
     this.setState({ teacherName: name });
     console.log(value);
     console.log(name);
+  }
+
+  selectTeachers = () => {
+    this.setState({ teacherName: ''});
   }
 
   render() {
@@ -75,6 +79,7 @@ export class TeacherPortal extends Component {
     } else {
       return (
         <div>
+          <Button color="info" onClick={this.selectTeachers}>Select another user</Button>
           <h1>Teacher Portal</h1>
           <p>Welcome {teacherName}</p>
         </div>
