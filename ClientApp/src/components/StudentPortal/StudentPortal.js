@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
+import { Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
 import studentRequest from '../../helpers/data/studentRequest';
 
 export class StudentPortal extends Component {
   state = {
     students: [],
+  }
+
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen,
+    });
   }
 
   getStudents = () => {
