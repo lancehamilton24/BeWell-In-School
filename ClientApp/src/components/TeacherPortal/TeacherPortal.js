@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import { TeacherDropdownItem } from '../TeacherDropdownItem/TeacherDropdownItem';
+import EditSurvey from '../EditSurvey/EditSurvey';
 
 export class TeacherPortal extends Component {
   state = {
@@ -42,7 +44,7 @@ export class TeacherPortal extends Component {
   }
 
   selectTeachers = () => {
-    this.setState({ teacherName: ''});
+    this.setState({ teacherName: '' });
   }
 
   render() {
@@ -57,6 +59,7 @@ export class TeacherPortal extends Component {
       />
     ));
 
+
     if (teacherName === '') {
       return (
         <div>
@@ -70,21 +73,19 @@ export class TeacherPortal extends Component {
               <DropdownItem divider />
             </DropdownMenu>
           </ButtonDropdown>
-          {/* <div>
-        <p>{teacherDropDown}</p>
-        {/* <h1>{teachersItem}</h1> */}
-          {/* </div>  */}
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Button color="info" onClick={this.selectTeachers}>Select another user</Button>
-          <h1>Teacher Portal</h1>
-          <p>Welcome {teacherName}</p>
         </div>
       );
     }
+    return (
+      <div>
+        <Button color="info" onClick={this.selectTeachers}>Select another user</Button>
+        <h1>Teacher Portal</h1>
+        <p>Welcome {teacherName}</p>
+        <Link to="/editSurvey" className="editSurveyButton">
+          <Button>View/Edit Survey</Button>
+        </Link>
+      </div>
+    );
   }
 }
 
