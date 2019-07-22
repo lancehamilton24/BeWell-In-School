@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import { Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
 
@@ -8,16 +8,16 @@ export class StudentPortal extends Component {
     students: [],
   }
 
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.toggle = this.toggle.bind(this);
+  // }
 
-  toggle() {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     dropdownOpen: !this.state.dropdownOpen,
+  //   });
+  // }
 
   getStudents = () => {
     studentRequest.getAllStudentsRequest().then((students) => {
