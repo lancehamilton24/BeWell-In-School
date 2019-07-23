@@ -42,13 +42,13 @@ namespace BeWell.Data
             }
         }
 
-        public IEnumerable<Student> GetStudentsByTeacher(int teacherId)
+        public IEnumerable<Student> GetStudentsByGrade(Grade studentGrade)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
-                var allStudentsByTeacher = db.Query<Student>("Select * from student where teacherId = @teacherId", new { teacherId }).ToList();
+                var allStudentsByGrade = db.Query<Student>("Select * from student where StudentGrade = @studentGrade", new { studentGrade }).ToList();
 
-                return allStudentsByTeacher;
+                return allStudentsByGrade;
             }
         }
     }

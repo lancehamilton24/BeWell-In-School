@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Be Well In School</h1>
         <Link to ="studentPortal" className="studentLink">
         <Button>Student Portal</Button>
