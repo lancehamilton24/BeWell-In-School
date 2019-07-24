@@ -11,20 +11,21 @@ export class StudentPortal extends Component {
     selectedGrade: [],
   }
 
-  // getStudents = () => {
-  //   studentRequest.getAllStudentsRequest().then((students) => {
-  //     this.setState({ students });
-  //   });
-  // }
+  getStudents = () => {
+    studentRequest.getAllStudentsRequest().then((students) => {
+      this.setState({ students });
+    });
+  }
 
-  // componentDidMount() {
-  //   this.getStudents();
-  // }
+  componentDidMount() {
+    this.getStudents();
+  }
 
   selectGrade = () => {
 
+    this.setState({ students: this.state.students.filter(student => student.studentGrade == 0) });
+    console.log(this.selectedGrade);
   }
-
 
 
   render() {
@@ -35,6 +36,8 @@ export class StudentPortal extends Component {
       <div className="studentportal container">
         <div className="portal">
         <h1>Student Portal</h1>
+        <Button onClick={this.selectGrade}>3rd grade</Button>
+        <Button onClick={this.selectGrade}>3rd grade</Button>
         <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
         <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
       </div>
