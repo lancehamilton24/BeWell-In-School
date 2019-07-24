@@ -3,11 +3,13 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
 import './StudentPortal.css';
+import SelectStudent from '../SelectStudentItem/SelectStudentItem';
 
 export class StudentPortal extends Component {
   state = {
     students: [],
-    selectedGrade: [],
+    selectedStudentGrade: [],
+    selectedStudent: [],
   }
 
   getStudents = () => {
@@ -21,50 +23,53 @@ export class StudentPortal extends Component {
   }
 
   KinderGartenSelect = () => {
-    this.setState({ selectedGrade: this.state.students.filter(student => student.studentGrade === 0) });
-    // console.log(this.selectedGrade);
+    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 0) });
   }
 
   FirstGradeSelect = () => {
-    this.setState({ selectedGrade: this.state.students.filter(student => student.studentGrade === 1) });
-    // console.log(this.selectedGrade);
+    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 1) });
   }
 
   SecondGradeSelect = () => {
-    this.setState({ selectedGrade: this.state.students.filter(student => student.studentGrade === 2) });
-    // console.log(this.selectedGrade);
+    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 2) });
   }
 
   ThirdGradeSelect = () => {
-    this.setState({ selectedGrade: this.state.students.filter(student => student.studentGrade === 3) });
-    // console.log(this.selectedGrade);
+    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 3) });
   }
 
   FourthGradeSelect = () => {
-    this.setState({ selectedGrade: this.state.students.filter(student => student.studentGrade === 4) });
-    // console.log(this.selectedGrade);
+    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 4) });
   }
 
 
   render() {
-    const { students, selectedGrade } = this.state;
-    console.log(selectedGrade);
+    const { students, selectedStudentGrade } = this.state;
+    console.log(selectedStudentGrade);
     console.log(students);
-
+    
+    const selectStudentItem = selectedStudentGrade.map(selectedStudent => (
+      <div key={selectedStudent.id}>
+        <SelectStudent
+          selectedStudent={selectedStudent}
+        />
+      </div>
+    ));
     // if (selectedGrade.length === 0) {
-      return (
+    return (
 
-        <div className="studentportal container">
-          <div className="portal">
-            <h1>Student Portal</h1>
-            <Button onClick={this.KinderGartenSelect}>KinderGarten</Button>
-            <Button onClick={this.FirstGradeSelect}>First</Button>
-            <Button onClick={this.SecondGradeSelect}>Second</Button>
-            <Button onClick={this.ThirdGradeSelect}>Third</Button>
-            <Button onClick={this.FourthGradeSelect}>Fourth</Button>
-          </div>
+      <div className="studentportal container">
+        <div className="portal">
+          <h1>Student Portal</h1>
+          <Button onClick={this.KinderGartenSelect}>KinderGarten</Button>
+          <Button onClick={this.FirstGradeSelect}>First</Button>
+          <Button onClick={this.SecondGradeSelect}>Second</Button>
+          <Button onClick={this.ThirdGradeSelect}>Third</Button>
+          <Button onClick={this.FourthGradeSelect}>Fourth</Button>
         </div>
-      );
+        <p>{selectStudentItem}</p>
+      </div>
+    );
     // }
     // return (
 
