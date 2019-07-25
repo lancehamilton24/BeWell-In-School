@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
 import './StudentPortal.css';
-import SelectStudent from '../SelectStudentItem/SelectStudentItem';
+import SelectStudent from './SelectStudentItem';
 
 export class StudentPortal extends Component {
   state = {
@@ -55,32 +55,18 @@ export class StudentPortal extends Component {
         />
       </div>
     ));
-    // if (selectedGrade.length === 0) {
+
     return (
 
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
-          <Button onClick={this.KinderGartenSelect}>KinderGarten</Button>
-          <Button onClick={this.FirstGradeSelect}>First</Button>
-          <Button onClick={this.SecondGradeSelect}>Second</Button>
-          <Button onClick={this.ThirdGradeSelect}>Third</Button>
-          <Button onClick={this.FourthGradeSelect}>Fourth</Button>
+          <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
+          <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
+          <Link to="/teacherResources" className="teacherResources"><Button>Extra Resources</Button></Link>
         </div>
-        <p>{selectStudentItem}</p>
       </div>
     );
-    // }
-    // return (
-
-    //   <div className="studentportal container">
-    //     <div className="portal">
-    //       <h1>Student Portal</h1>
-    //       <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
-    //       <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
-    //     </div>
-    //   </div>
-    // );
   }
 }
 

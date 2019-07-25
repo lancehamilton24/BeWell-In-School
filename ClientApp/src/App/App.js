@@ -7,6 +7,9 @@ import { StudentPortal } from '../components/StudentPortal/StudentPortal';
 import { EditSurvey } from '../components/EditSurvey/EditSurvey';
 import { StudentSurvey } from '../components/StudentSurvey/StudentSurvey';
 import { StudentSurveyResponses } from '../components/StudentSurveyResponses/StudentSurveyResponses';
+import { TeacherResources } from '../components/TeacherResources/TeacherResources';
+import { StudentRepository } from '../components/StudentRepository/StudentRepository';
+import { TeacherRepository } from '../components/TeacherRepository/TeacherRepository';
 
 export default class App extends Component {
   render() {
@@ -22,7 +25,10 @@ export default class App extends Component {
       <Route path='/studentPortal' component={StudentPortal} />
       <Route path='/editSurvey' component={EditSurvey} />
       <Route path='/studentSurvey' component={StudentSurvey} />
+      <Route path='/teacherResources' component={TeacherResources} />
       <Route path='/studentSurveyResponses' component={StudentSurveyResponses} />
+      <Route path='/studentRepository' component={StudentRepository} />
+      <Route path='/teacherRepository' component={TeacherRepository} />
       </Switch>
       </div>
       </BrowserRouter>
