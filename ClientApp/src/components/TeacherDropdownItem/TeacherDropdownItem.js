@@ -8,7 +8,7 @@ export class TeacherDropdownItem extends Component {
 
     return (
       <div>
-      <button name={teachers.firstName} final={teachers.lastName} value={teachers.id} onClick={this.props.selectedTeacher}>{teachers.firstName} {teachers.lastName}</button>
+      <button name={teachers.firstName} value={teachers.id} onClick={this.props.selectedTeacher}>{teachers.firstName} {teachers.lastName}</button>
       </div>
     );
   }

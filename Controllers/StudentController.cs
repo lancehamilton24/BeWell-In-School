@@ -6,6 +6,7 @@ using BeWell.Data;
 using BeWell.Models.Student;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static BeWell.Models.Student.CreateStudentRequest;
 
 namespace BeWell.Controllers
 {
@@ -40,10 +41,10 @@ namespace BeWell.Controllers
             return Ok(students);
         }
 
-        [HttpGet("allStudents/{teacherId}")]
-        public ActionResult GetStudentsByTeacher(int teacherId)
+        [HttpGet("allStudents/{studentGrade}")]
+        public ActionResult GetStudentsByGrade(Grade studentGrade)
         {
-            var students = _studentRepository.GetStudentsByTeacher(teacherId);
+            var students = _studentRepository.GetStudentsByGrade(studentGrade);
 
             return Ok(students);
         }

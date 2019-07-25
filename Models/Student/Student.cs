@@ -15,5 +15,14 @@ namespace BeWell.Models.Student
         public string FirstName { get; set; }
         public int TeacherId { get; set; }
         public Grade StudentGrade { get; set; }
+
+        public enum Grade
+        {
+            Kindergarten,
+            First,
+            Second,
+            Third,
+            Fourth
+        }
     }
 }
