@@ -31,5 +31,26 @@ namespace BeWell.Data
 
             throw new Exception("No question created");
         }
+
+        public IEnumerable<Question> GetAllQuestions()
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allQuestions = db.Query<Question>(@"Select * from Question").ToList();
+                return allQuestions;
+            }
+        }
+
+        public Question DeleteSingleQuestion(int id)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var deletedQuestion = db.QueryFirstOrDefault<Question>(@"delete
+                                                                       from Question
+                                                                       where id = @id",
+                                                                       new { id });
+                return deletedQuestion;
+            }
+        }
     }
 }

@@ -28,5 +28,19 @@ namespace BeWell.Controllers
             return Created($"/api/student/{newQuestion.Id}", newQuestion);
 
         }
+        [HttpGet("allQuestions")]
+        public ActionResult GetAllQuestions()
+        {
+            var questions = _questionRepository.GetAllQuestions();
+
+            return Ok(questions);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteSingleQuestion(int id)
+        {
+            var deletedQuestion = _questionRepository.DeleteSingleQuestion(id);
+            return Ok(deletedQuestion);
+        }
     }
 }
