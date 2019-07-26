@@ -52,5 +52,23 @@ namespace BeWell.Data
                 return deletedQuestion;
             }
         }
+
+        public Question UpdateSingleQuestion(Question question)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var updatedQuestion = db.QueryFirstOrDefault<Question>(@"update Question
+                                        set questionText = @questionText
+                                            output inserted.*
+                                            where id = @id",
+                                                            new
+                                                            {
+                                                                id = question.Id,
+                                                                questionText = question.QuestionText,
+                                                            });
+                return updatedQuestion;
+            }
+            throw new System.Exception("Could not update question.");
+        }
     }
 }

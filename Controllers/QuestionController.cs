@@ -42,5 +42,12 @@ namespace BeWell.Controllers
             var deletedQuestion = _questionRepository.DeleteSingleQuestion(id);
             return Ok(deletedQuestion);
         }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdateSingleQuestion(Question questionText)
+        {
+            var updateSingleQuestion = _questionRepository.UpdateSingleQuestion(questionText);
+            return Ok(updateSingleQuestion);
+        }
     }
 }
