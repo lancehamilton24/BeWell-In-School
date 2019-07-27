@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
+import teacherRequest from '../../helpers/data/teacherRequest';
 import './StudentPortal.css';
 import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
 
@@ -9,21 +10,27 @@ export class StudentPortal extends Component {
   state = {
     students: [],
     selectedStudentGrade: [],
+    selectedTeacherGrade: [],
     selectedStudent: [],
+    teachers: [],
   }
 
-  getStudents = () => {
+  getStudentsAndTeachers = () => {
     studentRequest.getAllStudentsRequest().then((students) => {
       this.setState({ students });
+    });
+    teacherRequest.getAllTeachersRequest().then((teachers) => {
+      this.setState({ teachers });
     });
   }
 
   componentDidMount() {
-    this.getStudents();
+    this.getStudentsAndTeachers();
   }
 
   KinderGartenSelect = () => {
     this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 0) });
+    this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 0) });
   }
 
   FirstGradeSelect = () => {
