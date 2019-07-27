@@ -29,31 +29,42 @@ export class StudentPortal extends Component {
   }
 
   KinderGartenSelect = () => {
-    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 0) });
+    // this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 0) });
     this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 0) });
   }
 
   FirstGradeSelect = () => {
-    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 1) });
+    // this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 1) });
+    this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 1) });
   }
 
   SecondGradeSelect = () => {
-    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 2) });
+    // this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 2) });
+    this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 2) });
   }
 
   ThirdGradeSelect = () => {
-    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 3) });
+    // this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 3) });
+    this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 3) });
   }
 
   FourthGradeSelect = () => {
-    this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 4) });
+    // this.setState({ selectedStudentGrade: this.state.students.filter(student => student.studentGrade === 4) });
+    this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 4) });
   }
 
 
   render() {
-    const { students, selectedStudentGrade } = this.state;
+    const { students, selectedStudentGrade, selectedTeacherGrade } = this.state;
     console.log(selectedStudentGrade);
     console.log(students);
+
+    const selectTeacherItem = selectedStudentGrade.map(student => (
+      <SelectStudentItem
+      students={student}
+        key={students.id}
+      />
+    ));
 
     const selectStudentItem = selectedStudentGrade.map(student => (
       <SelectStudentItem
