@@ -40,5 +40,15 @@ namespace BeWell.Data
                 return allSurveys;
             }
         }
+
+        public IEnumerable<StudentSurvey> GetSurveyByStudent(int studentId)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var surveyByStudent = db.Query<StudentSurvey>("Select * from studentsurvey where StudentId = @studentId", new { studentId }).ToList();
+
+                return surveyByStudent;
+            }
+        }
     }
 }

@@ -38,5 +38,12 @@ namespace BeWell.Controllers
 
             return Ok(surveys);
         }
+        [HttpGet("allstudentsurveys/{studentId}")]
+        public ActionResult GetSurveyByStudent(int studentId)
+        {
+            var students = _studentSurveyRepository.GetSurveyByStudent(studentId);
+
+            return Ok(students);
+        }
     }
 }
