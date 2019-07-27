@@ -10,7 +10,6 @@ namespace BeWell.Models.StudentResources
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string URL { get; set; }
-        public int Grade { get; set; }
+        public string Url { get; set; }
     }
 }
