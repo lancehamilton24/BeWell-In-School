@@ -31,5 +31,14 @@ namespace BeWell.Data
 
             throw new Exception("No user created");
         }
+
+        public IEnumerable<StudentSurvey> GetAllStudentSurveys()
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allSurveys = db.Query<StudentSurvey>(@"Select * from StudentSurvey").ToList();
+                return allSurveys;
+            }
+        }
     }
 }
