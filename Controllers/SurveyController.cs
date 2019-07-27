@@ -31,5 +31,12 @@ namespace BeWell.Controllers
             return Created($"/api/student/{newSurvey.Id}", newSurvey);
 
         }
+        [HttpGet("allsurveys")]
+        public ActionResult GetAllSurveys()
+        {
+            var surveys = _surveyRepository.GetAllSurveys();
+
+            return Ok(surveys);
+        }
     }
 }
