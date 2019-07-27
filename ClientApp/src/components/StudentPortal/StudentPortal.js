@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
 import './StudentPortal.css';
-import SelectStudent from './SelectStudentItem';
+import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
 
 export class StudentPortal extends Component {
   state = {
@@ -47,13 +47,12 @@ export class StudentPortal extends Component {
     const { students, selectedStudentGrade } = this.state;
     console.log(selectedStudentGrade);
     console.log(students);
-    
-    const selectStudentItem = selectedStudentGrade.map(selectedStudent => (
-      <div key={selectedStudent.id}>
-        <SelectStudent
-          selectedStudent={selectedStudent}
-        />
-      </div>
+
+    const selectStudentItem = selectedStudentGrade.map(student => (
+      <SelectStudentItem
+      students={student}
+        key={students.id}
+      />
     ));
 
     return (
@@ -61,6 +60,9 @@ export class StudentPortal extends Component {
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
+          <div><Button onClick={this.KinderGartenSelect}>K</Button><Button onClick={this.FirstGradeSelect}>1st</Button>
+          <Button onClick={this.SecondGradeSelect}>2nd</Button><Button onClick={this.ThirdGradeSelect}>3rd</Button></div>
+          {selectStudentItem}
           <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
           <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
           <Link to="/teacherResources" className="teacherResources"><Button>Extra Resources</Button></Link>
