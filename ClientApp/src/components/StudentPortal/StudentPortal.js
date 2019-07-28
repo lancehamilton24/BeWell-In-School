@@ -5,6 +5,7 @@ import studentRequest from '../../helpers/data/studentRequest';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import './StudentPortal.css';
 import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
+import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
 
 export class StudentPortal extends Component {
   state = {
@@ -59,10 +60,10 @@ export class StudentPortal extends Component {
     console.log(selectedStudentGrade);
     console.log(students);
 
-    const selectTeacherItem = selectedStudentGrade.map(student => (
-      <SelectStudentItem
-      students={student}
-        key={students.id}
+    const selectTeacherItem = selectedTeacherGrade.map(teacher => (
+      <SelectTeacherItem
+      teachers={teacher}
+        key={teacher.id}
       />
     ));
 
@@ -81,6 +82,7 @@ export class StudentPortal extends Component {
           <div><Button onClick={this.KinderGartenSelect}>K</Button><Button onClick={this.FirstGradeSelect}>1st</Button>
           <Button onClick={this.SecondGradeSelect}>2nd</Button><Button onClick={this.ThirdGradeSelect}>3rd</Button></div>
           {selectStudentItem}
+          {selectTeacherItem}
           <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
           <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
           <Link to="/teacherResources" className="teacherResources"><Button>Extra Resources</Button></Link>
