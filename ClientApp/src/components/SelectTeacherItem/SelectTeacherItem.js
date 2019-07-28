@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class SelectTeacherItem extends Component {
   render() {
@@ -6,9 +6,9 @@ export class SelectTeacherItem extends Component {
 
     return (
       <div>
-        <p>{teachers.firstName} {teachers.lastName}</p>
+        <button>{teachers.firstName} {teachers.lastName}</button>
       </div>
-    )
+    );
   }
 }
 
