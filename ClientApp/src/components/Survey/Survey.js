@@ -31,11 +31,13 @@ export class Survey extends Component {
     ));
 
     return (
-      <div className="container survey">
+      <div className="container">
         <Link to="/teacherPortal" className="teacherLink">
           <Button>Back To Teacher Portal</Button>
         </Link>
-        <p>{selectTeacherItem}</p>
+        <div className="survey">
+        {selectTeacherItem}
+        </div>
       </div>
     );
   }
