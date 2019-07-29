@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 
 export class SelectStudentItem extends Component {
   render() {
-    const { selectedStudent } = this.props;
+    const { students } = this.props;
+    console.log(students);
+
     return (
       <div>
+        <p>{students.firstName} {students.lastName}</p>
       </div>
     );
   }
