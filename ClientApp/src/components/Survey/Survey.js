@@ -22,16 +22,11 @@ export class Survey extends Component {
   }
 
   formSubmitQuestions = (addNewQuestion) => {
-    surveyQuestionRequest.postQuestionRequest(addNewQuestion)
-      // .then(() => {
-      //   surveyQuestionRequest.getAllQuestionsRequest()
-      //     .then((questions) => {
-      //       this.setState({ questions });
-      //       this.setState({ addNewQuestion: '' });
-      //     });
-      // })
-      .catch(err => console.error('error with listings post', err));
+    surveyQuestionRequest.postQuestionRequest(addNewQuestion);
   }
+
+  // .catch(err => console.error('error with listings post', err));
+  // }
 
   render() {
     const { questions } = this.state;

@@ -45,7 +45,7 @@ class AddQuestion extends Component {
     return (
       <div>
         <div id="login-form">
-          <h1 className="text-center">Add Card</h1>
+          <h1 className="text-center">Add Question</h1>
           <form className="form-horizontal col-sm-6 col-sm-offset-3" onSubmit={this.formSubmit}>
             <div className="form-group">
               <label htmlFor="inputName" className=" control-label">
