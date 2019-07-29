@@ -10,6 +10,9 @@ const getAllQuestionsRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const postQuestionRequest = (addNewQuestion) => { axios.post('http://localhost:64175/api/question/register', addNewQuestion); };
+
 export default {
   getAllQuestionsRequest,
+  postQuestionRequest,
 };

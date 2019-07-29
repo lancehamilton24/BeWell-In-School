@@ -10,6 +10,7 @@ import { StudentSurveyResponses } from '../components/StudentSurveyResponses/Stu
 import { TeacherResources } from '../components/TeacherResources/TeacherResources';
 import { StudentRepository } from '../components/StudentRepository/StudentRepository';
 import { TeacherRepository } from '../components/TeacherRepository/TeacherRepository';
+import 'materialize-css/dist/css/materialize.min.css';
 
 export default class App extends Component {
   render() {
