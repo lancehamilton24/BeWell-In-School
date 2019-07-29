@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getAllResourcesRequest = () => new Promise((resolve, reject) => {
   axios
-    .get('http://localhost:64175/api/resources/allResources')
+    .get('http://localhost:64175/api/studentresources/allResources')
     .then((res) => {
       const resources = res.data;
       resolve(resources);
