@@ -19,11 +19,11 @@ export class TeacherPortal extends Component {
       <div className="teacher-portal container">
         <h1>Teacher Portal</h1>
         <p>Welcome {teacherName}</p>
-        <Link to="/editSurvey" className="editSurveyButton"><Button>View/Edit Survey</Button></Link>
+        <Link to="/survey" className="surveyButton"><Button>View/Edit Survey</Button></Link>
         <Link to="/studentRepository" className="studentRepositoryButton"><Button>Student Repository</Button></Link>
         <Link to="/teacherRepository" className="teacherRepositoryButton"><Button>Teacher Repository</Button></Link>
         <Link to="/studentSurveyResponses" className="studentSurveyResultsButton"><Button>View Student Survey Results</Button></Link>
-        <Link to="/teacherResources" className="createResourcesButton"><Button>Student Resources</Button></Link>
+        <Link to="/teacherResources" className="createResourcesButton"><Button>Add Student Resources</Button></Link>
       </div>
     );
   }
