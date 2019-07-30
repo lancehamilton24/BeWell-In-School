@@ -1,3 +1,5 @@
-.student-repo {
-  text-align: center;
+
+.repo-head {
+  display: flex;
+  flex-direction: row;
 }
