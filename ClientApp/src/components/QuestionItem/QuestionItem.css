@@ -1,12 +1,16 @@
 .question-text {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-content: center; */
 }
 
 /* .delete-question{
   margin-left: 3%;
 } */
+.edit-delete-questions {
+  display: flex;
+  justify-content: center;
+}
 
 .edit-question {
   margin-left: 3%;

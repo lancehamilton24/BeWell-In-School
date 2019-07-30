@@ -44,7 +44,7 @@ class AddQuestion extends Component {
 
     return (
       <div>
-        <h1 className="text-center">Add Question</h1>
+        {/* <h4 className="text-center">Current Survey</h4> */}
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>
             <div class="row">

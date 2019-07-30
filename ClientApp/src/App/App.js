@@ -7,7 +7,7 @@ import { StudentPortal } from '../components/StudentPortal/StudentPortal';
 import { Survey } from '../components/Survey/Survey';
 import { StudentSurvey } from '../components/StudentSurvey/StudentSurvey';
 import { StudentSurveyResponses } from '../components/StudentSurveyResponses/StudentSurveyResponses';
-import { TeacherResources } from '../components/TeacherResources/TeacherResources';
+import { Resources } from '../components/Resources/Resources';
 import { StudentRepository } from '../components/StudentRepository/StudentRepository';
 import { TeacherRepository } from '../components/TeacherRepository/TeacherRepository';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -26,7 +26,7 @@ export default class App extends Component {
       <Route path='/studentPortal' component={StudentPortal} />
       <Route path='/survey' component={Survey} />
       <Route path='/studentSurvey' component={StudentSurvey} />
-      <Route path='/teacherResources' component={TeacherResources} />
+      <Route path='/resources' component={Resources} />
       <Route path='/studentSurveyResponses' component={StudentSurveyResponses} />
       <Route path='/studentRepository' component={StudentRepository} />
       <Route path='/teacherRepository' component={TeacherRepository} />

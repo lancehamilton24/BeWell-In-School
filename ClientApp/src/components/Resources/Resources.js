@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './TeacherResources.css';
 import resourceRequest from '../../helpers/data/resourceRequest';
 import { ResourceItem } from '../ResourceItem/ResourceItem';
+import { AddResource } from '../AddResource/AddResource';
+import './Resources.css';
 
-export class TeacherResources extends Component {
+export class Resources extends Component {
   state = {
     resources: [],
   }
@@ -32,12 +33,15 @@ export class TeacherResources extends Component {
     ));
 
     return (
-      <div className="container">
+      <div>
         <Link to="/teacherPortal" className="teacherLink">
         <Button>Back To Teacher Portal</Button>
         </Link>
-        <div className="resources">
-        <h1>Teacher Resources</h1>
+        {/* <h1 className="resources">Teacher Resources</h1> */}
+        <div className="resources container">
+          <div>
+            <AddResource></AddResource>
+          </div>
         {resourceItem}
         </div>
       </div>
@@ -45,4 +49,4 @@ export class TeacherResources extends Component {
   }
 }
 
-export default TeacherResources;
+export default Resources;

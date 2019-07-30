@@ -82,7 +82,7 @@ export class StudentPortal extends Component {
           <Button onClick={this.SecondGradeSelect}>2nd</Button><Button onClick={this.ThirdGradeSelect}>3rd</Button></div>
           <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
             <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
-            <Link to="/teacherResources" className="teacherResources"><Button>Extra Resources</Button></Link>
+            <Link to="/resources" className="resources-button"><Button>Extra Resources</Button></Link>
       </div>
     </div>
     );
