@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import './QuestionItem.css';
+import './SurveyQuestionItem.css';
 
-export class QuestionItem extends Component {
+export class SurveyQuestionItem extends Component {
   render() {
     const { questions } = this.props;
     console.log(questions);
@@ -26,4 +26,4 @@ export class QuestionItem extends Component {
   }
 }
 
-export default QuestionItem;
+export default SurveyQuestionItem;

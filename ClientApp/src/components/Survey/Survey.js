@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
-import { QuestionItem } from '../QuestionItem/QuestionItem';
+import { SurveyQuestionItem } from '../SurveyQuestionItem/SurveyQuestionItem';
 import './Survey.css';
 import AddQuestion from '../AddQuestion/AddQuestion';
 
@@ -27,14 +27,11 @@ export class Survey extends Component {
     });
   };
 
-  // .catch(err => console.error('error with listings post', err));
-  // }
-
   render() {
     const { questions } = this.state;
 
     const surveyQuestions = questions.map(question => (
-      <QuestionItem
+      <SurveyQuestionItem
         questions={question}
         key={question.id}
       />
