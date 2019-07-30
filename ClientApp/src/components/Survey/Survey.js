@@ -22,8 +22,10 @@ export class Survey extends Component {
   }
 
   formSubmitQuestions = (addNewQuestion) => {
-    surveyQuestionRequest.postQuestionRequest(addNewQuestion);
-  }
+    surveyQuestionRequest.postQuestionRequest(addNewQuestion).then(() => {
+      this.getQuestions();
+    });
+  };
 
   // .catch(err => console.error('error with listings post', err));
   // }

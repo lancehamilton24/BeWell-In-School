@@ -9,7 +9,6 @@ import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
 
 export class StudentPortal extends Component {
   state = {
-    students: [],
     selectedStudentTeacher: [],
     selectedTeacherGrade: [],
     selectedStudent: [],
@@ -17,9 +16,6 @@ export class StudentPortal extends Component {
   }
 
   getStudentsAndTeachers = () => {
-    studentRequest.getAllStudentsRequest().then((students) => {
-      this.setState({ students });
-    });
     teacherRequest.getAllTeachersRequest().then((teachers) => {
       this.setState({ teachers });
     });
