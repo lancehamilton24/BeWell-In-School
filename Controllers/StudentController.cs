@@ -42,9 +42,9 @@ namespace BeWell.Controllers
         }
 
         [HttpGet("allStudents/{studentGrade}")]
-        public ActionResult GetStudentsByGrade(Grade studentGrade)
+        public ActionResult GetStudentsByTeacher(int teacherId)
         {
-            var students = _studentRepository.GetStudentsByGrade(studentGrade);
+            var students = _studentRepository.GetStudentsByTeacher(teacherId);
 
             return Ok(students);
         }

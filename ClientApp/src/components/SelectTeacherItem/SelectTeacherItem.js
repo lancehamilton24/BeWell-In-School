@@ -17,10 +17,6 @@ export class SelectTeacherItem extends Component {
     this.getStudents();
   }
 
-  // studentList = () => {
-  //   const { students } = this.state;
-  // }
-
   render() {
     const { students } = this.state;
     const { teachers } = this.props;

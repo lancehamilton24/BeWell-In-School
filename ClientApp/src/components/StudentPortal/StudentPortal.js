@@ -25,7 +25,7 @@ export class StudentPortal extends Component {
     this.getStudentsAndTeachers();
   }
 
-  KinderGartenSelect = () => {
+  TeacherSelect = () => {
     this.setState({ selectedTeacherGrade: this.state.teachers.filter(teacher => teacher.grade === 0) });
   }
 

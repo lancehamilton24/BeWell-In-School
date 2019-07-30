@@ -33,7 +33,7 @@ export class Survey extends Component {
   render() {
     const { questions } = this.state;
 
-    const selectTeacherItem = questions.map(question => (
+    const surveyQuestions = questions.map(question => (
       <QuestionItem
         questions={question}
         key={question.id}
@@ -41,15 +41,17 @@ export class Survey extends Component {
     ));
 
     return (
-      <div className="container">
+      <div>
         <Link to="/teacherPortal" className="teacherLink">
           <Button>Back To Teacher Portal</Button>
         </Link>
-        <div>
-          <AddQuestion questions={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>
-        </div>
-        <div className="survey">
-          {selectTeacherItem}
+        <div className="container">
+          <div>
+            <AddQuestion questions={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>
+          </div>
+          <div className="survey">
+            {surveyQuestions}
+          </div>
         </div>
       </div>
     );
