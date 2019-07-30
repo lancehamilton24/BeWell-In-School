@@ -1,0 +1,18 @@
+.question-text {
+  /* display: flex;
+  flex-direction: row;
+  align-content: center; */
+}
+
+/* .delete-question{
+  margin-left: 3%;
+} */
+.edit-delete-questions {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-question {
+  margin-left: 3%;
+  margin-right: 3%;
+}

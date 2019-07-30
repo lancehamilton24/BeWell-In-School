@@ -23,7 +23,7 @@ export class TeacherPortal extends Component {
         <Link to="/studentRepository" className="studentRepositoryButton"><Button>Student Repository</Button></Link>
         <Link to="/teacherRepository" className="teacherRepositoryButton"><Button>Teacher Repository</Button></Link>
         <Link to="/studentSurveyResponses" className="studentSurveyResultsButton"><Button>View Student Survey Results</Button></Link>
-        <Link to="/teacherResources" className="createResourcesButton"><Button>Add Student Resources</Button></Link>
+        <Link to="/resources" className="createResourcesButton"><Button>Add Student Resources</Button></Link>
       </div>
     );
   }

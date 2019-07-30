@@ -44,19 +44,16 @@ class AddQuestion extends Component {
 
     return (
       <div>
-        <div id="login-form">
-          <h1 className="text-center">Add Question</h1>
-          <form className="form-horizontal col-sm-6 col-sm-offset-3" onSubmit={this.formSubmit}>
-            <div className="form-group">
-              <label htmlFor="inputName" className=" control-label">
-                Question:
-                    </label>
-              <div className="col-sm-8">
+        {/* <h4 className="text-center">Current Survey</h4> */}
+        <div class="row">
+          <form class="col s12" onSubmit={this.formSubmit}>
+            <div class="row">
+              <div class="input-field col s6">
                 <input
-                  type="name"
-                  className="form-control"
-                  id="inputEmail"
-                  placeholder="First Name"
+                  type="text"
+                  class="validate"
+                  id="inputQuestion"
+                  placeholder="Add Survey Question"
                   value={addNewQuestion.questionText}
                   onChange={this.questionChange}
                 />
@@ -64,11 +61,11 @@ class AddQuestion extends Component {
             </div>
           </form>
           <Button
-                        type="submit"
-                        className="btn btn-default col-xs-12"
-                        onClick={this.formSubmit}
-                      >
-                        Add Question
+          type="submit"
+          className="btn btn-default col-xs-12"
+          onClick={this.formSubmit}
+        >
+          Add Question
                       </Button>
         </div>
       </div>
