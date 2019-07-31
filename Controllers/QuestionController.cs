@@ -36,7 +36,7 @@ namespace BeWell.Controllers
             return Ok(questions);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("deleteQuestion/{id}")]
         public ActionResult DeleteSingleQuestion(int id)
         {
             var deletedQuestion = _questionRepository.DeleteSingleQuestion(id);

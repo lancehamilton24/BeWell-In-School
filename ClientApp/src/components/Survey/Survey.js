@@ -27,13 +27,22 @@ export class Survey extends Component {
     });
   };
 
+  deleteOneQuestion = (questionId) => {
+    surveyQuestionRequest.deleteSingleQuestion(questionId)
+      .then(() => {
+        this.getQuestions();
+      })
+      .catch(err => console.error('error with delte single', err));
+  }
+
   render() {
     const { questions } = this.state;
 
     const surveyQuestions = questions.map(question => (
       <SurveyQuestionItem
-        questions={question}
+        question={question}
         key={question.id}
+        deleteOneQuestion={this.deleteOneQuestion}
       />
     ));
 

@@ -20,7 +20,10 @@ const postQuestionRequest = addNewQuestion => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const deleteSingleQuestion = questionId => axios.delete(`http://localhost:64175/api/question/deleteQuestion/${questionId}`);
+
 export default {
   getAllQuestionsRequest,
   postQuestionRequest,
+  deleteSingleQuestion,
 };
