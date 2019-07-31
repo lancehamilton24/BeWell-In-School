@@ -5,18 +5,24 @@ import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import './SurveyQuestionItem.css';
 
 export class SurveyQuestionItem extends Component {
+  deleteQuestionEvent = (e) => {
+    e.preventDefault();
+    const { deleteOneQuestion, question } = this.props;
+    deleteOneQuestion(question.id);
+  }
+
   render() {
-    const { questions } = this.props;
-    console.log(questions);
+    const { question } = this.props;
+    console.log(question);
 
     return (
       <div className="question-text container">
-        <p>{questions.questionText}</p>
+        <p>{question.questionText}</p>
         <div className="edit-delete-questions">
         <div className="edit-question">
         <Button><FontAwesomeIcon icon={faPencilAlt} /></Button>
         </div>
-        <div className="delete-question">
+        <div className="delete-question" onClick={this.deleteQuestionEvent}>
         <Button><FontAwesomeIcon icon={faTrash} /></Button>
         </div>
         </div>
