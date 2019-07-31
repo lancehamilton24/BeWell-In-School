@@ -20,7 +20,10 @@ const postResourceRequest = addNewResource => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const deleteSingleResource = resourceId => axios.delete(`http://localhost:64175/api/studentresources/deleteresource/${resourceId}`);
+
 export default {
   getAllResourcesRequest,
   postResourceRequest,
+  deleteSingleResource,
 };

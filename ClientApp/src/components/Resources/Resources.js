@@ -27,13 +27,22 @@ export class Resources extends Component {
     });
   };
 
+  deleteOneResource = (resourceId) => {
+    resourceRequest.deleteSingleResource(resourceId)
+      .then(() => {
+        this.getResources();
+      })
+      .catch(err => console.error('error with delte single', err));
+  }
+
   render() {
     const { resources } = this.state;
 
     const resourceItem = resources.map(resource => (
       <ResourceItem
-      resources={resource}
+      resource={resource}
       key={resource.id}
+      deleteOneResource={this.deleteOneResource}
       />
     ));
 
