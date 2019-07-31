@@ -39,7 +39,7 @@ namespace BeWell.Controllers
             return Ok(resources);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("deleteResource/{id}")]
         public ActionResult DeleteSingleResource(int id)
         {
             var deletedResource = _studentResourcesRepository.DeleteSingleResource(id);

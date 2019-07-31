@@ -21,14 +21,28 @@ export class Resources extends Component {
     this.getResources();
   }
 
+  formSubmitResources = (addNewResource) => {
+    resourceRequest.postResourceRequest(addNewResource).then(() => {
+      this.getResources();
+    });
+  };
+
+  deleteOneResource = (resourceId) => {
+    resourceRequest.deleteSingleResource(resourceId)
+      .then(() => {
+        this.getResources();
+      })
+      .catch(err => console.error('error with delte single', err));
+  }
 
   render() {
     const { resources } = this.state;
 
     const resourceItem = resources.map(resource => (
       <ResourceItem
-      resources={resource}
+      resource={resource}
       key={resource.id}
+      deleteOneResource={this.deleteOneResource}
       />
     ));
 
@@ -40,7 +54,7 @@ export class Resources extends Component {
         {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
           <div>
-            <AddResource></AddResource>
+            <AddResource resources={resources} onSubmit={this.formSubmitResources}></AddResource>
           </div>
         {resourceItem}
         </div>
