@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import studentRequest from '../../helpers/data/studentRequest';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import './StudentPortal.css';
-import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
-import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
 
 export class StudentPortal extends Component {
   state = {
@@ -50,13 +48,13 @@ export class StudentPortal extends Component {
     const { students, selectedStudentTeacher, selectedTeacherGrade } = this.state;
     console.log(students);
 
-    const selectTeacherItem = selectedTeacherGrade.map(teacher => (
-      <SelectTeacherItem
-        teachers={teacher}
-        key={teacher.id}
-        selectedStudentTeacher={selectedStudentTeacher}
-      />
-    ));
+    // const selectTeacherItem = selectedTeacherGrade.map(teacher => (
+    //   <SelectTeacherItem
+    //     teachers={teacher}
+    //     key={teacher.id}
+    //     selectedStudentTeacher={selectedStudentTeacher}
+    //   />
+    // ));
 
 
 
@@ -67,7 +65,7 @@ export class StudentPortal extends Component {
             <h1>Student Portal</h1>
             <div><Button onClick={this.KinderGartenSelect}>K</Button><Button onClick={this.FirstGradeSelect}>1st</Button>
               <Button onClick={this.SecondGradeSelect}>2nd</Button><Button onClick={this.ThirdGradeSelect}>3rd</Button></div>
-            {selectTeacherItem}
+            {/* {selectTeacherItem} */}
             {/* <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
             <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
             <Link to="/teacherResources" className="teacherResources"><Button>Extra Resources</Button></Link> */}

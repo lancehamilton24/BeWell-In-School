@@ -21,6 +21,11 @@ export class Resources extends Component {
     this.getResources();
   }
 
+  formSubmitResources = (addNewResource) => {
+    resourceRequest.postResourceRequest(addNewResource).then(() => {
+      this.getResources();
+    });
+  };
 
   render() {
     const { resources } = this.state;
@@ -40,7 +45,7 @@ export class Resources extends Component {
         {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
           <div>
-            <AddResource></AddResource>
+            <AddResource resources={resources} onSubmit={this.formSubmitResources}></AddResource>
           </div>
         {resourceItem}
         </div>

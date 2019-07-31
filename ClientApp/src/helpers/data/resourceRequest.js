@@ -10,6 +10,17 @@ const getAllResourcesRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const postResourceRequest = addNewResource => new Promise((resolve, reject) => {
+  axios
+    .post('http://localhost:64175/api/studentresources/register', addNewResource)
+    .then((res) => {
+      const resources = res.data;
+      resolve(resources);
+    })
+    .catch(err => reject(err));
+});
+
 export default {
   getAllResourcesRequest,
+  postResourceRequest,
 };
