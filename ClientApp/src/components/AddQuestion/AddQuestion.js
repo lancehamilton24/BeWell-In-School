@@ -8,12 +8,6 @@ const defaultQuestion = {
 };
 
 class AddQuestion extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func,
-    isEditing: PropTypes.bool,
-    editId: PropTypes.string,
-  }
-
   state = {
     addNewQuestion: defaultQuestion,
   }
@@ -81,7 +75,7 @@ class AddQuestion extends Component {
                       </Button>
         </div>
       </div>
-      );;
+      );
     }
     return (
       <div>

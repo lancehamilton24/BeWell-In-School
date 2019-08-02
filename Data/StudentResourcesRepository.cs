@@ -42,6 +42,15 @@ namespace BeWell.Data
             }
         }
 
+        public StudentResources GetSingleResource(int id)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allResources = db.QueryFirstOrDefault<StudentResources>(@"Select * from StudentResources where id = @id", new { id });
+                return allResources;
+            }
+        }
+
         public StudentResources DeleteSingleResource(int id)
         {
             using (var db = new SqlConnection(ConnectionString))
