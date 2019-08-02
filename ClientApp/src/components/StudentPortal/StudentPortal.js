@@ -30,6 +30,7 @@ export class StudentPortal extends Component {
     this.setState({ selectedTeacherId: teacherId })
     studentRequest.getStudentsByTeacher(teacherId).then((students) => {
       this.setState({ students });
+      this.setState({ teachers: [] })
     })
   }
 
@@ -42,7 +43,7 @@ export class StudentPortal extends Component {
 
 
   render() {
-    const { teachers, teacherId, students } = this.state;
+    const { teachers, selectedStudent, students, selectedStudentId } = this.state;
 
     const teacherItem = teachers.map(teacher => (
       <SelectTeacherItem
@@ -60,14 +61,14 @@ export class StudentPortal extends Component {
     ));
 
 
-    if (students.length > 0) {
+    if (selectedStudentId !== '') {
       return (
         <div className="studentportal container">
           <div className="portal">
             <h1>Student Portal</h1>
-            <p>Please select your name</p>
             <div>
-              {studentItem}
+              <h5>Hello!</h5>
+              {selectedStudent.firstName} {selectedStudent.lastName}
             </div>
             <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
             <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
@@ -75,21 +76,18 @@ export class StudentPortal extends Component {
           </div>
         </div>
       );
-    }
+    } 
     return (
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
-          <p>Begin by selecting your teacher!</p>
+          <p>Please select your teacher and your name</p>
           <div>
             {teacherItem}
           </div>
           <div>
             {studentItem}
           </div>
-          <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
-          <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
-          <Link to="/studentResources" className="student-resources-button"><Button>Extra Resources</Button></Link>
         </div>
       </div>
     );
