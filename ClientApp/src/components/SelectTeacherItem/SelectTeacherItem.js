@@ -19,8 +19,9 @@ export class SelectTeacherItem extends Component {
   }
 
   showId = () => {
-    const { teacher } = this.props;
+    const { teacher, selectedTeacher } = this.props;
     console.log(teacher.id);
+    selectedTeacher(teacher.id)
   }
 
 
