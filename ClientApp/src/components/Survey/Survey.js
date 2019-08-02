@@ -5,10 +5,21 @@ import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 import { SurveyQuestionItem } from '../SurveyQuestionItem/SurveyQuestionItem';
 import './Survey.css';
 import AddQuestion from '../AddQuestion/AddQuestion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export class Survey extends Component {
   state = {
     questions: [],
+    isEditing: false,
+    editId: '-1',
+    isHidden: true,
+  }
+
+  toggleHidden () {
+    this.setState({
+      isHidden: false,
+    })
   }
 
   getQuestions = () => {
@@ -22,10 +33,24 @@ export class Survey extends Component {
   }
 
   formSubmitQuestions = (addNewQuestion) => {
+    const { isEditing, editId } = this.state;
+    if (isEditing) {
+      surveyQuestionRequest.updateQuestionRequest(editId, addNewQuestion)
+        .then(() => {
+          surveyQuestionRequest.getAllQuestionsRequest()
+            .then((questions) => {
+              this.setState({ questions, isEditing: false, editId: '-1' });
+            });
+        })
+        .catch(err => console.error('error with listings post', err));
+    } else {
     surveyQuestionRequest.postQuestionRequest(addNewQuestion).then(() => {
       this.getQuestions();
     });
   };
+};
+
+  passQuestionToEdit = questionId => this.setState({ isEditing: true, editId: questionId });
 
   deleteOneQuestion = (questionId) => {
     surveyQuestionRequest.deleteSingleQuestion(questionId)
@@ -36,12 +61,15 @@ export class Survey extends Component {
   }
 
   render() {
-    const { questions } = this.state;
+    const { questions, isEditing,
+      editId, } = this.state;
+
 
     const surveyQuestions = questions.map(question => (
       <SurveyQuestionItem
         question={question}
         key={question.id}
+        passQuestionToEdit={this.passQuestionToEdit}
         deleteOneQuestion={this.deleteOneQuestion}
       />
     ));
@@ -49,11 +77,13 @@ export class Survey extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-          <Button>Back To Teacher Portal</Button>
+        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
         </Link>
+        <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></a>
         <div className="container">
           <div>
-            <AddQuestion questions={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>
+          {!this.state.isHidden && <AddQuestion isEditing={isEditing}
+            editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
           </div>
           <div className="survey">
             {surveyQuestions}

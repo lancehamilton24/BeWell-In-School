@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink as RRNavLink, Redirect } from 'react-router-dom';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import {
   Navbar,
   Nav,

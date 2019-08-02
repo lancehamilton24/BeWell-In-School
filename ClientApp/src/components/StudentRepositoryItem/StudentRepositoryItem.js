@@ -5,27 +5,27 @@ export class StudentRepositoryItem extends Component {
   render() {
     const { student } = this.props;
     const studentGrade = () => {
-      if (student.studentGrade == 0) {
+      if (student.studentGrade === 0) {
           return (
               "Kindergarten"
           )
       }
-      if (student.studentGrade == 1) {
+      if (student.studentGrade === 1) {
           return (
               "1st"
           )
       }
-      if (student.studentGrade == 2) {
+      if (student.studentGrade === 2) {
           return (
               "2nd"
           )
       }
-      if (student.studentGrade == 3) {
+      if (student.studentGrade === 3) {
         return (
             "3rd"
         )
     }
-    if (student.studentGrade == 4) {
+    if (student.studentGrade === 4) {
       return (
           "4th"
       )

@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import resourceRequest from '../../helpers/data/resourceRequest';
 import { ResourceItem } from '../ResourceItem/ResourceItem';
 import { AddResource } from '../AddResource/AddResource';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './Resources.css';
 
 export class Resources extends Component {
   state = {
     resources: [],
+    isHidden: true,
+  }
+
+  toggleHidden () {
+    this.setState({
+      isHidden: false,
+    })
   }
 
   getResources = () => {
@@ -49,12 +57,13 @@ export class Resources extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-        <Button>Back To Teacher Portal</Button>
+        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
         </Link>
+        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)}/></a>
         {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
           <div>
-            <AddResource resources={resources} onSubmit={this.formSubmitResources}></AddResource>
+        {!this.state.isHidden && <AddResource resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
           </div>
         {resourceItem}
         </div>

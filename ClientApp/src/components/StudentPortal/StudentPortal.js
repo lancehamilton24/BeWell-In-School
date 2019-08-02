@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import studentRequest from '../../helpers/data/studentRequest';
-import teacherRequest from '../../helpers/data/teacherRequest';
 import './StudentPortal.css';
 
 export class StudentPortal extends Component {
@@ -12,7 +9,7 @@ export class StudentPortal extends Component {
   }
 
 
-  render() {
+  render() { 
 
     return (
       <div className="studentportal container">
