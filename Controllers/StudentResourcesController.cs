@@ -39,6 +39,13 @@ namespace BeWell.Controllers
             return Ok(resources);
         }
 
+        [HttpGet("allResources/{id}")]
+        public ActionResult GetSingleResource(int id)
+        {
+            var singleResource = _studentResourcesRepository.GetSingleResource(id);
+            return Ok(singleResource);
+        }
+
         [HttpDelete("deleteResource/{id}")]
         public ActionResult DeleteSingleResource(int id)
         {
@@ -46,7 +53,7 @@ namespace BeWell.Controllers
             return Ok(deletedResource);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("updateResource/{id}")]
         public ActionResult UpdateSingleResource(StudentResources resource)
         {
             var updateSingleResource = _studentResourcesRepository.UpdateSingleResource(resource);
