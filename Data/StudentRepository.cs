@@ -34,6 +34,19 @@ namespace BeWell.Data
             throw new Exception("No user created");
         }
 
+        public Student GetSingleStudent(int id)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allCustomers = db.QueryFirstOrDefault<Student>(@"Select * 
+                                                      from Student
+                                                       Where id = @id",
+                                                       new { id });
+
+                return allCustomers;
+            }
+        }
+
         public IEnumerable<Student> GetAllStudents()
         {
             using (var db = new SqlConnection(ConnectionString))

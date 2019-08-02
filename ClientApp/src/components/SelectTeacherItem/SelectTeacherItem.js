@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import studentRequest from '../../helpers/data/studentRequest';
+import { Button } from 'reactstrap';
 import { SelectStudentItem } from '../SelectStudentItem/SelectStudentItem';
 
 export class SelectTeacherItem extends Component {
@@ -7,32 +8,22 @@ export class SelectTeacherItem extends Component {
     students: [],
   }
 
-  getStudents = () => {
-    studentRequest.getAllStudentsRequest().then((students) => {
-      this.setState({ students });
-    });
+
+  showId = () => {
+    const { teacher, selectedTeacher } = this.props;
+    console.log(teacher.id);
+    selectedTeacher(teacher.id)
   }
 
-  componentDidMount() {
-    this.getStudents();
-  }
+
 
   render() {
-    const { students } = this.state;
-    const { teachers } = this.props;
-
-    const selectStudentItem = students.map(student => (
-      <SelectStudentItem
-        students={student}
-        key={student.id}
-      />
-    ));
+    const { teacher, student } = this.props;
 
     return (
       <div>
-        <button onClick={this.studentList}>{teachers.firstName} {teachers.lastName}</button>
         <div>
-        {selectStudentItem}
+        <Button onClick={this.showId}><p>{teacher.firstName} {teacher.lastName}</p></Button>
         </div>
       </div>
     );

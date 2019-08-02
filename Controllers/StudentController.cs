@@ -33,6 +33,13 @@ namespace BeWell.Controllers
 
         }
 
+        [HttpGet("singleStudent/{id}")]
+        public ActionResult GetSingleCustomer(int id)
+        {
+            var singleStudent = _studentRepository.GetSingleStudent(id);
+            return Ok(singleStudent);
+        }
+
         [HttpGet("allstudents")]
         public ActionResult GetAllPaymentInformation()
         {
@@ -41,7 +48,7 @@ namespace BeWell.Controllers
             return Ok(students);
         }
 
-        [HttpGet("allStudents/{studentGrade}")]
+        [HttpGet("allStudents/{teacherId}")]
         public ActionResult GetStudentsByTeacher(int teacherId)
         {
             var students = _studentRepository.GetStudentsByTeacher(teacherId);
