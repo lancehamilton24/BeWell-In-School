@@ -10,6 +10,13 @@ export class ResourceItem extends Component {
     deleteOneResource(resource.id);
   }
 
+  editResourceEvent = (e) => {
+    e.preventDefault();
+    const { passResourceToEdit, resource } = this.props;
+    passResourceToEdit(resource.id);
+  }
+
+
   render() {
     const { resource } = this.props;
     return (
@@ -18,7 +25,7 @@ export class ResourceItem extends Component {
         <h5>{resource.description}</h5>
         <p>{resource.url}</p>
         <div className="edit-delete-questions">
-        <div className="edit-question">
+        <div className="edit-question" onClick={this.editResourceEvent}>
         <Button><FontAwesomeIcon icon={faPencilAlt} /></Button>
         </div>
         <div className="delete-question" onClick={this.deleteResourceEvent}>
