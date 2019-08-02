@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 
@@ -7,16 +8,14 @@ const defaultQuestion = {
 };
 
 class AddQuestion extends Component {
-  state = {
-    addNewQuestion: defaultQuestion,
+  static propTypes = {
+    onSubmit: PropTypes.func,
+    isEditing: PropTypes.bool,
+    editId: PropTypes.string,
   }
 
-  addQuestion = () => {
-    const { addNewQuestion } = this.state;
-    const addQuestion = {
-      QuestionText: addNewQuestion.questionText,
-    };
-    surveyQuestionRequest.postQuestionRequest(addQuestion);
+  state = {
+    addNewQuestion: defaultQuestion,
   }
 
   formFieldStringState = (name, e) => {
@@ -38,13 +37,55 @@ class AddQuestion extends Component {
     this.setState({ addNewQuestion: defaultQuestion });
   }
 
+  componentDidUpdate(prevProps) {
+    const { isEditing, editId } = this.props;
+    if (prevProps !== this.props && isEditing) {
+      surveyQuestionRequest.getSingleQuestion(editId)
+        .then((question) => {
+          this.setState({ addNewQuestion: question.data });
+        })
+        .catch(err => console.error('error with getSingleListing', err));
+    }
+  }
+
 
   render() {
     const { addNewQuestion } = this.state;
+    const { isEditing } = this.props
 
+    if (isEditing) {
+      return (
+        <div>
+        <p className="text-center">Edit questionText</p>
+        <div class="row">
+          <form class="col s12" onSubmit={this.formSubmit}>
+            <div class="row">
+              <div class="input-field col s6">
+                <input
+                  type="text"
+                  class="validate"
+                  id="inputQuestion"
+                  placeholder="Add Survey Question"
+                  value={addNewQuestion.questionText}
+                  onChange={this.questionChange}
+                />
+              </div>
+            </div>
+          </form>
+          <Button
+          type="submit"
+          className="btn btn-default col-xs-12"
+          onClick={this.formSubmit}
+        >
+          Add Question
+                      </Button>
+        </div>
+      </div>
+      );;
+    }
     return (
       <div>
-        {/* <h4 className="text-center">Current Survey</h4> */}
+        <p className="text-center">Add New</p>
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>
             <div class="row">

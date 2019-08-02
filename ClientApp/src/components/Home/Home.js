@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './Home.scss';
 
 export class Home extends Component {
   render() {
     return (
+      <div className="home">
       <div className="container">
         <h1>Be Well In School</h1>
         <Link to ="studentPortal" className="studentLink">
@@ -13,6 +15,7 @@ export class Home extends Component {
         <Link to="/teacherPortal" className="teacherLink">
         <Button>Teacher Portal</Button>
         </Link>
+      </div>
       </div>
     );
   }

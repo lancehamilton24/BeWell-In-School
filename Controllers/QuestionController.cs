@@ -35,6 +35,13 @@ namespace BeWell.Controllers
 
             return Ok(questions);
         }
+        [HttpGet("allQuestions/{id}")]
+        public ActionResult GetQuestionById(int id)
+        {
+            var questions = _questionRepository.GetQuestionById(id);
+
+            return Ok(questions);
+        }
 
         [HttpDelete("deleteQuestion/{id}")]
         public ActionResult DeleteSingleQuestion(int id)
@@ -43,7 +50,7 @@ namespace BeWell.Controllers
             return Ok(deletedQuestion);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("updateQuestion/{id}")]
         public ActionResult UpdateSingleQuestion(Question questionText)
         {
             var updateSingleQuestion = _questionRepository.UpdateSingleQuestion(questionText);

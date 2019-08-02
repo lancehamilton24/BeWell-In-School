@@ -11,6 +11,12 @@ export class SurveyQuestionItem extends Component {
     deleteOneQuestion(question.id);
   }
 
+  editQuestionEvent = (e) => {
+    e.preventDefault();
+    const { passQuestionToEdit, question } = this.props;
+    passQuestionToEdit(question.id);
+  }
+
   render() {
     const { question } = this.props;
     console.log(question);
@@ -19,7 +25,7 @@ export class SurveyQuestionItem extends Component {
       <div className="question-text container">
         <p>{question.questionText}</p>
         <div className="edit-delete-questions">
-        <div className="edit-question">
+        <div className="edit-question" onClick={this.editQuestionEvent}>
         <Button><FontAwesomeIcon icon={faPencilAlt} /></Button>
         </div>
         <div className="delete-question" onClick={this.deleteQuestionEvent}>

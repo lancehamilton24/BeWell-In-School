@@ -41,6 +41,15 @@ namespace BeWell.Data
             }
         }
 
+        public Question GetQuestionById(int id)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var singleQuestion = db.QueryFirstOrDefault<Question>(@"Select * from Question where id = @id", new { id });
+                return singleQuestion;
+            }
+        }
+
         public Question DeleteSingleQuestion(int id)
         {
             using (var db = new SqlConnection(ConnectionString))

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import SearchField from 'react-search-field';
 import studentRequest from '../../helpers/data/studentRequest';
 import { StudentRepositoryItem } from '../StudentRepositoryItem/StudentRepositoryItem';
 import './StudentRepository.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 export class StudentRepository extends Component {
@@ -61,7 +62,7 @@ export class StudentRepository extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-          <Button>Back To Teacher Portal</Button>
+        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
         </Link>
         <div className="container">
         <div className="searchbar">

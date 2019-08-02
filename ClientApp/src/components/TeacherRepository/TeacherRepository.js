@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class TeacherRepository extends Component {
   render() {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-        <Button>Back To Teacher Portal</Button>
+        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
         </Link>
         <h1>Teacher Repository</h1>
       </div>
