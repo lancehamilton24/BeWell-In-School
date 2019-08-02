@@ -8,15 +8,6 @@ export class SelectTeacherItem extends Component {
     students: [],
   }
 
-  getStudents = () => {
-    studentRequest.getAllStudentsRequest().then((students) => {
-      this.setState({ students });
-    });
-  }
-
-  componentDidMount() {
-    this.getStudents();
-  }
 
   showId = () => {
     const { teacher, selectedTeacher } = this.props;
@@ -27,8 +18,7 @@ export class SelectTeacherItem extends Component {
 
 
   render() {
-    const { teacher } = this.props;
-
+    const { teacher, student } = this.props;
 
     return (
       <div>

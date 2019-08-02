@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 import './StudentPortal.css';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
+import studentRequest from '../../helpers/data/studentRequest';
+import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
 
 export class StudentPortal extends Component {
   state = {
     students: [],
     teachers: [],
     selectedTeacherId: '',
+    selectedStudentId: '',
+    selectedStudent: [],
   }
 
   getAllTeachers = () => {
@@ -22,11 +26,23 @@ export class StudentPortal extends Component {
     this.getAllTeachers();
   }
 
-  selectedTeacher = teacherId => this.setState({ selectedTeacherId: teacherId });
+  selectedTeacher = teacherId => {
+    this.setState({ selectedTeacherId: teacherId })
+    studentRequest.getStudentsByTeacher(teacherId).then((students) => {
+      this.setState({ students });
+    })
+  }
+
+  selectStudent = studentId => {
+    this.setState({ selectedStudentId: studentId });
+    studentRequest.getSingleStudent(studentId).then((selectedStudent) => {
+      this.setState({ selectedStudent });
+    })
+  }
 
 
-  render() { 
-    const { teachers, teacherId } = this.state;
+  render() {
+    const { teachers, teacherId, students } = this.state;
 
     const teacherItem = teachers.map(teacher => (
       <SelectTeacherItem
@@ -35,14 +51,41 @@ export class StudentPortal extends Component {
         selectedTeacher={this.selectedTeacher}
       />
     ));
+    const studentItem = students.map(student => (
+      <SelectStudentItem
+        student={student}
+        key={student.id}
+        selectStudent={this.selectStudent}
+      />
+    ));
 
+
+    if (students.length > 0) {
+      return (
+        <div className="studentportal container">
+          <div className="portal">
+            <h1>Student Portal</h1>
+            <p>Please select your name</p>
+            <div>
+              {studentItem}
+            </div>
+            <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
+            <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
+            <Link to="/studentResources" className="student-resources-button"><Button>Extra Resources</Button></Link>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
           <p>Begin by selecting your teacher!</p>
           <div>
-          {teacherItem}
+            {teacherItem}
+          </div>
+          <div>
+            {studentItem}
           </div>
           <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
           <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 export class SelectStudentItem extends Component {
+  showId = () => {
+    const { student, selectStudent } = this.props;
+    console.log(student.id);
+    selectStudent(student.id)
+  }
+
   render() {
-    const { students } = this.props;
-    console.log(students);
+    const { student } = this.props;
+    console.log(student);
 
     return (
       <div>
-        <p>{students.firstName} {students.lastName}</p>
+        <Button onClick={this.showId}>{student.firstName} {student.lastName}</Button>
       </div>
     );
   }
