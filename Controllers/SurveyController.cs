@@ -27,7 +27,7 @@ namespace BeWell.Controllers
         public ActionResult AddSurvey(CreateSurveyRequest createRequest)
         {
 
-            var newSurvey = _surveyRepository.AddSurvey(createRequest.Date, createRequest.QuestionId, createRequest.AnswerId);
+            var newSurvey = _surveyRepository.AddSurvey(createRequest.QuestionId, createRequest.AnswerId);
             return Created($"/api/student/{newSurvey.Id}", newSurvey);
 
         }

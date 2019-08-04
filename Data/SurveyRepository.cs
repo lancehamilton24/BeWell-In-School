@@ -12,7 +12,7 @@ namespace BeWell.Data
     {
         const string ConnectionString = "Server=localhost;Database=BeWell;Trusted_Connection=True;";
 
-        public Survey AddSurvey(DateTime date, int questionId, int answerId)
+        public Survey AddSurvey(int questionId, int answerId)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
@@ -20,7 +20,7 @@ namespace BeWell.Data
                     Insert into Survey (date, questionId, answerId )
                     Output inserted.*
                     Values(@date,@questionId,@answerId )",
-                    new { date, questionId, answerId });
+                    new { DateTime.Now, questionId, answerId });
 
 
                 if (addStudentInformation != null)
