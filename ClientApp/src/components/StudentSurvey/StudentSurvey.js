@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 import { StudentSurveyQuestionItem } from '../StudentSurveyQuestionItem/StudentSurveyQuestionItem';
 import answerRequest from '../../helpers/data/answerRequest';
+import surveyRequest from '../../helpers/data/surveyRequest';
 
 export class StudentSurvey extends Component {
   state = {
     questions: [],
+    currentStudentId: this.props.location.state.selectedStudentId,
   }
 
   getQuestions = () => {
     surveyQuestionRequest.getAllQuestionsRequest().then((questions) => {
-      this.setState({ questions });
-    });
+      this.setState({ questions })
+    })
   }
 
   componentDidMount() {
@@ -27,20 +29,23 @@ export class StudentSurvey extends Component {
     thisQuestion.answerText = answerText;
     this.setState({ questions: this.state.questions });
     console.log(this.state.questions);
+    const addAnswer = {
+      QuestionId: event.currentTarget.id,
+      StudentId: this.state.currentStudentId,
+      AnswerText: event.currentTarget.value
+    }
+    console.log(addAnswer)
   }
 
-  formSubmitAnswers = (addNewAnswer) => {
-      answerRequest.postAnswerRequest(addNewAnswer)
-  };
-
-  formSubmit = (e) => {
-    const { questions } = this.state;
-    e.preventDefault();
-    const resourceInformation = { ...this.state.questions };
-    console.log(resourceInformation)
-    this.formSubmitAnswers(resourceInformation);
-    this.setState ({ questions });
-    console.log(questions);
+  formSubmit = () => {
+    console.log( ...this.state.questions)
+    const hello = { ...this.state.questions };
+    const addAnswer = {
+      QuestionId: hello.id,
+      StudentId: this.state.currentStudentId,
+      AnswerText: hello.answerText
+    }
+    console.log(addAnswer)
   }
 
   render() {

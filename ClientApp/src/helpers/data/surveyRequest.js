@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const postAnswerRequest = addNewAnswer => new Promise((resolve, reject) => {
+const postSurveyRequest = addNewSurvey => new Promise((resolve, reject) => {
   axios
     .post('http://localhost:64175/api/survey/register', addNewSurvey)
     .then((res) => {

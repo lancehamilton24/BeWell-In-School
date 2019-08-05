@@ -16,7 +16,7 @@ export class StudentSurveyQuestionItem extends Component {
     return (
       <div className="question-text container">
         <p>{questions.questionText}</p>
-        <form class="col s12" onSubmit={this.formSubmitAnswer}>
+        <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
               <input id={questions.id} placeholder="Answer" type="text" class="validate" onChange={addQuestion}></input>
