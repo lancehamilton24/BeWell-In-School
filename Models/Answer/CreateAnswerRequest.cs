@@ -10,6 +10,7 @@ namespace BeWell.Models.Answer
         public int Id { get; set; }
         public string AnswerText { get; set; }
         public int AnswerNumber { get; set; }
-        public int QuesitonId { get; set; }
+        public int QuestionId { get; set; }
+        public int StudentId { get; set; }
     }
 }

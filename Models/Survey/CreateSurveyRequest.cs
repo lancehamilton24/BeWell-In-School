@@ -12,6 +12,6 @@ namespace BeWell.Models.Survey
         public int QuestionId { get; set; }
         public int StudentId { get; set; }
         public string AnswerText { get; set; }
-
+        public int AnswerId { get; set; }
     }
 }

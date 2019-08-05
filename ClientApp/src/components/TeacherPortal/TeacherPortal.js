@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './TeacherPortal.css';
+import './TeacherPortal.scss';
 
 export class TeacherPortal extends Component {
   state = {
@@ -19,10 +19,16 @@ export class TeacherPortal extends Component {
       <div className="teacher-portal container">
         <h1>Teacher Portal</h1>
         <p>Welcome {teacherName}</p>
-        <Link to="/survey" className="surveyButton"><Button>View/Edit Survey</Button></Link>
-        <Link to="/studentRepository" className="studentRepositoryButton"><Button>Student Repository</Button></Link>
-        <Link to="/studentSurveyResponses" className="studentSurveyResultsButton"><Button>View Student Survey Results</Button></Link>
-        <Link to="/resources" className="createResourcesButton"><Button>Add Student Resources</Button></Link>
+        <div className="teacher-links">
+          <div>
+        <Link to="/survey" className="surveyButton"><button>View/Edit Survey</button></Link>
+        <Link to="/studentRepository" className="studentRepositoryButton"><button>Student Repository</button></Link>
+          </div>
+          <div>
+        <Link to="/studentSurveyResponses" className="studentSurveyResultsButton"><button>View Student Survey Results</button></Link>
+        <Link to="/resources" className="createResourcesButton"><button>Add Student Resources</button></Link>
+        </div>
+        </div>
       </div>
     );
   }

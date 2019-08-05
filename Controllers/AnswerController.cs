@@ -27,7 +27,8 @@ namespace BeWell.Controllers
         {
 
             var newAnswer = _answerRepository.AddTextAnswer(createRequest.AnswerText);
-            //_surveyRepository.AddSurvey(createRequest.QuestionId, newAnswer.Id);
+            _surveyRepository.AddSurvey(createRequest.QuestionId,
+                createRequest.StudentId, createRequest.AnswerText, newAnswer.Id);
             return Created($"/api/student/{newAnswer.Id}", newAnswer);
 
         }

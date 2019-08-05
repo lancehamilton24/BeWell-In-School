@@ -75,9 +75,14 @@ export class StudentPortal extends Component {
                 state: { selectedStudent: selectedStudent, 
                          selectedStudentId: selectedStudentId
                         }
-            }} className="completeSurveyButton"><Button>Daily Survey</Button></Link>
+            }} className="complete-survey-button"><Button>Daily Survey</Button></Link>
             <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
-            <Link to="/studentResources" className="student-resources-button"><Button>Extra Resources</Button></Link>
+            <Link to={{
+                pathname: '/studentResources',
+                state: { selectedStudent: selectedStudent, 
+                         selectedStudentId: selectedStudentId
+                        }
+            }} className="student-resources-button"><Button>Extra Resources</Button></Link>
           </div>
         </div>
       );
