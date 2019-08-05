@@ -7,7 +7,7 @@ export class Home extends Component {
   render() {
     return (
       <div className="home">
-      <div className="container">
+      {/* <div className="container"> */}
         <h1>Be Well In School</h1>
         <Link to ="studentPortal" className="studentLink">
         <button>Student Portal</button>
@@ -15,7 +15,7 @@ export class Home extends Component {
         <Link to="/teacherPortal" className="teacherLink">
         <button>Teacher Portal</button>
         </Link>
-      </div>
+      {/* </div> */}
       </div>
     );
   }
