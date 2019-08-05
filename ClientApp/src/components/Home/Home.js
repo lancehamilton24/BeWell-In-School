@@ -10,10 +10,10 @@ export class Home extends Component {
       <div className="container">
         <h1>Be Well In School</h1>
         <Link to ="studentPortal" className="studentLink">
-        <Button>Student Portal</Button>
+        <button>Student Portal</button>
         </Link>
         <Link to="/teacherPortal" className="teacherLink">
-        <Button>Teacher Portal</Button>
+        <button>Teacher Portal</button>
         </Link>
       </div>
       </div>
