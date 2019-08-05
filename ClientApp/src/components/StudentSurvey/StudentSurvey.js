@@ -20,6 +20,7 @@ export class StudentSurvey extends Component {
 
   componentDidMount() {
     this.getQuestions();
+    this.setState({ })
   }
 
   answerQuestion(event) {
@@ -39,12 +40,13 @@ export class StudentSurvey extends Component {
 
   formSubmit = () => {
     console.log( ...this.state.questions)
-    const hello = { ...this.state.questions };
+    const allAnswers = { ...this.state.questions };
     const addAnswer = {
-      QuestionId: hello.id,
+      QuestionId: allAnswers.id,
       StudentId: this.state.currentStudentId,
-      AnswerText: hello.answerText
+      AnswerText: allAnswers.answerText
     }
+    answerRequest.postAnswerRequest(addAnswer)
     console.log(addAnswer)
   }
 
