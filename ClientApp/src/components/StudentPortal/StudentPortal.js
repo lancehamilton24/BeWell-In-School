@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './StudentPortal.css';
+import './StudentPortal.scss';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
 import studentRequest from '../../helpers/data/studentRequest';
@@ -67,8 +67,7 @@ export class StudentPortal extends Component {
           <div className="portal">
             <h1>Student Portal</h1>
             <div>
-              <h5>Hello!</h5>
-              {selectedStudent.firstName} {selectedStudent.lastName}
+              <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
             </div>
             <Link to={{
                 pathname: '/studentsurvey',

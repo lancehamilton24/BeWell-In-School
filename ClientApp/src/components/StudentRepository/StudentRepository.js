@@ -61,7 +61,7 @@ export class StudentRepository extends Component {
 
     return (
       <div>
-        <Link to="/teacherPortal" className="teacherLink">
+        <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
         <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
         </Link>
         <div className="container">

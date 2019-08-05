@@ -18,7 +18,6 @@ export class TeacherPortal extends Component {
     return (
       <div className="teacher-portal container">
         <h1>Teacher Portal</h1>
-        <p>Welcome {teacherName}</p>
         <div className="teacher-links">
           <div>
         <Link to="/survey" className="surveyButton"><button>View/Edit Survey</button></Link>

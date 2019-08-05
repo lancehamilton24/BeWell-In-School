@@ -7,15 +7,15 @@ export class Home extends Component {
   render() {
     return (
       <div className="home">
-      {/* <div className="container"> */}
-        <h1>Be Well In School</h1>
+        <h1>Welcome to BeWell</h1>
+      <div className="container">
         <Link to ="studentPortal" className="studentLink">
         <button>Student Portal</button>
         </Link>
         <Link to="/teacherPortal" className="teacherLink">
         <button>Teacher Portal</button>
         </Link>
-      {/* </div> */}
+      </div>
       </div>
     );
   }

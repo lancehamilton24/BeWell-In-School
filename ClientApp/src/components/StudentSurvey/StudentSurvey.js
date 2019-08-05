@@ -30,19 +30,21 @@ export class StudentSurvey extends Component {
     thisQuestion.answerText = answerText;
     this.setState({ questions: this.state.questions });
     console.log(this.state.questions);
-    const addAnswer = {
-      QuestionId: event.currentTarget.id,
-      StudentId: this.state.currentStudentId,
-      AnswerText: event.currentTarget.value
-    }
-    console.log(addAnswer)
   }
 
   formSubmit = () => {
     console.log( ...this.state.questions)
+
+
+const arr = this.state.questions;
+arr.forEach(element => {
+  console.log(element.id);
+});
+
     const allAnswers = { ...this.state.questions };
+    console.log(allAnswers)
     const addAnswer = {
-      QuestionId: allAnswers.id,
+      QuestionId: allAnswers,
       StudentId: this.state.currentStudentId,
       AnswerText: allAnswers.answerText
     }
