@@ -26,20 +26,23 @@ namespace BeWell.Controllers
         public ActionResult AddTextAnswer(CreateAnswerRequest createRequest)
         {
 
-            var newAnswer = _answerRepository.AddTextAnswer(createRequest.AnswerText);
-            _surveyRepository.AddSurvey(createRequest.QuestionId,
-                createRequest.StudentId, createRequest.AnswerText, newAnswer.Id);
-            return Created($"/api/student/{newAnswer.Id}", newAnswer);
+            _surveyRepository.AddSurvey(createRequest.StudentId);
+            foreach (var answer in createRequest.Answers)
+            {
+                var newAnswer = _answerRepository.AddTextAnswer(answer.AnswerText, answer.QuestionId);
+            }
+
+            return Ok();
 
         }
-        [HttpPost("registerNumber")]
-        public ActionResult AddNumberAnswer(CreateAnswerRequest createRequest)
-        {
+        //[HttpPost("registerNumber")]
+        //public ActionResult AddNumberAnswer(CreateAnswerRequest createRequest)
+        //{
 
-            var newAnswer = _answerRepository.AddNumberAnswer(createRequest.AnswerNumber);
-            return Created($"/api/student/{newAnswer.Id}", newAnswer);
+        //    var newAnswer = _answerRepository.AddNumberAnswer(createRequest.AnswerNumber);
+        //    return Created($"/api/student/{newAnswer.Id}", newAnswer);
 
-        }
+        //}
         [HttpGet("allAnswers")]
         public ActionResult GetAllAnswers()
         {

@@ -20,7 +20,7 @@ export class StudentSurvey extends Component {
 
   componentDidMount() {
     this.getQuestions();
-    this.setState({ })
+    this.setState({})
   }
 
   answerQuestion(event) {
@@ -33,23 +33,15 @@ export class StudentSurvey extends Component {
   }
 
   formSubmit = () => {
-    console.log( ...this.state.questions)
-
-
-const arr = this.state.questions;
-arr.forEach(element => {
-  console.log(element.id);
-});
-
-    const allAnswers = { ...this.state.questions };
-    console.log(allAnswers)
-    const addAnswer = {
-      QuestionId: allAnswers,
+    console.log(...this.state.questions)
+    const allQuestions = [...this.state.questions];
+    console.log(allQuestions)
+    const createSurveyRequest = {
       StudentId: this.state.currentStudentId,
-      AnswerText: allAnswers.answerText
-    }
-    answerRequest.postAnswerRequest(addAnswer)
-    console.log(addAnswer)
+      Questions: allQuestions,
+    };
+    console.log(createSurveyRequest)
+    surveyRequest.postSurvey(createSurveyRequest);
   }
 
   render() {
