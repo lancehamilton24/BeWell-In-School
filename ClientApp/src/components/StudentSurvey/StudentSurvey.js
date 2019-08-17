@@ -12,9 +12,7 @@ export class StudentSurvey extends Component {
     currentStudentId: this.props.location.state.selectedStudentId,
     answerText: '',
     questionId: '',
-    questionText: '',
     answerId: '',
-    surveyId: '',
   }
 
   getQuestions = () => {
@@ -37,16 +35,16 @@ export class StudentSurvey extends Component {
     thisQuestion.answerText = answerText;
     console.log(answerText);
     console.log(event.currentTarget)
-    // const allQuestions = this.state.questions;
-    // this.setState({ questions: this.state.questions });
-    // console.log(allQuestions);
   }
 
   formSubmit = () => {
+    var today = new Date();
+    // var dateWithoutTime = new Date(today.getFullYear() , today.getMonth(), today.getDate());
     const createAnswerRequest = {
       StudentId: this.state.currentStudentId,
       AnswerText: this.state.answerText,
-      QuestionId: this.state.questionId,
+      QuestionId: Number.parseInt(this.state.questionId, 10),
+      AnswerDate: today,
     };
     console.log(createAnswerRequest)
     answerRequest.postAnswerRequest(createAnswerRequest);
