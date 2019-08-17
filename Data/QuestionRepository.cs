@@ -41,6 +41,16 @@ namespace BeWell.Data
             }
         }
 
+        public IEnumerable<Question> GetNewQuestion()
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var newQuestion = db.Query<Question>(@"SELECT TOP 1 * FROM Question ORDER BY id DESC").ToList();
+                return newQuestion;
+            }
+        }
+        
+
         public Question GetQuestionById(int id)
         {
             using (var db = new SqlConnection(ConnectionString))

@@ -35,6 +35,15 @@ namespace BeWell.Controllers
 
             return Ok(questions);
         }
+
+        [HttpGet("newQuestion")]
+        public ActionResult GetNewQuestion()
+        {
+            var questions = _questionRepository.GetNewQuestion();
+
+            return Ok(questions);
+        }
+
         [HttpGet("allQuestions/{id}")]
         public ActionResult GetQuestionById(int id)
         {
