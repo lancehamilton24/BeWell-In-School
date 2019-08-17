@@ -39,7 +39,6 @@ export class StudentSurvey extends Component {
 
   formSubmit = () => {
     var today = new Date();
-    // var dateWithoutTime = new Date(today.getFullYear() , today.getMonth(), today.getDate());
     const createAnswerRequest = {
       StudentId: this.state.currentStudentId,
       AnswerText: this.state.answerText,
@@ -48,6 +47,7 @@ export class StudentSurvey extends Component {
     };
     console.log(createAnswerRequest)
     answerRequest.postAnswerRequest(createAnswerRequest);
+    alert("Your answer has been successfully submitted");
   }
 
   render() {
