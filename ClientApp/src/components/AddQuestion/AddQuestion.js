@@ -5,6 +5,7 @@ import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 
 const defaultQuestion = {
   questionText: '',
+  questionDate: new Date(),
 };
 
 class AddQuestion extends Component {

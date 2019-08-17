@@ -20,19 +20,12 @@ namespace BeWell.Controllers
         {
             _answerRepository = new AnswerRepository();
         }
+
         [HttpPost("register")]
-        public ActionResult AddTextAnswer(CreateAnswerRequest createRequest)
+        public ActionResult AddAnswer(CreateAnswerRequest createRequest)
         {
 
-            var newAnswer = _answerRepository.AddTextAnswer(createRequest.AnswerText);
-            return Created($"/api/student/{newAnswer.Id}", newAnswer);
-
-        }
-        [HttpPost("registerNumber")]
-        public ActionResult AddNumberAnswer(CreateAnswerRequest createRequest)
-        {
-
-            var newAnswer = _answerRepository.AddNumberAnswer(createRequest.AnswerNumber);
+            var newAnswer = _answerRepository.AddAnswer(createRequest.AnswerText, createRequest.StudentId, createRequest.QuestionId, createRequest.AnswerDate);
             return Created($"/api/student/{newAnswer.Id}", newAnswer);
 
         }

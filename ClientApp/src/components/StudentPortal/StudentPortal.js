@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './StudentPortal.css';
+import './StudentPortal.scss';
 import teacherRequest from '../../helpers/data/teacherRequest';
 import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
 import studentRequest from '../../helpers/data/studentRequest';
@@ -67,12 +67,21 @@ export class StudentPortal extends Component {
           <div className="portal">
             <h1>Student Portal</h1>
             <div>
-              <h5>Hello!</h5>
-              {selectedStudent.firstName} {selectedStudent.lastName}
+              <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
             </div>
-            <Link to="/studentSurvey" className="completeSurveyButton"><Button>Daily Survey</Button></Link>
+            <Link to={{
+                pathname: '/studentsurvey',
+                state: { selectedStudent: selectedStudent, 
+                         selectedStudentId: selectedStudentId
+                        }
+            }} className="complete-survey-button"><Button>Daily Survey</Button></Link>
             <Link to="/studentSurveyResponses" className="studentSurveyResponsesButton"><Button>View Previous Surveys</Button></Link>
-            <Link to="/studentResources" className="student-resources-button"><Button>Extra Resources</Button></Link>
+            <Link to={{
+                pathname: '/studentResources',
+                state: { selectedStudent: selectedStudent, 
+                         selectedStudentId: selectedStudentId
+                        }
+            }} className="student-resources-button"><Button>Extra Resources</Button></Link>
           </div>
         </div>
       );

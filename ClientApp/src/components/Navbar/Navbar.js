@@ -4,7 +4,7 @@ import {
   Navbar,
   Nav,
   NavbarToggler,
-  // NavbarBrand,
+  NavbarBrand,
   NavLink,
   NavItem,
 } from 'reactstrap';
@@ -16,7 +16,7 @@ class MyNavbar extends React.Component {
     return (
       <div className="Navbar navbar-dark bg-dark">
           <Navbar expand="md">
-            {/* <NavbarBrand to="/" className="navbar-brand"> */}
+            <NavbarBrand to="/" className="navbar-brand center">BeWell in School</NavbarBrand>
             {/* <img className='littlefoot-image' src={Banner} alt='product' /></NavbarBrand> */}
             <NavbarToggler />
             <div className="yes">        
