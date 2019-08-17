@@ -37,6 +37,14 @@ namespace BeWell.Controllers
             return Ok(Answers);
         }
 
+        [HttpGet("allAnswers/{studentId}")]
+        public ActionResult GetAnswersByStudentId(int studentId)
+        {
+            var Answers = _answerRepository.GetAnswersByStudentId(studentId);
+
+            return Ok(Answers);
+        }
+
         [HttpDelete("{id}")]
         public ActionResult DeleteSingleAnswer(int id)
         {
