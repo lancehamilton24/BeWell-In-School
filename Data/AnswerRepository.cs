@@ -12,15 +12,15 @@ namespace BeWell.Data
     {
         const string ConnectionString = "Server=localhost;Database=BeWell;Trusted_Connection=True;";
 
-        public Answer AddTextAnswer(string answerText, int questionId)
+        public Answer AddAnswer(string answerText, int studentId, int questionId, DateTime answerDate)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
                 var addAnswer = db.QueryFirstOrDefault<Answer>(@"
-                    Insert into Answer (answerText, questionId)
+                    Insert into Answer (answerText, studentId, questionId, answerDate)
                     Output inserted.*
-                    Values(@answerText,@questionId)",
-                    new { answerText, questionId});
+                    Values(@answerText,@studentId,@questionId,@answerDate)",
+                    new { answerText, studentId, questionId, answerDate });
 
 
                 if (addAnswer != null)
@@ -32,25 +32,25 @@ namespace BeWell.Data
             throw new Exception("No answer created");
         }
 
-        public Answer AddNumberAnswer(int answerNumber)
-        {
-            using (var db = new SqlConnection(ConnectionString))
-            {
-                var addAnswer = db.QueryFirstOrDefault<Answer>(@"
-                    Insert into Answer (answerNumber)
-                    Output inserted.*
-                    Values(@answerNumber)",
-                    new { answerNumber });
+        //public Answer AddNumberAnswer(int answerNumber)
+        //{
+        //    using (var db = new SqlConnection(ConnectionString))
+        //    {
+        //        var addAnswer = db.QueryFirstOrDefault<Answer>(@"
+        //            Insert into Answer (answerNumber)
+        //            Output inserted.*
+        //            Values(@answerNumber)",
+        //            new { answerNumber });
 
 
-                if (addAnswer != null)
-                {
-                    return addAnswer;
-                }
-            }
+        //        if (addAnswer != null)
+        //        {
+        //            return addAnswer;
+        //        }
+        //    }
 
-            throw new Exception("No answer created");
-        }
+        //    throw new Exception("No answer created");
+        //}
 
         public IEnumerable<Answer> GetAllAnswers()
         {

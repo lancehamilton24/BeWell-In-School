@@ -19,7 +19,7 @@ export class StudentSurveyQuestionItem extends Component {
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input id={questions.id} placeholder="Answer" type="text" class="validate" onChange={addQuestion}></input>
+              <input id={questions.id} name={questions.questionText} placeholder="Answer" type="text" class="validate" onChange={addQuestion}></input>
             </div>
           </div>
         </form>

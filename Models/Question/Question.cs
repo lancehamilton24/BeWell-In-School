@@ -9,5 +9,6 @@ namespace BeWell.Models.Question
     {
         public int Id { get; set; }
         public string QuestionText { get; set; }
+        public DateTime QuestionDate { get; set;}
     }
 }

@@ -24,7 +24,7 @@ namespace BeWell.Controllers
         public ActionResult AddQuestion(CreateQuestionRequest createRequest)
         {
 
-            var newQuestion = _questionRepository.AddQuestion(createRequest.QuestionText);
+            var newQuestion = _questionRepository.AddQuestion(createRequest.QuestionText, createRequest.QuestionDate);
             return Created($"/api/student/{newQuestion.Id}", newQuestion);
 
         }

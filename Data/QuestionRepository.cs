@@ -12,15 +12,15 @@ namespace BeWell.Data
     {
         const string ConnectionString = "Server=localhost;Database=BeWell;Trusted_Connection=True;";
 
-        public Question AddQuestion(string questionText)
+        public Question AddQuestion(string questionText, DateTime questionDate)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
                 var addQuestion = db.QueryFirstOrDefault<Question>(@"
-                    Insert into Question (questionText)
+                    Insert into Question (questionText,questionDate)
                     Output inserted.*
-                    Values(@questionText)",
-                    new { questionText });
+                    Values(@questionText,@questionDate)",
+                    new { questionText, questionDate });
 
 
                 if (addQuestion != null)

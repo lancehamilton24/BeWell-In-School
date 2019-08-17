@@ -10,6 +10,11 @@ export class StudentSurvey extends Component {
   state = {
     questions: [],
     currentStudentId: this.props.location.state.selectedStudentId,
+    answerText: '',
+    questionId: '',
+    questionText: '',
+    answerId: '',
+    surveyId: '',
   }
 
   getQuestions = () => {
@@ -20,28 +25,31 @@ export class StudentSurvey extends Component {
 
   componentDidMount() {
     this.getQuestions();
-    this.setState({})
   }
 
   answerQuestion(event) {
     const questionId = event.currentTarget.id;
+    console.log(event.currentTarget)
+    this.setState({ questionId })
     const answerText = event.currentTarget.value;
+    this.setState({ answerText })
     const thisQuestion = this.state.questions.find(question => question.id == questionId)
     thisQuestion.answerText = answerText;
-    this.setState({ questions: this.state.questions });
-    console.log(this.state.questions);
+    console.log(answerText);
+    console.log(event.currentTarget)
+    // const allQuestions = this.state.questions;
+    // this.setState({ questions: this.state.questions });
+    // console.log(allQuestions);
   }
 
   formSubmit = () => {
-    console.log(...this.state.questions)
-    const allQuestions = [...this.state.questions];
-    console.log(allQuestions)
-    const createSurveyRequest = {
+    const createAnswerRequest = {
       StudentId: this.state.currentStudentId,
-      Questions: allQuestions,
+      AnswerText: this.state.answerText,
+      QuestionId: this.state.questionId,
     };
-    console.log(createSurveyRequest)
-    surveyRequest.postSurvey(createSurveyRequest);
+    console.log(createAnswerRequest)
+    answerRequest.postAnswerRequest(createAnswerRequest);
   }
 
   render() {

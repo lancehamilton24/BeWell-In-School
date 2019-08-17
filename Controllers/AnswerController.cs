@@ -14,35 +14,21 @@ namespace BeWell.Controllers
     public class AnswerController : ControllerBase
     {
         readonly AnswerRepository _answerRepository;
-        readonly SurveyRepository _surveyRepository;
 
 
         public AnswerController()
         {
             _answerRepository = new AnswerRepository();
-            _surveyRepository = new SurveyRepository();
         }
+
         [HttpPost("register")]
-        public ActionResult AddTextAnswer(CreateAnswerRequest createRequest)
+        public ActionResult AddAnswer(CreateAnswerRequest createRequest)
         {
 
-            _surveyRepository.AddSurvey(createRequest.StudentId);
-            foreach (var answer in createRequest.Answers)
-            {
-                var newAnswer = _answerRepository.AddTextAnswer(answer.AnswerText, answer.QuestionId);
-            }
-
-            return Ok();
+            var newAnswer = _answerRepository.AddAnswer(createRequest.AnswerText, createRequest.StudentId, createRequest.QuestionId, createRequest.AnswerDate);
+            return Created($"/api/student/{newAnswer.Id}", newAnswer);
 
         }
-        //[HttpPost("registerNumber")]
-        //public ActionResult AddNumberAnswer(CreateAnswerRequest createRequest)
-        //{
-
-        //    var newAnswer = _answerRepository.AddNumberAnswer(createRequest.AnswerNumber);
-        //    return Created($"/api/student/{newAnswer.Id}", newAnswer);
-
-        //}
         [HttpGet("allAnswers")]
         public ActionResult GetAllAnswers()
         {
