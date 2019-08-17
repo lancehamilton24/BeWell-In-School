@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class SurveyResponsesItem extends Component {
   render() {
-    const { answers } = this.props
+    const { answers, questions } = this.props
     console.log(answers)
 
     return (

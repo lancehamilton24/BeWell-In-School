@@ -14,11 +14,13 @@ namespace BeWell.Controllers
     public class AnswerController : ControllerBase
     {
         readonly AnswerRepository _answerRepository;
+        readonly QuestionRepository _questionRepository;
 
 
         public AnswerController()
         {
             _answerRepository = new AnswerRepository();
+            _questionRepository = new QuestionRepository();
         }
 
         [HttpPost("register")]
@@ -41,6 +43,7 @@ namespace BeWell.Controllers
         public ActionResult GetAnswersByStudentId(int studentId)
         {
             var Answers = _answerRepository.GetAnswersByStudentId(studentId);
+            _questionRepository.GetAllQuestions();
 
             return Ok(Answers);
         }
