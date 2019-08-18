@@ -6,14 +6,23 @@ import { StudentRepositoryItem } from '../StudentRepositoryItem/StudentRepositor
 import './StudentRepository.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-responsive-modal';
 
 
 export class StudentRepository extends Component {
   state = {
     students: [],
     filteredStudents: [],
+    open: false,
   }
 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   getStudents = () => {
     studentRequest.getAllStudentsRequest().then((students) => {
@@ -45,36 +54,46 @@ export class StudentRepository extends Component {
     }
   }
 
-  componentWillUnmount() {
-
-  }
-
   render() {
-    const { filteredStudents } = this.state;
+    const { filteredStudents, open } = this.state;
 
     const studentList = filteredStudents.map(student => (
       <StudentRepositoryItem
         student={student}
-        // key={student.id}
+        onClick={this.onOpenModal}
+        key={student.id}
       />
     ));
 
     return (
       <div>
         <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
-        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
+          <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft} /></a>
         </Link>
         <div className="container">
-        <div className="searchbar">
-        <SearchField
-          placeholder="Search Students"
-          onChange={this.onChange}
-          searchText=""
-          classNames="searchbar w-100 mt-auto rounded border-warnin"
-        />
-        </div>
+          <div className="searchbar">
+            <SearchField
+              placeholder="Search Students"
+              onChange={this.onChange}
+              searchText=""
+              classNames="searchbar w-100 mt-auto rounded border-warnin"
+            />
+          </div>
           <div className="student-repo">
+            <div class="row">
+              <div class="col s3"><b><p>First Name</p></b></div>
+              <div class="col s3"><b><p>Last Name</p></b></div>
+              <div class="col s3"><b><p>Teacher</p></b></div>
+              <div class="col s3"><b><p>Grade</p></b></div>
+            </div>
+            <hr></hr>
             <div>{studentList}</div>
+            <div>
+              <button onClick={this.onOpenModal}>Open modal</button>
+              <Modal open={open} onClose={this.onCloseModal} center>
+                <h2>Simple centered modal</h2>
+              </Modal>
+            </div>
           </div>
         </div>
       </div>

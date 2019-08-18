@@ -3,7 +3,7 @@ import './StudentRepositoryItem.css';
 
 export class StudentRepositoryItem extends Component {
   render() {
-    const { student } = this.props;
+    const { student, onClick } = this.props;
     const studentGrade = () => {
       if (student.studentGrade === 0) {
           return (
@@ -33,7 +33,7 @@ export class StudentRepositoryItem extends Component {
   }
 
     return (
-      <div className="repo-item">
+      <div className="repo-item" onClick={onClick}>
            <div class="row">
       <div class="col s3">{student.firstName}</div>
       <div class="col s3">{student.lastName}</div>

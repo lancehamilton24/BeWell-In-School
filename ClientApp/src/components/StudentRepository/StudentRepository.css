@@ -4,6 +4,10 @@
   flex-direction: row;
 }
 
+.student-repo {
+  text-align: center;
+}
+
 .searchbar{
   margin: auto;
   margin-top: 5%;
