@@ -10,6 +10,16 @@ const getAllAnswersRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const getAnswersByStudentRequest = (studentId) => new Promise((resolve, reject) => {
+  axios
+    .get(`http://localhost:64175/api/answer/allAnswers/${studentId}`)
+    .then((res) => {
+      const answers = res.data;
+      resolve(answers);
+    })
+    .catch(err => reject(err));
+});
+
 const postAnswerRequest = addNewAnswer => new Promise((resolve, reject) => {
   axios
     .post('http://localhost:64175/api/answer/register', addNewAnswer)
@@ -23,5 +33,6 @@ const postAnswerRequest = addNewAnswer => new Promise((resolve, reject) => {
 
 export default {
   getAllAnswersRequest,
+  getAnswersByStudentRequest,
   postAnswerRequest,
 }

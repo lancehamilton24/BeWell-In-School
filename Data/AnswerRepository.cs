@@ -59,6 +59,17 @@ namespace BeWell.Data
                 var allAnswers = db.Query<Answer>(@"Select * from Answer").ToList();
                 return allAnswers;
             }
+
+        }
+
+        public IEnumerable<Answer> GetAnswersByStudentId(int studentId)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var allAnswersByStudentId = db.Query<Answer>("Select * from Answer where StudentId = @studentId", new { studentId }).ToList();
+
+                return allAnswersByStudentId;
+            }
         }
 
         public Answer DeleteSingleAnswer(int id)
