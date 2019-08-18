@@ -8,6 +8,7 @@ import answerRequest from '../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-responsive-modal';
+import SurveyResponsesItem from '../SurveyResponsesItem/SurveyResponsesItem';
 
 
 export class StudentRepository extends Component {
@@ -70,13 +71,19 @@ export class StudentRepository extends Component {
   }
 
   render() {
-    const { filteredStudents, open, selectedStudentId } = this.state;
+    const { filteredStudents, open, answers } = this.state;
 
     const studentList = filteredStudents.map(student => (
       <StudentRepositoryItem
         student={student}
         selectStudent={this.selectStudent}
         key={student.id}
+      />
+    ));
+
+    const studentAnswers = answers.map(answer => (
+      <SurveyResponsesItem
+        answers={answer}
       />
     ));
 
@@ -106,7 +113,13 @@ export class StudentRepository extends Component {
             <div>
               <button onClick={this.onOpenModal}>Open modal</button>
               <Modal open={open} onClose={this.onCloseModal} center>
-                <h2>Simple centered modal</h2>
+                <div class="row">
+                  <div class="col s3"><p>Answer</p></div>
+                  <div class="col s3"><p>Question</p></div>
+                  <div class="col s3"><p>Date Submitted</p></div>
+                </div>
+                <hr></hr>
+                {studentAnswers}
               </Modal>
             </div>
           </div>
