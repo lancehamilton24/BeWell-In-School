@@ -4,6 +4,7 @@ import SearchField from 'react-search-field';
 import studentRequest from '../../helpers/data/studentRequest';
 import { StudentRepositoryItem } from '../StudentRepositoryItem/StudentRepositoryItem';
 import './StudentRepository.css';
+import answerRequest from '../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-responsive-modal';
@@ -15,6 +16,7 @@ export class StudentRepository extends Component {
     filteredStudents: [],
     open: false,
     selectedStudentId: '',
+    answers: [],
   }
 
   onOpenModal = (e) => {
@@ -25,6 +27,10 @@ export class StudentRepository extends Component {
     this.setState({ selectedStudentId: studentId });
     studentRequest.getSingleStudent(studentId).then((selectedStudent) => {
       this.setState({ selectedStudent });
+    }).then(() => {
+      answerRequest.getAnswersByStudentRequest(studentId).then((answers) => {
+        this.setState({ answers })
+      })
     })
     this.onOpenModal();
   }
