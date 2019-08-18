@@ -14,11 +14,20 @@ export class StudentRepository extends Component {
     students: [],
     filteredStudents: [],
     open: false,
+    selectedStudentId: '',
   }
 
-  onOpenModal = () => {
+  onOpenModal = (e) => {
     this.setState({ open: true });
   };
+
+  selectStudent = studentId => {
+    this.setState({ selectedStudentId: studentId });
+    studentRequest.getSingleStudent(studentId).then((selectedStudent) => {
+      this.setState({ selectedStudent });
+    })
+    this.onOpenModal();
+  }
 
   onCloseModal = () => {
     this.setState({ open: false });
@@ -55,12 +64,12 @@ export class StudentRepository extends Component {
   }
 
   render() {
-    const { filteredStudents, open } = this.state;
+    const { filteredStudents, open, selectedStudentId } = this.state;
 
     const studentList = filteredStudents.map(student => (
       <StudentRepositoryItem
         student={student}
-        onClick={this.onOpenModal}
+        selectStudent={this.selectStudent}
         key={student.id}
       />
     ));

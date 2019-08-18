@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import './StudentRepositoryItem.css';
 
 export class StudentRepositoryItem extends Component {
+  showId = () => {
+    const { student, selectStudent } = this.props;
+    console.log(student.id);
+    selectStudent(student.id)
+  }
+
   render() {
-    const { student, onClick } = this.props;
+    const { student } = this.props;
     const studentGrade = () => {
       if (student.studentGrade === 0) {
           return (
@@ -33,7 +39,7 @@ export class StudentRepositoryItem extends Component {
   }
 
     return (
-      <div className="repo-item" onClick={onClick}>
+      <div className="repo-item" onClick={this.showId}>
            <div class="row">
       <div class="col s3">{student.firstName}</div>
       <div class="col s3">{student.lastName}</div>
