@@ -16,7 +16,7 @@ export class TeacherPortal extends Component {
     const { teacherName } = this.state;
 
     return (
-      <div className="teacher-portal container">
+      <div className="teacher-portal">
         <h1>Teacher Portal</h1>
         <div className="teacher-links">
         <Link to="/survey" className="teacher-links-btn"><button>View/Edit Survey</button></Link>

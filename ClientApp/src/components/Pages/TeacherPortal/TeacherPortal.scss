@@ -4,6 +4,7 @@
   .teacher-links {
     display: flex;
     flex-direction: row;
+    margin-top: 4%;
     .teacher-links-btn {
       width: 100%;
       height: 100%;
@@ -22,7 +23,6 @@
   
   /* Custom */
   button {
-    margin: 2%;
     top: 0;
     width: 80%;
     padding-bottom: 10%;
