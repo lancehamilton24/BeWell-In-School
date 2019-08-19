@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import studentRequest from '../../helpers/data/studentRequest';
 import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
+import './SelectStudent.scss';
 
 export class SelectStudent extends Component {
   state = {
@@ -34,8 +35,8 @@ export class SelectStudent extends Component {
 
 
     return (
-      <div>
-        <h1>hello world</h1>
+      <div className="select-student">
+        <h6>Select your name</h6>
         {studentItem}
       </div>
     )

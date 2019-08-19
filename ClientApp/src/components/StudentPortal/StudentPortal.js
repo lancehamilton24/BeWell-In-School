@@ -27,8 +27,11 @@ export class StudentPortal extends Component {
 
 
       return (
-        <div className="studentportal container">
-          <div className="portal">
+        <div className="studentportal">
+          <Link to={{
+                pathname: '/',
+            }}><Button>End Session</Button></Link>
+          <div className="portal container">
             <h1>Student Portal</h1>
             <div>
               <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
