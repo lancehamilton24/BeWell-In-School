@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 import { SurveyQuestionItem } from '../../SurveyQuestionItem/SurveyQuestionItem';
-import './Survey.css';
+import './Survey.scss';
 import AddQuestion from '../../AddQuestion/AddQuestion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';

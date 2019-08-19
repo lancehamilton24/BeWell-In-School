@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import answerRequest from '../../../helpers/data/answerRequest';
 import SurveyResponsesItem from '../../SurveyResponsesItem/SurveyResponsesItem';
 import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
+import './SurveyResponses.scss';
 
 export class SurveyResponses extends Component {
   state ={

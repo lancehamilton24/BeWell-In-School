@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 import { StudentSurveyQuestionItem } from '../../StudentSurveyQuestionItem/StudentSurveyQuestionItem';
 import answerRequest from '../../../helpers/data/answerRequest';
-import surveyRequest from '../../../helpers/data/surveyRequest';
 
 export class StudentSurvey extends Component {
   state = {

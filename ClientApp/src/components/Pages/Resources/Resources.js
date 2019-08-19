@@ -5,7 +5,7 @@ import { ResourceItem } from '../../ResourceItem/ResourceItem';
 import { AddResource } from '../../AddResource/AddResource';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
-import './Resources.css';
+import './Resources.scss';
 
 export class Resources extends Component {
   state = {

@@ -11,7 +11,7 @@ import { Resources } from '../components/Pages/Resources/Resources';
 import { StudentResources } from '../components/Pages/StudentResources/StudentResources';
 import { StudentRepository } from '../components/Pages/StudentRepository/StudentRepository';
 import 'materialize-css/dist/css/materialize.min.css';
-import './App.css'
+import './App.scss'
 import SurveyResponses from '../components/Pages/SurveyResponses/SurveyResponses';
 import SelectTeacher from '../components/Pages/SelectTeacher/SelectTeacher';
 import SelectStudent from '../components/Pages/SelectStudent/SelectStudent';
