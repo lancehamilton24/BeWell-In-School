@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import answerRequest from '../../helpers/data/answerRequest';
 import SurveyResponsesItem from '../SurveyResponsesItem/SurveyResponsesItem';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
@@ -25,7 +27,7 @@ export class SurveyResponses extends Component {
   }
 
   render() {
-    const { answers, questions } = this.state;
+    const { answers, questions, currentStudentId } = this.state;
     const surveyAnswers = answers.map(answer => (
       <SurveyResponsesItem
         answers={answer}
@@ -35,17 +37,16 @@ export class SurveyResponses extends Component {
       />
     ));
 
-    // const surveyQuestions = questions.map(question => (
-    //   <SurveyResponsesItem
-    //   question={question}
-    //     key={question.id}
-    //   />
-    // ));
-
-
-
     return (
       <div>
+        <Link to={{ pathname: "/studentPortal",
+        state: {
+          currentStudentId: currentStudentId
+        }
+        }}
+        >
+        <Button>Back To Student Portal</Button>
+        </Link>
         <h3>Survey Responses</h3>
         <div>
         {surveyAnswers}
