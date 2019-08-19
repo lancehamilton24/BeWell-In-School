@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import answerRequest from '../../helpers/data/answerRequest';
 import SurveyResponsesItem from '../SurveyResponsesItem/SurveyResponsesItem';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 
 export class SurveyResponses extends Component {
   state ={
-    // currentStudentId: this.props.location.state.selectedStudentId,
+    currentStudentId: this.props.location.state.selectedStudentId,
     answers: [],
     questions: [],
   }
@@ -35,17 +37,11 @@ export class SurveyResponses extends Component {
       />
     ));
 
-    // const surveyQuestions = questions.map(question => (
-    //   <SurveyResponsesItem
-    //   question={question}
-    //     key={question.id}
-    //   />
-    // ));
-
-
-
     return (
       <div>
+        <Link to="/studentPortal" className="teacherLink">
+        <Button>Back To Student Portal</Button>
+        </Link>
         <h3>Survey Responses</h3>
         <div>
         {surveyAnswers}

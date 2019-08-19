@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import studentRequest from '../../helpers/data/studentRequest';
+import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
 
 export class SelectStudent extends Component {
   state = {
@@ -21,9 +22,21 @@ export class SelectStudent extends Component {
       
 
   render() {
+    const { students } = this.state;
+        const studentItem = students.map(student => (
+
+      <SelectStudentItem
+        student={student}
+        key={student.id}
+        selectedStudent={this.selectedStudent}
+        /> 
+      ));
+
+
     return (
       <div>
         <h1>hello world</h1>
+        {studentItem}
       </div>
     )
   }
