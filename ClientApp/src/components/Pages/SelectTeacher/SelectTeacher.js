@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import teacherRequest from '../../helpers/data/teacherRequest';
-import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
+import teacherRequest from '../../../helpers/data/teacherRequest';
+import SelectTeacherItem from '../../SelectTeacherItem/SelectTeacherItem';
+import './SelectTeacher.scss';
 
 export class SelectTeacher extends Component {
   state = { 
@@ -22,10 +23,6 @@ export class SelectTeacher extends Component {
 
   selectedTeacher = teacherId => {
     this.setState({ selectedTeacherId: teacherId })
-    // studentRequest.getStudentsByTeacher(teacherId).then((students) => {
-    //   this.setState({ students });
-    //   this.setState({ teachers: [] })
-    // })
   }
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import resourceRequest from '../../helpers/data/resourceRequest';
-import { StudentResourceItem } from '../StudentResourceItem/StudentResourceItem';
+import resourceRequest from '../../../helpers/data/resourceRequest';
+import { StudentResourceItem } from '../../StudentResourceItem/StudentResourceItem';
 import './StudentResources.scss';
 
 export class StudentResources extends Component {

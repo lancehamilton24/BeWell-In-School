@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import MyNavbar from '../components/Navbar/Navbar';
-import { Home } from '../components/Home/Home';
-import { TeacherPortal } from '../components/TeacherPortal/TeacherPortal';
-import { StudentPortal } from '../components/StudentPortal/StudentPortal';
-import { Survey } from '../components/Survey/Survey';
-import { StudentSurvey } from '../components/StudentSurvey/StudentSurvey';
-import { StudentSurveyResponses } from '../components/StudentSurveyResponses/StudentSurveyResponses';
-import { Resources } from '../components/Resources/Resources';
-import { StudentResources } from '../components/StudentResources/StudentResources';
-import { StudentRepository } from '../components/StudentRepository/StudentRepository';
+import { Home } from '../components/Pages/Home/Home';
+import { TeacherPortal } from '../components/Pages/TeacherPortal/TeacherPortal';
+import { StudentPortal } from '../components/Pages/StudentPortal/StudentPortal';
+import { Survey } from '../components/Pages/Survey/Survey';
+import { StudentSurvey } from '../components/Pages/StudentSurvey/StudentSurvey';
+import { StudentSurveyResponses } from '../components/Pages/StudentSurveyResponses/StudentSurveyResponses';
+import { Resources } from '../components/Pages/Resources/Resources';
+import { StudentResources } from '../components/Pages/StudentResources/StudentResources';
+import { StudentRepository } from '../components/Pages/StudentRepository/StudentRepository';
 import 'materialize-css/dist/css/materialize.min.css';
-import './App.css'
-import SurveyResponses from '../components/SurveyResponses/SurveyResponses';
-import SelectTeacher from '../components/SelectTeacher/SelectTeacher';
-import SelectStudent from '../components/SelectStudent/SelectStudent';
+import './App.scss'
+import SurveyResponses from '../components/Pages/SurveyResponses/SurveyResponses';
+import SelectTeacher from '../components/Pages/SelectTeacher/SelectTeacher';
+import SelectStudent from '../components/Pages/SelectStudent/SelectStudent';
 
 export default class App extends Component {
   render() {

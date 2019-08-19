@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './StudentPortal.scss';
-import studentRequest from '../../helpers/data/studentRequest';
+import studentRequest from '../../../helpers/data/studentRequest';
 
 export class StudentPortal extends Component {
   state = {

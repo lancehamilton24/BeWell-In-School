@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SearchField from 'react-search-field';
-import studentRequest from '../../helpers/data/studentRequest';
-import { StudentRepositoryItem } from '../StudentRepositoryItem/StudentRepositoryItem';
-import './StudentRepository.css';
-import answerRequest from '../../helpers/data/answerRequest';
+import studentRequest from '../../../helpers/data/studentRequest';
+import { StudentRepositoryItem } from '../../StudentRepositoryItem/StudentRepositoryItem';
+import './StudentRepository.scss';
+import answerRequest from '../../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-responsive-modal';
-import SurveyResponsesItem from '../SurveyResponsesItem/SurveyResponsesItem';
+import SurveyResponsesItem from '../../SurveyResponsesItem/SurveyResponsesItem';
 
 
 export class StudentRepository extends Component {

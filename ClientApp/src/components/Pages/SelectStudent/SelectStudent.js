@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import studentRequest from '../../helpers/data/studentRequest';
-import SelectStudentItem from '../SelectStudentItem/SelectStudentItem';
+import studentRequest from '../../../helpers/data/studentRequest';
+import SelectStudentItem from '../../SelectStudentItem/SelectStudentItem';
 import './SelectStudent.scss';
 
 export class SelectStudent extends Component {
