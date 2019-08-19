@@ -15,8 +15,6 @@ To download Git Bash click <a href="https://gitforwindows.org" >here</a>.
 
 Follow the setup process.
 
-![git bash](./ClientApp/src/img/gitBash.png)
-
 ### Visual Studio 2019 (or higher)
 
 To download Visual Studio 2019 click <a href="https://visualstudio.microsoft.com/downloads/">here</a>. 
@@ -28,15 +26,11 @@ Run the installer for Visual Studio that gets downloaded, and on the first windo
 
 Then click install at the bottom.
 
-![visualStudio](./ClientApp/src/img/visualStudio.png)
-
 ### SQL Server Management Studio (SSMS)
 
 To download SSMS click <a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017">here</a>. 
 
 Then follow the setup process.
-
-![ssms](./ClientApp/src/img/ssmsPic.png)
 
 Once SSMS has completely downloaded you'll want to run the following query, which will create the database. 
 
