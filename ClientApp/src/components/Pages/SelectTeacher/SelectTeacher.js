@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import teacherRequest from '../../helpers/data/teacherRequest';
-import SelectTeacherItem from '../SelectTeacherItem/SelectTeacherItem';
+import teacherRequest from '../../../helpers/data/teacherRequest';
+import SelectTeacherItem from '../../SelectTeacherItem/SelectTeacherItem';
 
 export class SelectTeacher extends Component {
   state = { 

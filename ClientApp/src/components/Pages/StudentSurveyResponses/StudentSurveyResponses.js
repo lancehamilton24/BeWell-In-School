@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import surveyAnswerRequest from '../../helpers/data/surveyAnswerRequest';
-import ResponseItem from '../ResponseItem/ResponseItem';
+import surveyAnswerRequest from '../../../helpers/data/surveyAnswerRequest';
+import ResponseItem from '../../ResponseItem/ResponseItem';
 
 export class StudentSurveyResponses extends Component {
   state = {

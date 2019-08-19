@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import answerRequest from '../../helpers/data/answerRequest';
-import SurveyResponsesItem from '../SurveyResponsesItem/SurveyResponsesItem';
-import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
+import answerRequest from '../../../helpers/data/answerRequest';
+import SurveyResponsesItem from '../../SurveyResponsesItem/SurveyResponsesItem';
+import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 
 export class SurveyResponses extends Component {
   state ={
