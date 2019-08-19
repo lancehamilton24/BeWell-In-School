@@ -1,11 +1,21 @@
 .teacher-portal {
   text-align: center;
-
   .teacher-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-top: 4%;
+    .teacher-links-btn {
+      width: 100%;
+      height: 100%;
+
+    }
   }
-  
+
+  .homeLink {
+    margin-top: 2%;
+    padding: 15%;
+  }
+
   /* Reset */
   button {
     background: transparent;
@@ -18,13 +28,8 @@
   
   /* Custom */
   button {
-    display: inline-block;
-    position: relative;
-    margin: 2%;
-    // padding: 5% 10%;
     top: 0;
-    font-size: 2vw;
-    width: 45%;
+    width: 80%;
     padding-bottom: 10%;
     padding-top: 10%;
     font-family: "Open Sans", Helvetica;

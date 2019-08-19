@@ -6,7 +6,6 @@ import { TeacherPortal } from '../components/Pages/TeacherPortal/TeacherPortal';
 import { StudentPortal } from '../components/Pages/StudentPortal/StudentPortal';
 import { Survey } from '../components/Pages/Survey/Survey';
 import { StudentSurvey } from '../components/Pages/StudentSurvey/StudentSurvey';
-import { StudentSurveyResponses } from '../components/Pages/StudentSurveyResponses/StudentSurveyResponses';
 import { Resources } from '../components/Pages/Resources/Resources';
 import { StudentResources } from '../components/Pages/StudentResources/StudentResources';
 import { StudentRepository } from '../components/Pages/StudentRepository/StudentRepository';
@@ -31,7 +30,6 @@ export default class App extends Component {
       <Route path='/survey' component={Survey} />
       <Route path='/studentSurvey' component={StudentSurvey} />
       <Route path='/resources' component={Resources} />
-      <Route path='/studentSurveyResponses' component={StudentSurveyResponses} />
       <Route path='/studentRepository' component={StudentRepository} />
       <Route path='/studentResources' component={StudentResources} />
       <Route path='/surveyResponses' component={SurveyResponses} />
