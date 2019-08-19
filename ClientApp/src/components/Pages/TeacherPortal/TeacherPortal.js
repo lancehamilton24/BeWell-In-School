@@ -19,14 +19,9 @@ export class TeacherPortal extends Component {
       <div className="teacher-portal container">
         <h1>Teacher Portal</h1>
         <div className="teacher-links">
-          <div>
-        <Link to="/survey" className="surveyButton"><button>View/Edit Survey</button></Link>
-        <Link to="/studentRepository" className="studentRepositoryButton"><button>Student Repository</button></Link>
-          </div>
-          <div>
-        <Link to="/studentSurveyResponses" className="studentSurveyResultsButton"><button>View Student Survey Results</button></Link>
-        <Link to="/resources" className="createResourcesButton"><button>Add Student Resources</button></Link>
-        </div>
+        <Link to="/survey" className="teacher-links-btn"><button>View/Edit Survey</button></Link>
+        <Link to="/studentRepository" className="teacher-links-btn"><button>Student Repository</button></Link>
+        <Link to="/resources" className="teacher-links-btn"><button>Add Student Resources</button></Link>
         </div>
       </div>
     );

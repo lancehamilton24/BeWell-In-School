@@ -3,7 +3,11 @@
 
   .teacher-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    .teacher-links-btn {
+      width: 100%;
+      height: 100%;
+    }
   }
   
   /* Reset */
@@ -18,13 +22,9 @@
   
   /* Custom */
   button {
-    display: inline-block;
-    position: relative;
     margin: 2%;
-    // padding: 5% 10%;
     top: 0;
-    font-size: 2vw;
-    width: 45%;
+    width: 80%;
     padding-bottom: 10%;
     padding-top: 10%;
     font-family: "Open Sans", Helvetica;
