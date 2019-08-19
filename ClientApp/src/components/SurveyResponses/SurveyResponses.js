@@ -27,7 +27,7 @@ export class SurveyResponses extends Component {
   }
 
   render() {
-    const { answers, questions } = this.state;
+    const { answers, questions, currentStudentId } = this.state;
     const surveyAnswers = answers.map(answer => (
       <SurveyResponsesItem
         answers={answer}
@@ -39,7 +39,12 @@ export class SurveyResponses extends Component {
 
     return (
       <div>
-        <Link to="/studentPortal" className="teacherLink">
+        <Link to={{ pathname: "/studentPortal",
+        state: {
+          currentStudentId: currentStudentId
+        }
+        }}
+        >
         <Button>Back To Student Portal</Button>
         </Link>
         <h3>Survey Responses</h3>
