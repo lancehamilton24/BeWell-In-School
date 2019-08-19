@@ -5,7 +5,7 @@ import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
 
 export class SurveyResponses extends Component {
   state ={
-    currentStudentId: this.props.location.state.selectedStudentId,
+    // currentStudentId: this.props.location.state.selectedStudentId,
     answers: [],
     questions: [],
   }

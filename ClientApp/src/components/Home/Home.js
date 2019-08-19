@@ -9,7 +9,7 @@ export class Home extends Component {
       <div className="home">
         <h1>Welcome to BeWell</h1>
       <div className="container">
-        <Link to ="studentPortal" className="studentLink">
+        <Link to ="selectTeacher" className="studentLink">
         <button>Student Portal</button>
         </Link>
         <Link to="/teacherPortal" className="teacherLink">
