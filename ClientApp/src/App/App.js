@@ -14,6 +14,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './App.css'
 import SurveyResponses from '../components/SurveyResponses/SurveyResponses';
 import SelectTeacher from '../components/SelectTeacher/SelectTeacher';
+import SelectStudent from '../components/SelectStudent/SelectStudent';
 
 export default class App extends Component {
   render() {
@@ -35,6 +36,7 @@ export default class App extends Component {
       <Route path='/studentResources' component={StudentResources} />
       <Route path='/surveyResponses' component={SurveyResponses} />
       <Route path='/selectTeacher' component={SelectTeacher} />
+      <Route path='/selectStudent' component={SelectStudent} />
       </Switch>
       </div>
       </BrowserRouter>

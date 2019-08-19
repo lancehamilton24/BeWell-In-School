@@ -20,13 +20,13 @@ export class SelectTeacher extends Component {
     this.getAllTeachers();
   }
 
-  // selectedTeacher = teacherId => {
-  //   this.setState({ selectedTeacherId: teacherId })
-  //   studentRequest.getStudentsByTeacher(teacherId).then((students) => {
-  //     this.setState({ students });
-  //     this.setState({ teachers: [] })
-  //   })
-  // }
+  selectedTeacher = teacherId => {
+    this.setState({ selectedTeacherId: teacherId })
+    // studentRequest.getStudentsByTeacher(teacherId).then((students) => {
+    //   this.setState({ students });
+    //   this.setState({ teachers: [] })
+    // })
+  }
 
 
 
@@ -37,7 +37,7 @@ export class SelectTeacher extends Component {
       <SelectTeacherItem
         teacher={teacher}
         key={teacher.id}
-        // selectedTeacher={this.selectedTeacher}
+        selectedTeacher={this.selectedTeacher}
       />
     ));
 
@@ -45,7 +45,7 @@ export class SelectTeacher extends Component {
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
-          <p>Please select your teacher and your name</p>
+          <p>Please select your teacher</p>
           <div>
             {teacherItem}
           </div>
