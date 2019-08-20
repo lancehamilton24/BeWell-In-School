@@ -77,9 +77,9 @@ export class Survey extends Component {
     return (
       <div>
         <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
-        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
         </Link>
-        <a class="btn-floating btn-large waves-effect waves-light red" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></a>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
         <div className="container">
           <div>
           {!this.state.isHidden && <AddQuestion isEditing={isEditing}

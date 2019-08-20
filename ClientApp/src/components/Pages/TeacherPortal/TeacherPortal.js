@@ -20,7 +20,7 @@ export class TeacherPortal extends Component {
     return (
       <div>
         <Link to="/" title="Home" className="homeLink">
-          <button className="home-btn btn-floating btn-medium waves-effect waves-light red"><FontAwesomeIcon icon={faHome} /></button>
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <div className="teacher-portal">
           <h1>Teacher Portal</h1>
