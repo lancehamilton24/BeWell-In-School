@@ -1,6 +1,6 @@
 # BeWell in School
 
-BeWell is a CRUD application that allows Yoga/Mindfulness teachers in elementary schools to create a question of the day that students would be required to answer before and/or after class. Students are allowed to view previous questions and answers as well as view online resources provided by the teacher. Teachers are also able to view all individual student answers and create new questions and online resources for their students. The app's frontend is built in ReactJS and the backend is built in C#/.NET Core using SQL Server Managment Studio as a database. 
+BeWell is a CRUD application that allows Yoga/Mindfulness teachers in elementary schools to create a question of the day that students are required to answer before and/or after class. Students are allowed to view previous questions and answers as well as view online resources provided by the teacher. Teachers are also able to view all individual student answers and create new questions and online resources for their students. The app's frontend is built in ReactJS and the backend is built in C#/.NET Core using SQL Server Managment Studio as a database. 
 
 ## Necesary Installs
 
