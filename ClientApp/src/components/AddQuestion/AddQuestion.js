@@ -80,7 +80,6 @@ class AddQuestion extends Component {
     }
     return (
       <div>
-        <p className="text-center">Add New</p>
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>
             <div class="row">

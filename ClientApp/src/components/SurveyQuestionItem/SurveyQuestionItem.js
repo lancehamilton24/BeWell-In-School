@@ -24,14 +24,6 @@ export class SurveyQuestionItem extends Component {
     return (
       <div className="question-text container">
         <p>{question.questionText}</p>
-        <div className="edit-delete-questions">
-        <div className="edit-question" onClick={this.editQuestionEvent}>
-        <Button><FontAwesomeIcon icon={faPencilAlt} /></Button>
-        </div>
-        <div className="delete-question" onClick={this.deleteQuestionEvent}>
-        <Button><FontAwesomeIcon icon={faTrash} /></Button>
-        </div>
-        </div>
         <hr></hr>
       </div>
     );

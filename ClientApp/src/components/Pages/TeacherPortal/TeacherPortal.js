@@ -23,7 +23,7 @@ export class TeacherPortal extends Component {
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <div className="teacher-portal">
-          <h1>Teacher Portal</h1>
+          {/* <h5>Teacher Portal</h5> */}
           <div className="teacher-links">
             <Link to="/survey" className="teacher-links-btn"><button>View/Edit Survey</button></Link>
             <Link to="/studentRepository" className="teacher-links-btn"><button>Student Repository</button></Link>

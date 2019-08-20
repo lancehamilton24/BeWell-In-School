@@ -73,7 +73,24 @@ export class Survey extends Component {
         deleteOneQuestion={this.deleteOneQuestion}
       />
     ));
-
+      if (questions.length === 0) {
+        return (
+          <div>
+            <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
+            </Link>
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
+            <div className="container">
+              <div>
+              {this.state.isHidden && <AddQuestion
+                 question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
+              </div>
+              <div className="survey">
+              </div>
+            </div>
+          </div>
+        );
+      }
     return (
       <div>
         <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
@@ -86,6 +103,7 @@ export class Survey extends Component {
             editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
           </div>
           <div className="survey">
+          <h3>Current Question</h3>
             {surveyQuestions}
           </div>
         </div>
