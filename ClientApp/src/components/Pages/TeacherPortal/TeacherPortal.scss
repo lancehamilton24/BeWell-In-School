@@ -1,3 +1,7 @@
+.home-btn {
+  margin-top: 1%;
+}
+
 .teacher-portal {
   text-align: center;
   .teacher-links {
@@ -11,12 +15,6 @@
     }
   }
 
-  .homeLink {
-    margin-top: 2%;
-    padding: 15%;
-  }
-
-  /* Reset */
   button {
     background: transparent;
     border: 0;
@@ -25,7 +23,6 @@
     outline: 0;
     -webkit-appearance: none;
   }
-  
   /* Custom */
   button {
     top: 0;

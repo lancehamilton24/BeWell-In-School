@@ -111,7 +111,6 @@ export class StudentRepository extends Component {
             <hr></hr>
             <div>{studentList}</div>
             <div>
-              <button onClick={this.onOpenModal}>Open modal</button>
               <Modal open={open} onClose={this.onCloseModal} center>
                 <div class="row">
                   <div class="col s3"><p>Answer</p></div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './TeacherPortal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import './TeacherPortal.scss';
 
 export class TeacherPortal extends Component {
   state = {
@@ -20,7 +20,7 @@ export class TeacherPortal extends Component {
     return (
       <div>
         <Link to="/" title="Home" className="homeLink">
-          <a className="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faHome} /></a>
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light red"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <div className="teacher-portal">
           <h1>Teacher Portal</h1>
