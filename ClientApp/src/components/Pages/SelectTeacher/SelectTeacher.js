@@ -45,11 +45,11 @@ export class SelectTeacher extends Component {
         <Link to="/" title="Home" className="homeLink">
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
-      <div className="studentportal container">
-        <div className="portal">
+      <div className="studentportal">
+        <div className="portal container">
           <h1>Student Portal</h1>
           <p>Please select your teacher</p>
-          <div>
+          <div className="select-teacher-btn container">
             {teacherItem}
           </div>
         </div>
