@@ -71,6 +71,24 @@ export class Resources extends Component {
       />
     ));
 
+    if (resources.length === 0) {
+      return (
+        <div>
+          <Link to="/teacherPortal" className="teacherLink">
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          </Link>
+          <div className="add-resources">
+          <h5>Please add a resource below</h5>
+          </div>
+          <div className="resources container">
+            <div>
+              {this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
+            </div>
+            {resourceItem}
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">

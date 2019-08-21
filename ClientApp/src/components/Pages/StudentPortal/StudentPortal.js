@@ -3,6 +3,8 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './StudentPortal.scss';
 import studentRequest from '../../../helpers/data/studentRequest';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export class StudentPortal extends Component {
   state = {
@@ -11,7 +13,7 @@ export class StudentPortal extends Component {
   }
 
   studentProfile = () => {
-    const {selectedStudentId} = this.state;
+    const { selectedStudentId } = this.state;
     studentRequest.getSingleStudent(selectedStudentId).then((selectedStudent) => {
       this.setState({ selectedStudent });
     })
@@ -23,41 +25,46 @@ export class StudentPortal extends Component {
 
 
   render() {
-    const {selectedStudent, selectedStudentId } = this.state;
+    const { selectedStudent, selectedStudentId } = this.state;
 
 
-      return (
-        <div className="studentportal">
+    return (
+      <div className="studentportal">
+        <Link to="/" title="Home" className="homeLink">
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
+        </Link>
+        <div className="student-portal">
+          <h1>Welcome to BeWell</h1>
+          <div>
+            <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
+          </div>
+          <div className="student-links">
           <Link to={{
-                pathname: '/',
-            }}><Button>End Session</Button></Link>
-          <div className="portal container">
-            <h1>Student Portal</h1>
-            <div>
-              <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
-            </div>
-            <Link to={{
-                pathname: '/studentsurvey',
-                state: { selectedStudent: selectedStudent, 
-                         selectedStudentId: selectedStudentId
-                        }
-            }} className="complete-survey-button"><Button>Daily Survey</Button></Link>
-            <Link to={{
-                pathname: '/surveyResponses',
-                state: { selectedStudent: selectedStudent, 
-                         selectedStudentId: selectedStudentId
-                        }
-            }} className="survey-responses-button"><Button>View Previous Surveys</Button></Link>
+            pathname: '/studentsurvey',
+            state: {
+              selectedStudent: selectedStudent,
+              selectedStudentId: selectedStudentId
+            }
+          }} className="student-links-btn"><button><h3>Daily <br></br> Survey</h3></button></Link>
+          <Link to={{
+            pathname: '/surveyResponses',
+            state: {
+              selectedStudent: selectedStudent,
+              selectedStudentId: selectedStudentId
+            }
+          }} className="student-links-btn"><button><h3>View Previous Surveys</h3></button></Link>
 
-            <Link to={{
-                pathname: '/studentResources',
-                state: { selectedStudent: selectedStudent, 
-                         selectedStudentId: selectedStudentId
-                        }
-            }} className="student-resources-button"><Button>Extra Resources</Button></Link>
+          <Link to={{
+            pathname: '/studentResources',
+            state: {
+              selectedStudent: selectedStudent,
+              selectedStudentId: selectedStudentId
+            }
+          }} className="student-links-btn"><button><h3>Extra <br></br> Resources</h3></button></Link>
           </div>
         </div>
-      );
+      </div>
+    );
   }
 }
 

@@ -4,6 +4,8 @@ import { Button } from 'reactstrap';
 import teacherRequest from '../../../helpers/data/teacherRequest';
 import SelectTeacherItem from '../../SelectTeacherItem/SelectTeacherItem';
 import './SelectTeacher.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export class SelectTeacher extends Component {
   state = { 
@@ -39,6 +41,10 @@ export class SelectTeacher extends Component {
     ));
 
     return (
+      <div>
+        <Link to="/" title="Home" className="homeLink">
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
+        </Link>
       <div className="studentportal container">
         <div className="portal">
           <h1>Student Portal</h1>
@@ -47,6 +53,7 @@ export class SelectTeacher extends Component {
             {teacherItem}
           </div>
         </div>
+      </div>
       </div>
     );
   }

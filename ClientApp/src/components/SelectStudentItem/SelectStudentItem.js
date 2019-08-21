@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export class SelectStudentItem extends Component {
   state = {
@@ -17,16 +19,18 @@ export class SelectStudentItem extends Component {
     console.log(student);
 
     return (
-      <div className="container">
-        <Link to= {{ 
-          pathname: '/studentPortal',
-          state: {
-            selectedStudentId: this.state.selectedStudentId,
-          }
-        }}>
-        <Button className="col s6" onClick={this.showId}>{student.firstName} {student.lastName}</Button>
-        </Link>
-        <hr></hr>
+      <div>
+        <div className="container">
+          <Link to={{
+            pathname: '/studentPortal',
+            state: {
+              selectedStudentId: this.state.selectedStudentId,
+            }
+          }}>
+            <Button className="col s6" onClick={this.showId}>{student.firstName} {student.lastName}</Button>
+          </Link>
+          <hr></hr>
+        </div>
       </div>
     );
   }
