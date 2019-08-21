@@ -25,9 +25,11 @@ export class TeacherPortal extends Component {
         <div className="teacher-portal">
           {/* <h5>Teacher Portal</h5> */}
           <div className="teacher-links">
-            <Link to="/survey" className="teacher-links-btn"><button>View/Edit Survey</button></Link>
-            <Link to="/studentRepository" className="teacher-links-btn"><button>Student Repository</button></Link>
-            <Link to="/resources" className="teacher-links-btn"><button>Add Student Resources</button></Link>
+            <Link to="/survey" className="teacher-links-btn"><button><h3>View +
+               <br></br>Edit Survey</h3></button></Link>
+            <Link to="/studentRepository" className="teacher-links-btn"><button><h3>Student<br></br> 
+              Repository</h3></button></Link>
+            <Link to="/resources" className="teacher-links-btn"><button><h3>Add Student Resources</h3></button></Link>
           </div>
         </div>
       </div>
