@@ -74,9 +74,9 @@ export class Resources extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-          <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft} /></a>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
-        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)} /></a>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)} /></button>
         {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
           <div>

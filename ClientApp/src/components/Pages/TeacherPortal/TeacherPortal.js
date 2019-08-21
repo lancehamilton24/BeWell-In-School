@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './TeacherPortal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import './TeacherPortal.scss';
 
 export class TeacherPortal extends Component {
   state = {
@@ -20,14 +20,16 @@ export class TeacherPortal extends Component {
     return (
       <div>
         <Link to="/" title="Home" className="homeLink">
-          <a className="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faHome} /></a>
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <div className="teacher-portal">
-          <h1>Teacher Portal</h1>
+          {/* <h5>Teacher Portal</h5> */}
           <div className="teacher-links">
-            <Link to="/survey" className="teacher-links-btn"><button>View/Edit Survey</button></Link>
-            <Link to="/studentRepository" className="teacher-links-btn"><button>Student Repository</button></Link>
-            <Link to="/resources" className="teacher-links-btn"><button>Add Student Resources</button></Link>
+            <Link to="/survey" className="teacher-links-btn"><button><h3>View +
+               <br></br>Edit Survey</h3></button></Link>
+            <Link to="/studentRepository" className="teacher-links-btn"><button><h3>Student<br></br> 
+              Repository</h3></button></Link>
+            <Link to="/resources" className="teacher-links-btn"><button><h3>Add Student Resources</h3></button></Link>
           </div>
         </div>
       </div>

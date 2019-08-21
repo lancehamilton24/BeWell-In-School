@@ -90,7 +90,7 @@ export class StudentRepository extends Component {
     return (
       <div>
         <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
-          <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft} /></a>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <div className="container">
           <div className="searchbar">
@@ -111,7 +111,6 @@ export class StudentRepository extends Component {
             <hr></hr>
             <div>{studentList}</div>
             <div>
-              <button onClick={this.onOpenModal}>Open modal</button>
               <Modal open={open} onClose={this.onCloseModal} center>
                 <div class="row">
                   <div class="col s3"><p>Answer</p></div>

@@ -73,19 +73,37 @@ export class Survey extends Component {
         deleteOneQuestion={this.deleteOneQuestion}
       />
     ));
-
+      if (questions.length === 0) {
+        return (
+          <div>
+            <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
+            </Link>
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
+            <div className="container">
+              <div>
+              {this.state.isHidden && <AddQuestion
+                 question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
+              </div>
+              <div className="survey">
+              </div>
+            </div>
+          </div>
+        );
+      }
     return (
       <div>
         <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
-        <a class="btn-floating btn-large waves-effect waves-light red"><FontAwesomeIcon icon={faArrowLeft}/></a>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
         </Link>
-        <a class="btn-floating btn-large waves-effect waves-light red" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></a>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
         <div className="container">
           <div>
           {!this.state.isHidden && <AddQuestion isEditing={isEditing}
             editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
           </div>
           <div className="survey">
+          <h3>Current Question</h3>
             {surveyQuestions}
           </div>
         </div>
