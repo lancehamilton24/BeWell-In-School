@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import surveyQuestionRequest from '../../helpers/data/surveyQuestionRequest';
+import './AddQuestion.scss';
 
 const defaultQuestion = {
   questionText: '',
@@ -50,36 +51,36 @@ class AddQuestion extends Component {
 
     if (isEditing) {
       return (
-        <div>
-        <p className="text-center">Edit questionText</p>
-        <div class="row">
-          <form class="col s12" onSubmit={this.formSubmit}>
-            <div class="row">
-              <div class="input-field col s6">
-                <input
-                  type="text"
-                  class="validate"
-                  id="inputQuestion"
-                  placeholder="Add Survey Question"
-                  value={addNewQuestion.questionText}
-                  onChange={this.questionChange}
-                />
+        <div className="add-question-form">
+          <p className="text-center">Edit questionText</p>
+          <div class="row">
+            <form class="col s12" onSubmit={this.formSubmit}>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input
+                    type="text"
+                    class="validate"
+                    id="inputQuestion"
+                    placeholder="Add Survey Question"
+                    value={addNewQuestion.questionText}
+                    onChange={this.questionChange}
+                  />
+                </div>
               </div>
-            </div>
-          </form>
-          <Button
-          type="submit"
-          className="btn btn-default col-xs-12"
-          onClick={this.formSubmit}
-        >
-          Add Question
-                      </Button>
+              <Button
+                type="submit"
+                className="btn btn-default col-xs-12"
+                onClick={this.formSubmit}
+              >
+                Add Question
+              </Button>
+            </form>
+          </div>
         </div>
-      </div>
       );
     }
     return (
-      <div>
+      <div className="add-question-form">
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>
             <div class="row">
@@ -94,14 +95,14 @@ class AddQuestion extends Component {
                 />
               </div>
             </div>
+            <Button
+              type="submit"
+              className="btn btn-default col-xs-12"
+              onClick={this.formSubmit}
+            >
+              Add Question
+            </Button>
           </form>
-          <Button
-          type="submit"
-          className="btn btn-default col-xs-12"
-          onClick={this.formSubmit}
-        >
-          Add Question
-                      </Button>
         </div>
       </div>
     );

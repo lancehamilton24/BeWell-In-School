@@ -59,67 +59,67 @@ export class AddResource extends Component {
 
     if (isEditing) {
       return (
-        <div>
-        <h4 className="text-center">Edit Resource</h4>
-        <div class="row">
-          <form class="col s12" onSubmit={this.formSubmit}>
+        <div className="add-resource-form">
+          <h4 className="text-center">Edit Resource</h4>
           <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Add Title" id="first_name" type="text" class="validate"
-           value={addNewResource.title}
-           onChange={this.titleChange}
-          />
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Add Web Address" id="last_name" type="text" class="validate"
-          value={addNewResource.url}
-          onChange={this.urlChange}
-           />
-        </div>
-      </div>
-            <div class="row">
-              <div class="input-field col s6">
-                <input
-                  type="text"
-                  class="validate"
-                  id="inputQuestion"
-                  placeholder="Add Description"
-                  value={addNewResource.description}
-                  onChange={this.descriptionChange}
-                />
+            <form class="col s12" onSubmit={this.formSubmit}>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Add Title" id="first_name" type="text" class="validate"
+                    value={addNewResource.title}
+                    onChange={this.titleChange}
+                  />
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="Add Web Address" id="last_name" type="text" class="validate"
+                    value={addNewResource.url}
+                    onChange={this.urlChange}
+                  />
+                </div>
               </div>
-            </div>
-          </form>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input
+                    type="text"
+                    class="validate"
+                    id="inputQuestion"
+                    placeholder="Add Description"
+                    value={addNewResource.description}
+                    onChange={this.descriptionChange}
+                  />
+                </div>
+              </div>
+              <Button
+                type="submit"
+                className="btn btn-default col-xs-12"
+                onClick={this.formSubmit}
+              >
+                Add Resource
+              </Button>
+            </form>
+          </div>
         </div>
-        <Button
-          type="submit"
-          className="btn btn-default col-xs-12"
-          onClick={this.formSubmit}
-        >
-          Add Resource
-                      </Button>
-      </div>
       )
-    } 
+    }
     return (
-      <div>
+      <div className="add-resource-form">
         {/* <h4 className="text-center">Current Survey</h4> */}
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>
-          <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Add Title" id="first_name" type="text" class="validate"
-           value={addNewResource.title}
-           onChange={this.titleChange}
-          />
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Add Web Address" id="last_name" type="text" class="validate"
-          value={addNewResource.url}
-          onChange={this.urlChange}
-           />
-        </div>
-      </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Add Title" id="first_name" type="text" class="validate"
+                  value={addNewResource.title}
+                  onChange={this.titleChange}
+                />
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="Add Web Address" id="last_name" type="text" class="validate"
+                  value={addNewResource.url}
+                  onChange={this.urlChange}
+                />
+              </div>
+            </div>
             <div class="row">
               <div class="input-field col s6">
                 <input
@@ -132,15 +132,15 @@ export class AddResource extends Component {
                 />
               </div>
             </div>
+            <Button
+              type="submit"
+              className="btn btn-default col-xs-12"
+              onClick={this.formSubmit}
+            >
+              Add Resource
+            </Button>
           </form>
         </div>
-        <Button
-          type="submit"
-          className="btn btn-default col-xs-12"
-          onClick={this.formSubmit}
-        >
-          Add Resource
-                      </Button>
       </div>
     );
   }
