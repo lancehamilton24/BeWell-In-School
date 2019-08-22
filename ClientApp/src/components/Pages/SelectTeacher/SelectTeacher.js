@@ -47,8 +47,9 @@ export class SelectTeacher extends Component {
         <Link to="/" title="Home" className="homeLink">
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
-      <div className="studentportal">
-        <div className="portal container row">
+      <div className="studentportal container">
+        <h3>Select your teacher's name below</h3>
+        <div className="portal row">
           {/* <h1>Student Portal</h1>
           <p>Please select your teacher</p> */}
           <Scrollbar>

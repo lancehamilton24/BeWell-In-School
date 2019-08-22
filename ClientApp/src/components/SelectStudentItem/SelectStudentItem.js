@@ -20,14 +20,14 @@ export class SelectStudentItem extends Component {
 
     return (
       <div>
-        <div className="container">
+        <div className="row">
           <Link to={{
             pathname: '/studentPortal',
             state: {
               selectedStudentId: this.state.selectedStudentId,
             }
           }}>
-            <Button className="col s6" onClick={this.showId}>{student.firstName} {student.lastName}</Button>
+            <button className="col s3" onClick={this.showId}>{student.firstName} {student.lastName}</button>
           </Link>
           <hr></hr>
         </div>
