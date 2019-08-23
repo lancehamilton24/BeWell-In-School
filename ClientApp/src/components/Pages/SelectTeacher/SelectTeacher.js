@@ -10,11 +10,11 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 export class SelectTeacher extends Component {
-  state = { 
+  state = {
     teachers: [],
     selectedTeacherId: '',
   }
-  
+
 
   getAllTeachers = () => {
     teacherRequest.getAllTeachersRequest().then((teachers) => {
@@ -47,18 +47,12 @@ export class SelectTeacher extends Component {
         <Link to="/" title="Home" className="homeLink">
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
-      <div className="container">
-        <h3>Select your teacher's name below</h3>
-        <div className="portal row">
-          {/* <h1>Student Portal</h1>
-          <p>Please select your teacher</p> */}
-          <Scrollbar>
-          <div className="select-teacher-btn">
+        <div className="select-teacher container">
+          <h4><b>Select your teacher's name below</b></h4>
+          <div className="portal row">
             {teacherItem}
           </div>
-          </Scrollbar>
         </div>
-      </div>
       </div>
     );
   }

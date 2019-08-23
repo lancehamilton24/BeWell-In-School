@@ -23,7 +23,7 @@ export class TeacherPortal extends Component {
     return (
       <div>
         <Link to="/" className="homeLink">
-          <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="hello world" data-position="right" data-tooltip="Home"><FontAwesomeIcon icon={faHome} /></button>
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <ReactTooltip />
         <div className="teacher-portal">

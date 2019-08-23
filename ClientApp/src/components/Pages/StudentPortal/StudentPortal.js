@@ -35,7 +35,7 @@ export class StudentPortal extends Component {
         </Link>
         <div className="student-portal">
           <div>
-            <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
+            <h3>{selectedStudent.firstName} {selectedStudent.lastName}</h3>
           </div>
           <div className="student-links">
           <Link to={{

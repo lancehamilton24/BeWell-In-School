@@ -1,7 +1,10 @@
 .student-select {
-  h6 {
+  h4 {
     text-align: center;
   }
+  .student {
+    border: black solid;
+    background: white;
   .select-student {
     // display: flex;
     // flex-direction: row;
@@ -9,5 +12,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
   }
 }
