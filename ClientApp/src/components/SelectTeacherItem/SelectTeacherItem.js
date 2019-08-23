@@ -54,12 +54,12 @@ export class SelectTeacherItem extends Component {
 
     return (
       <div>
-        <div className="teacher-btn">   
+        <div className="card teacher-btn">   
         <Link to={{ 
           pathname: '/selectStudent',
            state: { teacherId: this.state.teacherId } 
           }}>
-        <button className="col s12" onClick={this.showId}><h3>{teacher.firstName}<br></br>{teacher.lastName}</h3><p><hr></hr> {teacherGrade()}</p></button>
+        <button className="col s12" onClick={this.showId}><h5><b>{teacher.firstName}<br></br>{teacher.lastName}</b></h5><p><hr></hr> {teacherGrade()}</p></button>
         </Link>
         </div>
       </div>

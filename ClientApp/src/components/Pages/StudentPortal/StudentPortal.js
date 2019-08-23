@@ -34,7 +34,6 @@ export class StudentPortal extends Component {
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <div className="student-portal">
-          <h1>Welcome to BeWell</h1>
           <div>
             <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
           </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import './SelectStudentItem.scss';
 
 export class SelectStudentItem extends Component {
   state = {
@@ -19,19 +20,16 @@ export class SelectStudentItem extends Component {
     console.log(student);
 
     return (
-      <div>
-        <div className="row">
+        <div className="single-student-btn card">
           <Link to={{
             pathname: '/studentPortal',
             state: {
               selectedStudentId: this.state.selectedStudentId,
             }
           }}>
-            <button className="col s3" onClick={this.showId}>{student.firstName} {student.lastName}</button>
+            <button onClick={this.showId}>{student.firstName} {student.lastName}</button>
           </Link>
-          <hr></hr>
         </div>
-      </div>
     );
   }
 }

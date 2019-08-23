@@ -38,15 +38,13 @@ export class SelectStudent extends Component {
 
 
     return (
-      <div>
+      <div className="student-select">
         <Link to="/" title="Home" className="homeLink">
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
+        <h6>Select your name</h6>
         <div className="select-student container">
-          <h6>Select your name</h6>
-          <div className="">
           {studentItem}
-          </div>
         </div>
       </div>
     )
