@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './StudentPortal.scss';
 import studentRequest from '../../../helpers/data/studentRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactTooltip from 'react-tooltip';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export class StudentPortal extends Component {
@@ -30,14 +31,16 @@ export class StudentPortal extends Component {
 
     return (
       <div className="studentportal">
-        <Link to="/" title="Home" className="homeLink">
-          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
+        <Link to="/" className="homeLink">
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
-        <div className="student-portal">
-          <h1>Welcome to BeWell</h1>
-          <div>
-            <h5>{selectedStudent.firstName} {selectedStudent.lastName}</h5>
+        <ReactTooltip />
+        <div className="container">
+        <div className="card student-name">
+           <h3><b>{selectedStudent.firstName} {selectedStudent.lastName}</b></h3>
           </div>
+          </div>
+        <div className="student-portal">
           <div className="student-links">
           <Link to={{
             pathname: '/studentsurvey',

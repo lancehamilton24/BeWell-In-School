@@ -1,0 +1,12 @@
+.select-teacher {
+  text-align: center;
+  border: black solid;
+  background: white;
+  .select-teacher-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 1.5%;
+  }
+}

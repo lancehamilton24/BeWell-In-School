@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
 import './TeacherPortal.scss';
 
 export class TeacherPortal extends Component {
@@ -14,14 +15,17 @@ export class TeacherPortal extends Component {
   }
 
 
+
   render() {
     const { teacherName } = this.state;
+       
 
     return (
       <div>
-        <Link to="/" title="Home" className="homeLink">
-          <button className="home-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faHome} /></button>
+        <Link to="/" className="homeLink">
+          <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
+        <ReactTooltip />
         <div className="teacher-portal">
           {/* <h5>Teacher Portal</h5> */}
           <div className="teacher-links">

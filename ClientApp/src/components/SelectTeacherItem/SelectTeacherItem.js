@@ -3,6 +3,7 @@ import studentRequest from '../../helpers/data/studentRequest';
 import { Link, Redirect } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { SelectStudentItem } from '../SelectStudentItem/SelectStudentItem';
+import './SelectTeacherItem.scss';
 
 export class SelectTeacherItem extends Component {
   state = {
@@ -51,24 +52,15 @@ export class SelectTeacherItem extends Component {
   }
   }
 
-  //             <Link to={{
-//                 pathname: '/studentsurvey',
-//                 state: { selectedStudent: selectedStudent, 
-//                          selectedStudentId: selectedStudentId
-//                         }
-//             }} className="complete-survey-button"><Button>Daily Survey</Button></Link>
-
     return (
       <div>
-        <div className="container">
-        <div className="row">      
+        <div className="card teacher-btn">   
         <Link to={{ 
           pathname: '/selectStudent',
            state: { teacherId: this.state.teacherId } 
           }}>
-        <Button className="col s12" onClick={this.showId}><p>{teacher.firstName} {teacher.lastName} {teacherGrade()}</p></Button>
+        <button className="col s12" onClick={this.showId}><h5><b>{teacher.firstName}<br></br>{teacher.lastName}</b></h5><p><hr></hr> {teacherGrade()}</p></button>
         </Link>
-        </div>
         </div>
       </div>
     );

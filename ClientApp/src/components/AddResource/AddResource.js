@@ -103,6 +103,7 @@ export class AddResource extends Component {
     }
     return (
       <div className="add-resource-form">
+        <h3><ul>Add Resource</ul></h3>
         {/* <h4 className="text-center">Current Survey</h4> */}
         <div class="row">
           <form class="col s12" onSubmit={this.formSubmit}>

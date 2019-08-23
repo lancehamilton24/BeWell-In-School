@@ -5,6 +5,7 @@ import { ResourceItem } from '../../ResourceItem/ResourceItem';
 import { AddResource } from '../../AddResource/AddResource';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip';
 import './Resources.scss';
 
 export class Resources extends Component {
@@ -75,12 +76,13 @@ export class Resources extends Component {
       return (
         <div>
           <Link to="/teacherPortal" className="teacherLink">
-            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
-          </Link>
-          <div className="add-resources">
-          <h5>Please add a resource below</h5>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
+        </Link>
+        <ReactTooltip />
+          <div className="resources">
+          <h3><ul>Add Resource</ul></h3>
           </div>
-          <div className="resources container">
+          <div className="add-resources container">
             <div>
               {this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
             </div>
@@ -92,14 +94,16 @@ export class Resources extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
-        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)} /></button>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Resource" data-position="right"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)}/></button>
+        <ReactTooltip />
         {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
           <div>
             {!this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
           </div>
+          <h3><ul>Current Resources</ul></h3>
           {resourceItem}
         </div>
       </div>

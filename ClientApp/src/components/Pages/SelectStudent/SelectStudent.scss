@@ -1,3 +1,17 @@
-.select-student {
-  text-align: center;
+.student-select {
+  h4 {
+    text-align: center;
+  }
+  .student {
+    border: black solid;
+    background: white;
+  .select-student {
+    // display: flex;
+    // flex-direction: row;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  }
 }

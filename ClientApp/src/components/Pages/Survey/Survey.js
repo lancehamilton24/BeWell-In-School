@@ -7,6 +7,7 @@ import './Survey.scss';
 import AddQuestion from '../../AddQuestion/AddQuestion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
+import ReactTooltip from 'react-tooltip'
 
 export class Survey extends Component {
   state = {
@@ -16,7 +17,7 @@ export class Survey extends Component {
     isHidden: true,
   }
 
-  toggleHidden () {
+  toggleHidden() {
     this.setState({
       isHidden: false,
     })
@@ -44,11 +45,12 @@ export class Survey extends Component {
         })
         .catch(err => console.error('error with listings post', err));
     } else {
-    surveyQuestionRequest.postQuestionRequest(addNewQuestion).then(() => {
-      this.getQuestions();
-    });
+      surveyQuestionRequest.postQuestionRequest(addNewQuestion).then(() => {
+        this.getQuestions();
+      });
+      this.setState({ isHidden: true })
+    };
   };
-};
 
   passQuestionToEdit = questionId => this.setState({ isEditing: true, editId: questionId });
 
@@ -73,37 +75,39 @@ export class Survey extends Component {
         deleteOneQuestion={this.deleteOneQuestion}
       />
     ));
-      if (questions.length === 0) {
-        return (
-          <div>
-            <Link to="/teacherPortal" title="Teacher Portal" className="teacherLink">
-            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
-            </Link>
-            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
-            <div className="container">
-              <div>
+    if (questions.length === 0) {
+      return (
+        <div>
+          <Link to="/teacherPortal" className="teacherLink">
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="bottom"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          </Link>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
+          <ReactTooltip />
+          <div className="container">
+            <div>
               {this.state.isHidden && <AddQuestion
-                 question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
-              </div>
-              <div className="survey">
-              </div>
+                question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
+            </div>
+            <div className="survey">
             </div>
           </div>
-        );
-      }
+        </div>
+      );
+    }
     return (
       <div>
-        <Link to="/teacherPortal" title="Student Portal" className="teacherLink">
-        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft}/></button>
+        <Link to="/teacherPortal" className="teacherLink">
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="bottom"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
-        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black" title="Add Question" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus}/></button>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
+        <ReactTooltip />
         <div className="container">
           <div>
-          {!this.state.isHidden && <AddQuestion isEditing={isEditing}
-            editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
+            {!this.state.isHidden && <AddQuestion isEditing={isEditing}
+              editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
           </div>
           <div className="survey">
-          <h3>Current Question</h3>
+            <h3><ul>Current Question</ul></h3>
             {surveyQuestions}
           </div>
         </div>
