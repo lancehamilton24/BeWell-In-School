@@ -5,6 +5,7 @@ import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 import { StudentSurveyQuestionItem } from '../../StudentSurveyQuestionItem/StudentSurveyQuestionItem';
 import answerRequest from '../../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactTooltip from 'react-tooltip';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export class StudentSurvey extends Component {
@@ -64,14 +65,15 @@ export class StudentSurvey extends Component {
 
     return (
       <div>
-        <Link to={{ pathname: "/studentPortal", state: { currentStudentId } }} title="Student Portal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
+         <Link to="/teacherPortal" className="teacherLink">
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
+        <ReactTooltip />
         <div className="container">
           <div className="survey">
             {surveyQuestions}
+            <Button onClick={this.formSubmit}>Submit</Button>
           </div>
-          <Button onClick={this.formSubmit}>Submit</Button>
         </div>
       </div>
     );
