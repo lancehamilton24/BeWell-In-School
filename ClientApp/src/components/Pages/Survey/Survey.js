@@ -24,7 +24,7 @@ export class Survey extends Component {
   }
 
   getQuestions = () => {
-    surveyQuestionRequest.getAllQuestionsRequest().then((questions) => {
+    surveyQuestionRequest.getLatestQuestionRequest().then((questions) => {
       this.setState({ questions });
     });
   }
@@ -38,7 +38,7 @@ export class Survey extends Component {
     if (isEditing) {
       surveyQuestionRequest.updateQuestionRequest(editId, addNewQuestion)
         .then(() => {
-          surveyQuestionRequest.getAllQuestionsRequest()
+          surveyQuestionRequest.getLatestQuestionRequest()
             .then((questions) => {
               this.setState({ questions, isEditing: false, editId: '-1' });
             });

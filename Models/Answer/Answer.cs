@@ -11,6 +11,7 @@ namespace BeWell.Models.Answer
         public string AnswerText { get; set; }
         public int StudentId { get; set; }
         public int QuestionId { get; set; }
+        public string QuestionText { get; set; }
         public DateTime AnswerDate { get; set; }
     }
 }

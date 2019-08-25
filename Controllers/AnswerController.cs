@@ -27,7 +27,7 @@ namespace BeWell.Controllers
         public ActionResult AddAnswer(CreateAnswerRequest createRequest)
         {
 
-            var newAnswer = _answerRepository.AddAnswer(createRequest.AnswerText, createRequest.StudentId, createRequest.QuestionId, createRequest.AnswerDate);
+            var newAnswer = _answerRepository.AddAnswer(createRequest.AnswerText, createRequest.StudentId, createRequest.QuestionId, createRequest.QuestionText, createRequest.AnswerDate);
             return Created($"/api/student/{newAnswer.Id}", newAnswer);
 
         }

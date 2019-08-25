@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const getAllQuestionsRequest = () => new Promise((resolve, reject) => {
+const getLatestQuestionRequest = () => new Promise((resolve, reject) => {
   axios
     .get('http://localhost:64175/api/question/newQuestion')
     .then((res) => {
@@ -10,7 +10,7 @@ const getAllQuestionsRequest = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-const getAllQuestionsRequestTest = () => new Promise((resolve, reject) => {
+const getAllQuestionsRequest = () => new Promise((resolve, reject) => {
   axios
     .get('http://localhost:64175/api/question/allQuestions')
     .then((res) => {
@@ -37,11 +37,10 @@ const deleteSingleQuestion = questionId => axios.delete(`http://localhost:64175/
 const updateQuestionRequest = (questionId, question) => axios.put(`http://localhost:64175/api/question/updateQuestion/${questionId}`, question);
 
 export default {
-  getAllQuestionsRequest,
+  getLatestQuestionRequest,
   postQuestionRequest,
   deleteSingleQuestion,
   updateQuestionRequest,
   getSingleQuestion,
-  getAllQuestionsRequestTest
-
+  getAllQuestionsRequest
 };
