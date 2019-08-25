@@ -11,7 +11,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export class StudentSurvey extends Component {
   state = {
     questions: [],
-    currentStudentId: this.props.location.state.selectedStudentId,
+    selectedStudentId: this.props.location.state.selectedStudentId,
+    selectedStudent: this.props.location.state.selectedStudent,
     answerText: '',
     questionId: '',
     answerId: '',
@@ -53,7 +54,7 @@ export class StudentSurvey extends Component {
   }
 
   render() {
-    const { questions, currentStudentId } = this.state;
+    const { questions, selectedStudentId, selectedStudent } = this.state;
 
     const surveyQuestions = questions.map(question => (
       <StudentSurveyQuestionItem
@@ -65,7 +66,7 @@ export class StudentSurvey extends Component {
 
     return (
       <div>
-         <Link to="/teacherPortal" className="teacherLink">
+         <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
           <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <ReactTooltip />

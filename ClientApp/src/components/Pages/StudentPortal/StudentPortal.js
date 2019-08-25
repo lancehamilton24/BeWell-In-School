@@ -24,10 +24,16 @@ export class StudentPortal extends Component {
     this.studentProfile();
   }
 
+  
+  componentWillUnmount(state) {
+    // Remember state for the next mount
+    state = state;
+  }
+
+
 
   render() {
     const { selectedStudent, selectedStudentId } = this.state;
-
 
     return (
       <div className="studentportal">
@@ -46,7 +52,7 @@ export class StudentPortal extends Component {
             pathname: '/studentsurvey',
             state: {
               selectedStudent: selectedStudent,
-              selectedStudentId: selectedStudentId
+              selectedStudentId: selectedStudentId,
             }
           }} className="student-links-btn"><button><h3>Daily <br></br> Survey</h3></button></Link>
           <Link to={{
