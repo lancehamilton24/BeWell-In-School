@@ -10,7 +10,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export class SurveyResponses extends Component {
   state ={
-    currentStudentId: this.props.location.state.selectedStudentId,
+    selectedStudentId: this.props.location.state.selectedStudentId,
+    selectedStudent: this.props.location.state.selectedStudent,
     answers: [],
     questions: [],
   }
@@ -30,7 +31,7 @@ export class SurveyResponses extends Component {
   }
 
   render() {
-    const { answers, questions, currentStudentId } = this.state;
+    const { answers, questions, selectedStudentId, selectedStudent } = this.state;
     const surveyAnswers = answers.map(answer => (
       <SurveyResponsesItem
         answers={answer}
@@ -42,7 +43,7 @@ export class SurveyResponses extends Component {
 
     return (
       <div>
-        <Link to={{ pathname: "/studentPortal", state: { currentStudentId } }} title="Student Portal" className="teacherLink">
+        <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }} title="Student Portal" className="teacherLink">
           <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <h3>Survey Responses</h3>
