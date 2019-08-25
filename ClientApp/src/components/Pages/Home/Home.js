@@ -7,7 +7,6 @@ export class Home extends Component {
   render() {
     return (
       <div className="home">
-        {/* <h1>Welcome to BeWell</h1> */}
       <div className="container">
         <Link to ="selectTeacher" className="studentLink">
         <button>Student Portal</button>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import resourceRequest from '../../../helpers/data/resourceRequest';
 import { StudentResourceItem } from '../../StudentResourceItem/StudentResourceItem';
 import './StudentResources.scss';
+import ReactTooltip from 'react-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -38,8 +39,9 @@ export class StudentResources extends Component {
     return (
       <div>
         <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }} title="Student Portal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
+        <ReactTooltip />
         <div className="resources container">
           <h1>Resources</h1>
           {resourceItem}
