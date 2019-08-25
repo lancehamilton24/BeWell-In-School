@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 
 export class SurveyResponsesItem extends Component {
 
-// testing = () => {
-//   const { answers, questions } = this.props
-//   for (let {questionId} of answers) {
-//     questions.find(x => x.id === questionId);
-//   }
-//   console.log(questions);
-// }
-
-
   render() {
     const { answers, questions } = this.props
     console.log(questions)  

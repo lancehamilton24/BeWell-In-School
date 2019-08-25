@@ -5,6 +5,7 @@ import answerRequest from '../../../helpers/data/answerRequest';
 import SurveyResponsesItem from '../../SurveyResponsesItem/SurveyResponsesItem';
 import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 import './SurveyResponses.scss';
+import ReactTooltip from 'react-tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,8 +18,8 @@ export class SurveyResponses extends Component {
   }
 
   getAnswersByStudentId = () => {
-    const { currentStudentId } = this.state
-    answerRequest.getAnswersByStudentRequest(currentStudentId).then((answers) => {
+    const { selectedStudentId } = this.state
+    answerRequest.getAnswersByStudentRequest(selectedStudentId).then((answers) => {
       this.setState({ answers })
     })
     surveyQuestionRequest.getAllQuestionsRequestTest().then((questions) => {
@@ -44,8 +45,9 @@ export class SurveyResponses extends Component {
     return (
       <div>
         <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }} title="Student Portal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
+        <ReactTooltip />
         <h3>Survey Responses</h3>
         <div>
         {surveyAnswers}

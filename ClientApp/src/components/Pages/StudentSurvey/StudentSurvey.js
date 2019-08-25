@@ -43,7 +43,7 @@ export class StudentSurvey extends Component {
   formSubmit = () => {
     var today = new Date();
     const createAnswerRequest = {
-      StudentId: this.state.currentStudentId,
+      StudentId: this.state.selectedStudentId,
       AnswerText: this.state.answerText,
       QuestionId: Number.parseInt(this.state.questionId, 10),
       AnswerDate: today,

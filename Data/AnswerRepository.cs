@@ -32,25 +32,7 @@ namespace BeWell.Data
             throw new Exception("No answer created");
         }
 
-        //public Answer AddNumberAnswer(int answerNumber)
-        //{
-        //    using (var db = new SqlConnection(ConnectionString))
-        //    {
-        //        var addAnswer = db.QueryFirstOrDefault<Answer>(@"
-        //            Insert into Answer (answerNumber)
-        //            Output inserted.*
-        //            Values(@answerNumber)",
-        //            new { answerNumber });
 
-
-        //        if (addAnswer != null)
-        //        {
-        //            return addAnswer;
-        //        }
-        //    }
-
-        //    throw new Exception("No answer created");
-        //}
 
         public IEnumerable<Answer> GetAllAnswers()
         {
