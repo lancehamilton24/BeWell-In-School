@@ -27,7 +27,11 @@ export class TeacherPortal extends Component {
         </Link>
         <ReactTooltip />
         <div className="teacher-portal">
-          {/* <h5>Teacher Portal</h5> */}
+          <div className="container">
+        <div className="card teacher-name">
+           <h3><b>Teacher Portal</b></h3>
+          </div>
+          </div>
           <div className="teacher-links">
             <Link to="/survey" className="teacher-links-btn"><button><h3>View +
                <br></br>Edit Survey</h3></button></Link>

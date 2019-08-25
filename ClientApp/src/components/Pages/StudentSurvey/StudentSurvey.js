@@ -15,40 +15,42 @@ export class StudentSurvey extends Component {
     selectedStudent: this.props.location.state.selectedStudent,
     answerText: '',
     questionId: '',
+    questionText: '',
     answerId: '',
   }
 
   getQuestions = () => {
-    surveyQuestionRequest.getAllQuestionsRequest().then((questions) => {
+    surveyQuestionRequest.getLatestQuestionRequest().then((questions) => {
       this.setState({ questions })
     })
   }
 
   componentDidMount() {
     this.getQuestions();
+    console.log(this.state.questions)
   }
 
   answerQuestion(event) {
     const questionId = event.currentTarget.id;
-    console.log(event.currentTarget)
-    this.setState({ questionId })
+    this.setState({ questionId });
+    const questionText = event.currentTarget.name;
+    this.setState({ questionText })
     const answerText = event.currentTarget.value;
     this.setState({ answerText })
     const thisQuestion = this.state.questions.find(question => question.id == questionId)
     thisQuestion.answerText = answerText;
-    console.log(answerText);
-    console.log(event.currentTarget)
   }
+
 
   formSubmit = () => {
     var today = new Date();
     const createAnswerRequest = {
       StudentId: this.state.selectedStudentId,
       AnswerText: this.state.answerText,
+      QuestionText: this.state.questionText,
       QuestionId: Number.parseInt(this.state.questionId, 10),
       AnswerDate: today,
     };
-    console.log(createAnswerRequest)
     answerRequest.postAnswerRequest(createAnswerRequest);
     alert("Your answer has been successfully submitted");
   }

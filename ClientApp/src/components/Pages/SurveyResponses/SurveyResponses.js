@@ -22,7 +22,7 @@ export class SurveyResponses extends Component {
     answerRequest.getAnswersByStudentRequest(selectedStudentId).then((answers) => {
       this.setState({ answers })
     })
-    surveyQuestionRequest.getAllQuestionsRequestTest().then((questions) => {
+    surveyQuestionRequest.getAllQuestionsRequest().then((questions) => {
       this.setState({ questions })
     })
   }
