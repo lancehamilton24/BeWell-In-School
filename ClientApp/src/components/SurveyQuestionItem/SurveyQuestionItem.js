@@ -24,7 +24,6 @@ export class SurveyQuestionItem extends Component {
     return (
       <div className="question-text container">
         <p>{question.questionText}</p>
-        <hr></hr>
       </div>
     );
   }

@@ -8,7 +8,7 @@ export class StudentResourceItem extends Component {
       <div>
         <h2>{resources.title}</h2>
         <h5>{resources.description}</h5>
-        <p>{resources.url}</p>
+        <a href="">{resources.url}</a>
         <hr></hr>
       </div>
     );

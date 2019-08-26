@@ -43,7 +43,7 @@ export class StudentPortal extends Component {
         <ReactTooltip />
         <div className="container">
         <div className="card student-name">
-           <h3><b>{selectedStudent.firstName} {selectedStudent.lastName}</b></h3>
+           <h3><b>Welcome {selectedStudent.firstName}</b></h3>
           </div>
           </div>
         <div className="student-portal">

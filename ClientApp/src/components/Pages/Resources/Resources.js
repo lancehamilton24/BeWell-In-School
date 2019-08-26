@@ -98,12 +98,13 @@ export class Resources extends Component {
         </Link>
         <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Resource" data-position="right"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)}/></button>
         <ReactTooltip />
-        {/* <h1 className="resources">Teacher Resources</h1> */}
         <div className="resources container">
+        <div className="card resource-title">
+        <h3><b>Student Resources</b></h3>
+        </div>
           <div>
             {!this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
           </div>
-          <h3><ul>Current Resources</ul></h3>
           {resourceItem}
         </div>
       </div>

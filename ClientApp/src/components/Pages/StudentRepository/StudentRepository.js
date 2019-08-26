@@ -95,6 +95,9 @@ export class StudentRepository extends Component {
         </Link>
         <ReactTooltip />
         <div className="container">
+        <div className="card student-repo-title">
+        <h3><b>Student Repository</b></h3>
+        </div>
           <div className="searchbar">
             <SearchField
               placeholder="Search Students"
@@ -115,9 +118,9 @@ export class StudentRepository extends Component {
             <div>
               <Modal open={open} onClose={this.onCloseModal} center>
                 <div class="row">
-                  <div class="col s3"><p>Answer</p></div>
-                  <div class="col s3"><p>Question</p></div>
-                  <div class="col s3"><p>Date Submitted</p></div>
+                  <div class="col s3"><p><b>Answer</b></p></div>
+                  <div class="col s3"><p><b>Question</b></p></div>
+                  <div class="col s3"><p><b>Date Submitted</b></p></div>
                 </div>
                 <hr></hr>
                 {studentAnswers}

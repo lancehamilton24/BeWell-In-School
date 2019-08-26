@@ -102,13 +102,15 @@ export class Survey extends Component {
         <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
         <ReactTooltip />
         <div className="container">
+        <div className="card survey-title">
+        <h3><b>Question of the Day</b></h3>
+        </div>
           <div>
             {!this.state.isHidden && <AddQuestion isEditing={isEditing}
               editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
           </div>
           <div className="survey">
-            <h3><ul>Current Question</ul></h3>
-            {surveyQuestions}
+            <h3><ul>{surveyQuestions}</ul></h3>
           </div>
         </div>
       </div>

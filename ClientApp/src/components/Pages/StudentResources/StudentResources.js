@@ -42,9 +42,13 @@ export class StudentResources extends Component {
           <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <ReactTooltip />
-        <div className="resources container">
-          <h1>Resources</h1>
+        <div className="container">
+        <div className="card resource-title">
+        <h3><b>Resources</b></h3>
+        </div>
+        <div className="resources">
           {resourceItem}
+        </div>
         </div>
       </div>
     );

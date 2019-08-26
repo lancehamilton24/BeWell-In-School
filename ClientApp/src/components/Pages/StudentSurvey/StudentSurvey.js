@@ -7,6 +7,7 @@ import answerRequest from '../../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactTooltip from 'react-tooltip';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import './StudentSurvey.scss';
 
 export class StudentSurvey extends Component {
   state = {
@@ -73,9 +74,14 @@ export class StudentSurvey extends Component {
         </Link>
         <ReactTooltip />
         <div className="container">
+        <div className="card survey-title">
+        <h3><b>Question of the Day</b></h3>
+        </div>
           <div className="survey">
             {surveyQuestions}
+            <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
             <Button onClick={this.formSubmit}>Submit</Button>
+            </Link>
           </div>
         </div>
       </div>
