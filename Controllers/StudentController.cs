@@ -34,14 +34,14 @@ namespace BeWell.Controllers
         }
 
         [HttpGet("singleStudent/{id}")]
-        public ActionResult GetSingleCustomer(int id)
+        public ActionResult GetSingleStudent(int id)
         {
             var singleStudent = _studentRepository.GetSingleStudent(id);
             return Ok(singleStudent);
         }
 
         [HttpGet("allstudents")]
-        public ActionResult GetAllPaymentInformation()
+        public ActionResult GetAllStudents()
         {
             var students = _studentRepository.GetAllStudents();
 
