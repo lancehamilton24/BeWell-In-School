@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import alertify from 'alertifyjs';
 import surveyQuestionRequest from '../../../helpers/data/surveyQuestionRequest';
 import { StudentSurveyQuestionItem } from '../../StudentSurveyQuestionItem/StudentSurveyQuestionItem';
 import answerRequest from '../../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactTooltip from 'react-tooltip';
-import Moment from 'react-moment';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './StudentSurvey.scss';
 
@@ -54,7 +54,7 @@ export class StudentSurvey extends Component {
       AnswerDate: today,
     };
     answerRequest.postAnswerRequest(createAnswerRequest);
-    alert("Your answer has been successfully submitted");
+    alertify.alert("Your answer has been successfully submitted");
   }
 
   render() {
