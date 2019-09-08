@@ -54,7 +54,7 @@ export class SelectTeacherItem extends Component {
 
     return (
       <div>
-        <div className="card teacher-btn">   
+        <div className="teacher-btn">   
         <Link to={{ 
           pathname: '/selectStudent',
            state: { teacherId: this.state.teacherId } 

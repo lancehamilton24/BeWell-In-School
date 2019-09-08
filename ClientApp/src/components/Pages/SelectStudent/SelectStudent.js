@@ -46,7 +46,7 @@ export class SelectStudent extends Component {
         <ReactTooltip />
         <div className="student container">
         <h4><b><ul>Select your name below</ul></b></h4>
-        <div className="select-student">
+        <div className="select-student row">
           {studentItem}
           </div>
         </div>
