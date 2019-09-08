@@ -7,6 +7,7 @@ import { StudentSurveyQuestionItem } from '../../StudentSurveyQuestionItem/Stude
 import answerRequest from '../../../helpers/data/answerRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactTooltip from 'react-tooltip';
+import Modal from 'react-responsive-modal';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './StudentSurvey.scss';
 
@@ -19,7 +20,16 @@ export class StudentSurvey extends Component {
     questionId: '',
     questionText: '',
     answerId: '',
+    open: false,
   }
+
+  onOpenModal = (e) => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   getQuestions = () => {
     surveyQuestionRequest.getLatestQuestionRequest().then((questions) => {
@@ -54,11 +64,11 @@ export class StudentSurvey extends Component {
       AnswerDate: today,
     };
     answerRequest.postAnswerRequest(createAnswerRequest);
-    alertify.alert("Your answer has been successfully submitted");
+    // alertify.alert("Your answer has been successfully submitted");
   }
 
   render() {
-    const { questions, selectedStudentId, selectedStudent } = this.state;
+    const { questions, selectedStudentId, selectedStudent, open } = this.state;
 
     const surveyQuestions = questions.map(question => (
       <StudentSurveyQuestionItem
@@ -80,9 +90,18 @@ export class StudentSurvey extends Component {
         </div>
           <div className="survey">
             {surveyQuestions}
-            <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
-            <Button onClick={this.formSubmit}>Submit</Button>
-            </Link>
+            <Modal open={open} onClose={this.onCloseModal}>
+              <div>
+              <h5>Is this your final answer?</h5>
+              <div classname="submit-btns">
+                <Button onClick={this.onCloseModal}>No</Button>
+                <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
+                <Button onClick={this.formSubmit}>Yes</Button>
+                </Link>
+              </div>
+              </div>
+            </Modal>
+            <Button onClick={this.onOpenModal}>Submit</Button>
           </div>
         </div>
       </div>
