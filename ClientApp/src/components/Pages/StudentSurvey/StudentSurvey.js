@@ -93,10 +93,10 @@ export class StudentSurvey extends Component {
             <Modal open={open} onClose={this.onCloseModal}>
               <div>
               <h5>Is this your final answer?</h5>
-              <div classname="submit-btns">
-                <Button onClick={this.onCloseModal}>No</Button>
+              <div>
+                <Button classname="submit-btns" onClick={this.onCloseModal}>No</Button>
                 <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
-                <Button onClick={this.formSubmit}>Yes</Button>
+                <Button classname="submit-btns" onClick={this.formSubmit}>Yes</Button>
                 </Link>
               </div>
               </div>
