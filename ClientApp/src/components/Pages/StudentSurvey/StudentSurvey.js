@@ -74,7 +74,7 @@ export class StudentSurvey extends Component {
           <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <ReactTooltip />
-        <div className="container">
+        <div className="survey-questions container">
         <div className="card survey-title">
         <h3><b>Question of the Day</b></h3>
         </div>
