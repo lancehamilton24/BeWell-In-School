@@ -36,7 +36,7 @@ namespace BeWell.Data
         {
             using (var db = new SqlConnection(ConnectionString))
             {
-                var allTeachers = db.Query<Teacher>(@"Select * from Teacher").ToList();
+                var allTeachers = db.Query<Teacher>(@"Select * from Teacher order by grade asc").ToList();
                 return allTeachers;
             }
         }
