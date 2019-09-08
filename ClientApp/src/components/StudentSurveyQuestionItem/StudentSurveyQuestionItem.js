@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './StudentSurveyQuestionItem.scss';
 
 export class StudentSurveyQuestionItem extends Component {
   formSubmitAnswer = () => {
@@ -15,7 +16,7 @@ export class StudentSurveyQuestionItem extends Component {
 
     return (
       <div className="question-text container">
-        <p>{questions.questionText}</p>
+        <h5>{questions.questionText}</h5>
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
