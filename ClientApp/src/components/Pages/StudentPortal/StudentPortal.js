@@ -36,7 +36,7 @@ export class StudentPortal extends Component {
     const { selectedStudent, selectedStudentId } = this.state;
 
     return (
-      <div className="studentportal">
+      <div className="student-portal-home">
         <Link to="/" className="homeLink">
           <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
         </Link>

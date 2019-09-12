@@ -15,7 +15,7 @@ class MyNavbar extends React.Component {
   render() {
     return (
       <nav>
-      <div class="nav-wrapper black">
+      <div className="nav-wrapper">
         <a href="#" class="brand-logo center">BeWell in School</a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
         </ul>

@@ -52,14 +52,16 @@ export class SurveyResponses extends Component {
           <div className="card page-header">
           <h3><b>Survey Responses</b></h3>
           </div>
-          <div class="row">
-            <div class="col s3"><p><b>Answer</b></p></div>
-            <div class="col s3"><p><b>Question</b></p></div>
-            <div class="col s3"><p><b>Date Submitted</b></p></div>
+          <div className="all-survey-responses">
+          <div className="row">
+            <div className="col s3"><h5><b>Answer</b></h5></div>
+            <div className="col s3"><h5><b>Question</b></h5></div>
+            <div className="col s3"><h5><b>Date Submitted</b></h5></div>
           </div>
           <hr></hr>
           <div>
             {surveyAnswers}
+          </div>
           </div>
         </div>
       </div>

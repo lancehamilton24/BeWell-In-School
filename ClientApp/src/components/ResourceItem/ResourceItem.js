@@ -23,7 +23,7 @@ export class ResourceItem extends Component {
       <div>
         <h2>{resource.title}</h2>
         <h5>{resource.description}</h5>
-        <p>{resource.url}</p>
+        <a>{resource.url}</a>
         <div className="edit-delete-questions">
         <div className="edit-question" onClick={this.editResourceEvent}>
         <Button><FontAwesomeIcon icon={faPencilAlt} /></Button>

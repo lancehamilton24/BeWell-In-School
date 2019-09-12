@@ -1,5 +1,11 @@
 .survey-responses {
   text-align: center;
+  .all-survey-responses {
+    background-color: white;
+    border: black solid;
+    overflow: scroll;
+    height: 500px;
+  }
   .page-header {
     border: black solid;
     background: white;
