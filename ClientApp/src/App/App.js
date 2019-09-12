@@ -21,8 +21,7 @@ export default class App extends Component {
       <div className="App">
         <BrowserRouter>
         <div>
-        <MyNavbar
-/>
+        <MyNavbar></MyNavbar>
         <Switch>
         <Route exact path='/' component={Home} />
       <Route path='/teacherPortal' component={TeacherPortal} />

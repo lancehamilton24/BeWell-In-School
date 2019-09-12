@@ -5,6 +5,10 @@
   .student {
     border: black solid;
     background: white;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    right: 10%;
   .select-student {
     display: flex;
     flex-wrap: wrap;

@@ -89,7 +89,7 @@ class AddQuestion extends Component {
                   type="text"
                   class="validate"
                   id="inputQuestion"
-                  placeholder="Add Survey Question"
+                  placeholder="Survey Question"
                   value={addNewQuestion.questionText}
                   onChange={this.questionChange}
                 />
@@ -100,7 +100,7 @@ class AddQuestion extends Component {
               className="btn btn-default col-xs-12"
               onClick={this.formSubmit}
             >
-              Add Question
+              Change Question
             </Button>
           </form>
         </div>

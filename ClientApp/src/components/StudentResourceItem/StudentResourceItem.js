@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export class StudentResourceItem extends Component {
@@ -8,7 +9,7 @@ export class StudentResourceItem extends Component {
       <div>
         <h2>{resources.title}</h2>
         <h5>{resources.description}</h5>
-        <a href="">{resources.url}</a>
+        <a href="" target="">{resources.url}</a>
         <hr></hr>
       </div>
     );
