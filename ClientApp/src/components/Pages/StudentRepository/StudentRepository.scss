@@ -4,12 +4,21 @@
   flex-direction: row;
 }
 
+.styles_overlay__CLSq- {
+  background-color: black;
+}
+
 .student-repo-title {
   text-align: center;
   border: black solid;
 }
 .student-repo {
   text-align: center;
+  background: white;
+  height: 500px;
+  overflow: scroll;
+  border: black solid;
+  // margin-bottom: 3%;
 }
 
 .nav-btn{
