@@ -98,6 +98,7 @@ export class StudentRepository extends Component {
         <div className="card student-repo-title">
         <h3><b>Student Repository</b></h3>
         </div>
+          <div className="student-repo">
           <div className="searchbar">
             <SearchField
               placeholder="Search Students"
@@ -106,7 +107,6 @@ export class StudentRepository extends Component {
               classNames="searchbar w-100 mt-auto rounded border-warnin"
             />
           </div>
-          <div className="student-repo">
             <div class="row">
               <div class="col s3"><b><p>First Name</p></b></div>
               <div class="col s3"><b><p>Last Name</p></b></div>

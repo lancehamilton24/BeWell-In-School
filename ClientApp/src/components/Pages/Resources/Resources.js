@@ -6,6 +6,7 @@ import { AddResource } from '../../AddResource/AddResource';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ReactTooltip from 'react-tooltip';
+import Modal from 'react-responsive-modal';
 import './Resources.scss';
 
 export class Resources extends Component {
@@ -14,12 +15,19 @@ export class Resources extends Component {
     isEditing: false,
     editId: '-1',
     isHidden: true,
+    open: false,
   }
 
-  toggleHidden() {
-    this.setState({
-      isHidden: false,
-    })
+  onOpenModal = (e) => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = (e) => {
+    this.setState({ open: false });
+  };
+
+  toggleHidden = () => {
+    this.onOpenModal();
   }
 
   getResources = () => {
@@ -61,7 +69,7 @@ export class Resources extends Component {
   }
 
   render() {
-    const { resources, isEditing, editId } = this.state;
+    const { resources, isEditing, editId, open } = this.state;
 
     const resourceItem = resources.map(resource => (
       <ResourceItem
@@ -76,15 +84,15 @@ export class Resources extends Component {
       return (
         <div>
           <Link to="/teacherPortal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
-        </Link>
-        <ReactTooltip />
+            <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          </Link>
+          <ReactTooltip />
           <div className="resources">
-          <h3><ul>Add Resource</ul></h3>
+            <h3><ul>Add Resource</ul></h3>
           </div>
           <div className="add-resources container">
             <div>
-              {this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
+             <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
             </div>
             {resourceItem}
           </div>
@@ -96,16 +104,20 @@ export class Resources extends Component {
         <Link to="/teacherPortal" className="teacherLink">
           <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
-        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Resource" data-position="right"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)}/></button>
+        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Resource" data-position="right"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)} /></button>
         <ReactTooltip />
-        <div className="resources container">
-        <div className="card resource-title">
-        <h3><b>Student Resources</b></h3>
-        </div>
-          <div>
-            {!this.state.isHidden && <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>}
+        <div className="container">
+          <div className="card resource-title">
+            <h3><b>Student Resources</b></h3>
           </div>
-          {resourceItem}
+          <Modal open={open} onClose={this.onCloseModal}>
+          <div className="add-resource">
+            <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
+          </div>
+          </Modal>
+          <div className="resources">
+            {resourceItem}
+          </div>
         </div>
       </div>
     );
