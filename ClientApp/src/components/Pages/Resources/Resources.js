@@ -48,6 +48,7 @@ export class Resources extends Component {
           resourceRequest.getAllResourcesRequest()
             .then((resources) => {
               this.setState({ resources, isEditing: false, editId: '-1' });
+              this.setState({ open: false })
             });
         })
         .catch(err => console.error('error with listings post', err));
@@ -94,7 +95,7 @@ export class Resources extends Component {
           </div>
           <div className="add-resources container">
             <div>
-             <AddResource onClose={this.onCloseModal} isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
+             <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
             </div>
             {resourceItem}
           </div>

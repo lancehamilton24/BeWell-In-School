@@ -7,7 +7,8 @@ import './Survey.scss';
 import AddQuestion from '../../AddQuestion/AddQuestion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
+import Modal from 'react-responsive-modal';
 
 export class Survey extends Component {
   state = {
@@ -17,10 +18,19 @@ export class Survey extends Component {
     isHidden: true,
   }
 
+  onOpenModal = (e) => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = (e) => {
+    this.setState({ open: false });
+  };
+
   toggleHidden() {
-    this.setState({
-      isHidden: false,
-    })
+    this.onOpenModal();
+    // this.setState({
+    //   isHidden: false,
+    // })
   }
 
   getQuestions = () => {
@@ -41,6 +51,7 @@ export class Survey extends Component {
           surveyQuestionRequest.getLatestQuestionRequest()
             .then((questions) => {
               this.setState({ questions, isEditing: false, editId: '-1' });
+              this.setState({ open: false })
             });
         })
         .catch(err => console.error('error with listings post', err));
@@ -49,22 +60,13 @@ export class Survey extends Component {
         this.getQuestions();
       });
       this.setState({ isHidden: true })
+      this.setState({ open: false })
     };
   };
 
-  passQuestionToEdit = questionId => this.setState({ isEditing: true, editId: questionId });
-
-  deleteOneQuestion = (questionId) => {
-    surveyQuestionRequest.deleteSingleQuestion(questionId)
-      .then(() => {
-        this.getQuestions();
-      })
-      .catch(err => console.error('error with delte single', err));
-  }
-
   render() {
     const { questions, isEditing,
-      editId, } = this.state;
+      editId, open } = this.state;
 
 
     const surveyQuestions = questions.map(question => (
@@ -105,10 +107,11 @@ export class Survey extends Component {
         <div className="card survey-title">
         <h3><b>Question of the Day</b></h3>
         </div>
+        <Modal open={open} onClose={this.onCloseModal}>
           <div>
-            {!this.state.isHidden && <AddQuestion isEditing={isEditing}
-              editId={editId} question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>}
+            <AddQuestion question={questions} onSubmit={this.formSubmitQuestions}></AddQuestion>
           </div>
+          </Modal>
           <div className="survey">
             <h3><ul>{surveyQuestions}</ul></h3>
           </div>
