@@ -41,7 +41,7 @@ export class Resources extends Component {
   }
 
   formSubmitResources = (addNewResource) => {
-    const { isEditing, editId } = this.state;
+    const { isEditing, editId, open } = this.state;
     if (isEditing) {
       resourceRequest.updateResourceRequest(editId, addNewResource)
         .then(() => {
@@ -54,7 +54,9 @@ export class Resources extends Component {
     } else {
       resourceRequest.postResourceRequest(addNewResource).then(() => {
         this.getResources();
+        this.setState({ open: false })
       });
+    //  alert("Your answer has been successfully submitted");
     };
   };
 
@@ -92,7 +94,7 @@ export class Resources extends Component {
           </div>
           <div className="add-resources container">
             <div>
-             <AddResource isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
+             <AddResource onClose={this.onCloseModal} isEditing={isEditing} editId={editId} resources={resources} onSubmit={this.formSubmitResources}></AddResource>
             </div>
             {resourceItem}
           </div>
