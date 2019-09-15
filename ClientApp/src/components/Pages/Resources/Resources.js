@@ -41,24 +41,27 @@ export class Resources extends Component {
   }
 
   formSubmitResources = (addNewResource) => {
-    const { isEditing, editId } = this.state;
+    const { isEditing, editId, open } = this.state;
     if (isEditing) {
       resourceRequest.updateResourceRequest(editId, addNewResource)
         .then(() => {
           resourceRequest.getAllResourcesRequest()
             .then((resources) => {
               this.setState({ resources, isEditing: false, editId: '-1' });
+              this.setState({ open: false })
             });
         })
         .catch(err => console.error('error with listings post', err));
     } else {
       resourceRequest.postResourceRequest(addNewResource).then(() => {
         this.getResources();
+        this.setState({ open: false })
       });
+    //  alert("Your answer has been successfully submitted");
     };
   };
 
-  passResourceToEdit = resourceId => this.setState({ isEditing: true, editId: resourceId });
+  passResourceToEdit = resourceId => this.setState({ isEditing: true, editId: resourceId, open: true });
 
   deleteOneResource = (resourceId) => {
     resourceRequest.deleteSingleResource(resourceId)

@@ -55,7 +55,7 @@ export class AddResource extends Component {
 
   render() {
     const { addNewResource } = this.state;
-    const { isEditing } = this.props
+    const { isEditing, onClose } = this.props
 
     if (isEditing) {
       return (
