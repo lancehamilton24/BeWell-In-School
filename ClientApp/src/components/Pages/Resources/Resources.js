@@ -60,7 +60,7 @@ export class Resources extends Component {
     };
   };
 
-  passResourceToEdit = resourceId => this.setState({ isEditing: true, editId: resourceId });
+  passResourceToEdit = resourceId => this.setState({ isEditing: true, editId: resourceId, open: true });
 
   deleteOneResource = (resourceId) => {
     resourceRequest.deleteSingleResource(resourceId)
