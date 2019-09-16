@@ -99,9 +99,9 @@ export class Survey extends Component {
     return (
       <div>
         <Link to="/teacherPortal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="bottom"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Back" data-position="bottom"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
-        <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
+        <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
         <ReactTooltip />
         <div className="container">
         <div className="card survey-title">
