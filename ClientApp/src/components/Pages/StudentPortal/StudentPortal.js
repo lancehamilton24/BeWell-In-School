@@ -42,7 +42,7 @@ export class StudentPortal extends Component {
         </Link>
         <ReactTooltip />
         <div className="container">
-        <div className="card student-name">
+        <div className="student-name">
            <h3><b>Welcome {selectedStudent.firstName}</b></h3>
           </div>
           </div>
