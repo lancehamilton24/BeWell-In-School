@@ -85,7 +85,7 @@ export class StudentSurvey extends Component {
         </Link>
         <ReactTooltip />
         <div className="survey-questions container">
-        <div className="card survey-title">
+        <div className="survey-title">
         <h3><b>Question of the Day</b></h3>
         </div>
           <div className="survey">

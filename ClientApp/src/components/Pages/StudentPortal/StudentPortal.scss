@@ -7,7 +7,7 @@
   .student-links {
     display: flex;
     flex-direction: row;
-    margin-top: 5%;
+    margin-top: 4%;
     .student-links-btn {
       width: 100%;
     }
@@ -66,6 +66,9 @@
 
 .student-name {
   border: black solid;
-  background: white;
+  background: rgba(255, 255, 255, 0.80);
   text-align: center;
+  border-radius: 6px;
+  margin-left: 10%;
+  margin-right: 10%;
 }

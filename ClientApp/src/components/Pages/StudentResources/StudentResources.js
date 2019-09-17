@@ -43,7 +43,7 @@ export class StudentResources extends Component {
         </Link>
         <ReactTooltip />
         <div className="container">
-        <div className="card resource-title">
+        <div className="resource-title">
         <h3><b>Resources</b></h3>
         </div>
         <div className="resources">

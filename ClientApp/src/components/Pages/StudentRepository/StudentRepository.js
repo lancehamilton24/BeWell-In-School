@@ -95,7 +95,7 @@ export class StudentRepository extends Component {
         </Link>
         <ReactTooltip />
         <div className="container">
-        <div className="card student-repo-title">
+        <div className="student-repo-title">
         <h3><b>Student Repository</b></h3>
         </div>
           <div className="student-repo">
@@ -108,10 +108,10 @@ export class StudentRepository extends Component {
             />
           </div>
             <div class="row">
-              <div class="col s3"><b><p>First Name</p></b></div>
-              <div class="col s3"><b><p>Last Name</p></b></div>
-              <div class="col s3"><b><p>Teacher</p></b></div>
-              <div class="col s3"><b><p>Grade</p></b></div>
+              <div class="col s3"><h5><b>First Name</b></h5></div>
+              <div class="col s3"><h5><b>Last Name</b></h5></div>
+              <div class="col s3"><h5><b>Teacher</b></h5></div>
+              <div class="col s3"><h5><b>Grade</b></h5></div>
             </div>
             <hr></hr>
             <div>{studentList}</div>

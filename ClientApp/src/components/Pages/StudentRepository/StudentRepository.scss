@@ -11,6 +11,11 @@
 .student-repo-title {
   text-align: center;
   border: black solid;
+  background: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  border-radius: 6px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .student-repo {
   text-align: center;
@@ -18,6 +23,7 @@
   height: 500px;
   overflow: scroll;
   border: black solid;
+  margin-top: 4%;
   // margin-bottom: 3%;
 }
 

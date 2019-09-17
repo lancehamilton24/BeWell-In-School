@@ -49,7 +49,7 @@ export class SurveyResponses extends Component {
         </Link>
         <ReactTooltip />
         <div className="container survey-responses">
-          <div className="card page-header">
+          <div className="page-header">
           <h3><b>Survey Responses</b></h3>
           </div>
           <div className="all-survey-responses">

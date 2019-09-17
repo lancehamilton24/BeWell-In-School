@@ -110,7 +110,7 @@ export class Resources extends Component {
         <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Add Resource" data-position="right"><FontAwesomeIcon icon={faPlus} onClick={this.toggleHidden.bind(this)} /></button>
         <ReactTooltip />
         <div className="container">
-          <div className="card resource-title">
+          <div className="resource-title">
             <h3><b>Student Resources</b></h3>
           </div>
           <Modal open={open} onClose={this.onCloseModal}>
