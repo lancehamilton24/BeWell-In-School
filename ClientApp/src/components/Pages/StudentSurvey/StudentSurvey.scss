@@ -1,6 +1,11 @@
 .survey-title {
   border: black solid;
   text-align: center;
+  background: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  border-radius: 6px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .nav-btn {
@@ -8,7 +13,7 @@
 }
 
 .survey {
-  margin-top: 2%;
+  margin-top: 4%;
   text-align: center;
   border: black solid;
   .submit-btns {

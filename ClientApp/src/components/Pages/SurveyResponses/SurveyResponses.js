@@ -45,11 +45,11 @@ export class SurveyResponses extends Component {
     return (
       <div>
         <Link to={{ pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }} title="Student Portal" className="teacherLink">
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <ReactTooltip />
         <div className="container survey-responses">
-          <div className="card page-header">
+          <div className="page-header">
           <h3><b>Survey Responses</b></h3>
           </div>
           <div className="all-survey-responses">

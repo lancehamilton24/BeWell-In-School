@@ -104,7 +104,7 @@ export class Survey extends Component {
         <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Add Question" data-position="right" onClick={this.toggleHidden.bind(this)}><FontAwesomeIcon icon={faPlus} /></button>
         <ReactTooltip />
         <div className="container">
-        <div className="card survey-title">
+        <div className="survey-title">
         <h3><b>Question of the Day</b></h3>
         </div>
         <Modal open={open} onClose={this.onCloseModal}>
