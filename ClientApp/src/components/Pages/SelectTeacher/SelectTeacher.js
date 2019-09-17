@@ -46,11 +46,11 @@ export class SelectTeacher extends Component {
     return (
       <div>
            <Link to="/" className="homeLink">
-          <button className="home-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
+          <button className="home-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Home" data-position="right"><FontAwesomeIcon icon={faHome} /></button>
         </Link>
         <ReactTooltip />
         <div className="select-teacher container">
-          <h4><b><ul>Select your teacher's name below</ul></b></h4>
+          <h6><b>Select your teacher's name below</b></h6>
           <div className="portal row">
           <div className="select-teacher-btn">
             {teacherItem}

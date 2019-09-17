@@ -81,7 +81,7 @@ export class StudentSurvey extends Component {
     return (
       <div>
          <Link to={{pathname: "/studentPortal", state: { selectedStudentId, selectedStudent } }}>
-          <button class="nav-btn btn-floating btn-medium waves-effect waves-light black btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
+          <button class="nav-btn btn-floating btn-large waves-effect waves-light btn tooltipped" data-tip="Back" data-position="right"><FontAwesomeIcon icon={faArrowLeft} /></button>
         </Link>
         <ReactTooltip />
         <div className="survey-questions container">
